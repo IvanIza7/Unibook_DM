@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Nunito: para cuerpo de texto -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/nunito_regular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/nunito_bold" />
+
+    <!-- Poppins: para títulos principales -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/poppins_regular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/poppins_bold" />
+
+    <!-- Roboto Slab: para subtítulos o destacados -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/robotoslab_regular" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/robotoslab_bold" />
+
+</font-family>

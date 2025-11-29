@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5FF"
+    android:background="@color/colorBackground"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -15,8 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="UniBook"
-        android:textColor="@color/nav_color_selector"
+        android:textColor="@color/colorAccent"
         android:textSize="32sp"
+        android:fontFamily="@font/poppins_bold"
         android:textStyle="bold"
         android:layout_marginTop="32dp"
         android:layout_marginStart="24dp"
@@ -29,11 +30,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Organiza tus materias y actividades"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp"
+        android:textColor="@color/colorNeutralLight"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_regular"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="24dp"
         app:layout_constraintTop_toBottomOf="@id/txtUniBook"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Encabezado Mis Materias -->
+    <TextView
+        android:id="@+id/txtMateriasBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mis Materias"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_slab_bold"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/txtInstruccion"
         app:layout_constraintStart_toStartOf="parent" />
 
     <!-- CARD: Mis Materias -->
@@ -41,38 +58,23 @@
         android:id="@+id/cardMaterias"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="24dp"
         android:padding="16dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
-        app:layout_constraintTop_toBottomOf="@id/txtInstruccion"
+        app:cardBackgroundColor="@color/colorNeutralDark"
+        app:layout_constraintTop_toBottomOf="@id/txtMateriasBanner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/listMaterias"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtMateriasBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mis Materias"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ListView
-                android:id="@+id/listMaterias"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="12dp"
-                android:paddingTop="8dp" />
-
-        </LinearLayout>
+            android:layout_height="160dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="12dp"
+            android:paddingTop="8dp" />
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Botón debajo de Mis Materias -->
@@ -84,52 +86,53 @@
         android:layout_marginHorizontal="24dp"
         android:text="+ Agregar materia"
         android:textAllCaps="false"
-        android:textSize="14sp"
-        app:backgroundTint="@color/cardview_dark_background"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_regular"
         app:cornerRadius="16dp"
+        app:backgroundTint="@color/colorUniversityRed"
+        android:textColor="@color/colorTextOnDark"
         app:layout_constraintTop_toBottomOf="@id/cardMaterias"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Encabezado Actividades Recientes -->
+    <TextView
+        android:id="@+id/txtActividades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actividades Recientes"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_slab_bold"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAddMateria"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- CARD: Actividades Recientes -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardActividades"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginHorizontal="24dp"
         android:padding="16dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
-        app:layout_constraintTop_toBottomOf="@id/btnAddMateria"
+        app:cardBackgroundColor="@color/colorNeutralDark"
+        app:layout_constraintTop_toBottomOf="@id/txtActividades"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/listActividades"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtActividades"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Actividades Recientes"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ListView
-                android:id="@+id/listActividades"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="12dp"
-                android:paddingTop="8dp" />
-
-        </LinearLayout>
+            android:layout_height="160dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="12dp"
+            android:paddingTop="8dp" />
     </com.google.android.material.card.MaterialCardView>
-
 
     <!-- Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -138,8 +141,8 @@
         android:layout_height="wrap_content"
         android:contentDescription="Agregar actividad"
         android:src="@drawable/ic_add"
-        app:tint="@android:color/white"
-        app:backgroundTint="@color/cardview_dark_background"
+        app:tint="@color/colorTextOnDark"
+        app:backgroundTint="@color/colorAccent"
         android:elevation="8dp"
         android:layout_margin="24dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
@@ -150,8 +153,9 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="72dp"
-        android:background="@color/white"
-        android:elevation="0dp"
+        android:background="@color/colorNeutralDark"
+        app:itemIconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorAccent"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

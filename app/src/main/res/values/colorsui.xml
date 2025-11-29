@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fondos y textos -->
+    <color name="colorBackground">#242223</color>
+    <color name="colorNeutralDark">#4A4A4A</color>
+    <color name="colorNeutralLight">#EAEAEA</color>
+    <color name="colorTextOnDark">#F5F5F5</color>
+
+    <!-- Acentos -->
+    <color name="colorAccent">#CE9B50</color>
+
+    <!-- Rojo universitario -->
+    <color name="colorUniversityRed">#B22222</color>
+    <color name="colorUniversityRedBright">#DC143C</color>
+</resources>

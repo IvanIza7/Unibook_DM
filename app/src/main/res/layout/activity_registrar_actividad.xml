@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#F7F8FF">
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:orientation="vertical"
@@ -25,14 +25,14 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_back"
-                android:tint="@android:color/white" />
+                android:tint="@color/colorTextOnDark" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Registrar Materia"
                 android:textSize="20sp"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorTextOnDark"
                 android:layout_marginStart="16dp"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -47,7 +47,7 @@
             <!-- Nombre materia -->
             <TextView
                 android:text="Nombre de la materia *"
-                android:textColor="#1E1E1E"
+                android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -62,14 +62,16 @@
                     android:id="@+id/inputNombreMateria"
                     android:hint="Ej: Programación Web"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextOnDark"
+                    android:textColorHint="@color/colorNeutralLight"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Nombre profesor -->
             <TextView
                 android:layout_marginTop="14dp"
                 android:text="Nombre del profesor (opcional)"
-                android:textColor="#1E1E1E"
+                android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -84,14 +86,16 @@
                     android:id="@+id/inputProfesor"
                     android:hint="Ej: Dr. García"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextOnDark"
+                    android:textColorHint="@color/colorNeutralLight"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Ícono -->
             <TextView
                 android:layout_marginTop="20dp"
                 android:text="Ícono"
-                android:textColor="#1E1E1E"
+                android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -110,14 +114,14 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_icon_default"
+                    android:background="@color/colorNeutralDark"
                     android:padding="12dp">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_book"
-                        android:tint="#6C49F2" />
+                        android:tint="@color/colorAccent" />
                 </FrameLayout>
 
                 <!-- Ícono ejemplo 2 -->
@@ -126,14 +130,14 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_icon_default"
+                    android:background="@color/colorNeutralDark"
                     android:padding="12dp">
 
                     <ImageView
                         android:src="@drawable/ic_book"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tint="#6C49F2"/>
+                        android:tint="@color/colorAccent"/>
                 </FrameLayout>
 
                 <!-- Más íconos iguales -->
@@ -143,7 +147,7 @@
             <TextView
                 android:layout_marginTop="20dp"
                 android:text="Color"
-                android:textColor="#1E1E1E"
+                android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -159,14 +163,14 @@
                     android:id="@+id/color1"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/bg_color_circle_1"
+                    android:background="@color/colorAccent"
                     android:layout_marginEnd="10dp" />
 
                 <View
                     android:id="@+id/color2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/bg_color_circle_2"
+                    android:background="@color/colorUniversityRed"
                     android:layout_marginEnd="10dp" />
 
             </LinearLayout>
@@ -175,7 +179,7 @@
             <TextView
                 android:text="Vista previa"
                 android:layout_marginTop="20dp"
-                android:textColor="#1E1E1E"
+                android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -187,27 +191,27 @@
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_preview_card">
+                android:background="@color/colorNeutralDark">
 
                 <ImageView
                     android:id="@+id/previewIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/bg_icon_square"
+                    android:background="@color/colorNeutralLight"
                     android:padding="6dp"
-                    android:src="@drawable/ic_book" />
+                    android:src="@drawable/ic_book"
+                    android:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/previewText"
                     android:text="Nombre de la materia"
-                    android:textColor="#1E1E1E"
+                    android:textColor="@color/colorTextOnDark"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginStart="12dp"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-
             </LinearLayout>
 
             <!-- Guardar -->
@@ -219,10 +223,9 @@
                 android:text="Guardar Materia"
                 android:textAllCaps="false"
                 android:textSize="16sp"
-                android:textColor="@android:color/white"
-                android:background="@drawable/bg_boton_gradiente"
-                app:icon="@drawable/ic_lock"
-                app:iconTint="@android:color/white"
+                android:textColor="@color/colorTextOnDark"
+                android:backgroundTint="@color/colorAccent"
+                app:iconTint="@color/colorTextOnDark"
                 app:iconGravity="textStart" />
 
         </LinearLayout>

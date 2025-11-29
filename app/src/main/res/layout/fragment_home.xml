@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:text="UniBook"
+            android:textColor="@color/colorAccent"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp" />
+
+        <TextView
+            android:text="Organiza tus materias y actividades"
+            android:textColor="@color/colorNeutralLight"
+            android:textSize="16sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Mis Materias -->
+        <TextView
+            android:text="Mis Materias"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/colorNeutralDark">
+
+            <ListView
+                android:id="@+id/listMaterias"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="12dp"
+                android:paddingTop="8dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddMateria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="24dp"
+            android:text="+ Agregar materia"
+            app:cornerRadius="16dp"
+            app:backgroundTint="@color/colorUniversityRed"
+            android:textColor="@color/colorTextOnDark"/>
+
+        <!-- Actividades Recientes -->
+        <TextView
+            android:text="Actividades Recientes"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/colorNeutralDark">
+
+            <ListView
+                android:id="@+id/listActividades"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="12dp"
+                android:paddingTop="8dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

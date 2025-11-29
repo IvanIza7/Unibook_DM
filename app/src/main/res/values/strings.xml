@@ -4,15 +4,43 @@
     <!-- App -->
     <string name="app_name">UniBook</string>
 
-    <!-- Encabezados -->
+    <!-- Encabezados principales -->
     <string name="titulo_unibook">UniBook</string>
     <string name="instruccion_principal">Organiza tus materias y actividades</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_actividades">Actividades</string>
+    <string name="nav_perfil">Perfil</string>
 
     <!-- Sección Materias -->
     <string name="titulo_mis_materias">Mis Materias</string>
     <string name="btn_agregar_materia">+ Agregar materia</string>
+    <string name="hint_nombre_materia">Ej: Programación Web</string>
+    <string name="hint_nombre_profesor">Ej: Dr. García</string>
+    <string name="titulo_registrar_materia">Registrar Materia</string>
 
     <!-- Sección Actividades -->
     <string name="titulo_actividades_recientes">Actividades Recientes</string>
+    <string name="titulo_actividades">Actividades</string>
+    <string name="hint_buscar_actividades">Buscar actividades...</string>
+    <string name="filtro_todas_materias">Todas las materias</string>
+    <string name="filtro_mas_reciente">Más reciente</string>
+
+    <!-- Sección Perfil -->
+    <string name="titulo_perfil">Perfil</string>
+    <string name="subtitulo_configuracion">Configuración y ajustes</string>
+    <string name="titulo_estadisticas">Estadísticas</string>
+    <string name="titulo_seguridad">Seguridad</string>
+    <string name="autenticacion_biometrica">Autenticación biométrica</string>
+    <string name="btn_cambiar_pin">Cambiar PIN</string>
+    <string name="titulo_informacion">Información</string>
+    <string name="version_app">Versión</string>
+    <string name="desarrollado_por">Desarrollado por:</string>
+
+    <!-- Vista previa materia -->
+    <string name="vista_previa">Vista previa</string>
+    <string name="texto_preview_materia">Nombre de la materia</string>
+    <string name="btn_guardar_materia">Guardar Materia</string>
 
 </resources>
