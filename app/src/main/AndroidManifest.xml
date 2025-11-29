@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unibook">
         <activity
+            android:name=".PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

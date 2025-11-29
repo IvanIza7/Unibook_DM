@@ -1,3 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Unibook</string>
+
+    <!-- App -->
+    <string name="app_name">UniBook</string>
+
+    <!-- Encabezados -->
+    <string name="titulo_unibook">UniBook</string>
+    <string name="instruccion_principal">Organiza tus materias y actividades</string>
+
+    <!-- Sección Materias -->
+    <string name="titulo_mis_materias">Mis Materias</string>
+    <string name="btn_agregar_materia">+ Agregar materia</string>
+
+    <!-- Sección Actividades -->
+    <string name="titulo_actividades_recientes">Actividades Recientes</string>
+
 </resources>
