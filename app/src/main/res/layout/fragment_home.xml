@@ -1,96 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    android:fillViewport="true">
+    android:background="@color/colorBackground">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:paddingBottom="16dp">
 
-        <TextView
-            android:text="UniBook"
-            android:textColor="@color/colorAccent"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp" />
-
-        <TextView
-            android:text="Organiza tus materias y actividades"
-            android:textColor="@color/colorNeutralLight"
-            android:textSize="16sp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"/>
-
-        <!-- Mis Materias -->
-        <TextView
-            android:text="Mis Materias"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"/>
-
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="8dp"
-            android:padding="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/colorNeutralDark">
+            android:orientation="vertical"
+            android:paddingTop="32dp">
 
-            <ListView
-                android:id="@+id/listMaterias"
+            <!-- Aquí va todo tu contenido original: Título, instrucciones, cards, ListViews, botones -->
+            <TextView
+                android:id="@+id/txtUniBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UniBook"
+                android:textColor="@color/colorAccent"
+                android:textSize="32sp"
+                android:fontFamily="@font/poppins_bold"
+                android:textStyle="bold"
+                android:layout_marginStart="24dp" />
+
+            <TextView
+                android:id="@+id/txtInstruccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Organiza tus materias y actividades"
+                android:textColor="@color/colorNeutralLight"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunito_regular"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="24dp" />
+
+            <!-- Card Mis Materias -->
+            <TextView
+                android:id="@+id/txtMateriasBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mis Materias"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMaterias"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="12dp"
-                android:paddingTop="8dp" />
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="24dp"
+                android:padding="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/colorNeutralDark">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnAddMateria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginHorizontal="24dp"
-            android:text="+ Agregar materia"
-            app:cornerRadius="16dp"
-            app:backgroundTint="@color/colorUniversityRed"
-            android:textColor="@color/colorTextOnDark"/>
+                <ListView
+                    android:id="@+id/listMaterias"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="12dp"
+                    android:paddingTop="8dp" />
+            </com.google.android.material.card.MaterialCardView>
 
-        <!-- Actividades Recientes -->
-        <TextView
-            android:text="Actividades Recientes"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="8dp"
-            android:padding="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/colorNeutralDark">
-
-            <ListView
-                android:id="@+id/listActividades"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddMateria"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="12dp"
-                android:paddingTop="8dp" />
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="24dp"
+                android:text="+ Agregar materia"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunito_regular"
+                app:cornerRadius="16dp"
+                app:backgroundTint="@color/colorUniversityRed"
+                android:textColor="@color/colorTextOnDark" />
 
-    </LinearLayout>
-</ScrollView>
+            <!-- Card Actividades -->
+            <TextView
+                android:id="@+id/txtActividades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actividades Recientes"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardActividades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="24dp"
+                android:padding="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/colorNeutralDark">
+
+                <ListView
+                    android:id="@+id/listActividades"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="12dp"
+                    android:paddingTop="8dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Agregar actividad"
+        android:src="@drawable/ic_add"
+        app:tint="@color/colorTextOnDark"
+        app:backgroundTint="@color/colorAccent"
+        android:elevation="6dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

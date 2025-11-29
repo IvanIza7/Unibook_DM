@@ -2,150 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    android:background="@color/colorBackground">
 
-    <!-- Título principal -->
-    <TextView
-        android:id="@+id/txtUniBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UniBook"
-        android:textColor="@color/colorAccent"
-        android:textSize="32sp"
-        android:fontFamily="@font/poppins_bold"
-        android:textStyle="bold"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="24dp"
+    <!-- Contenedor para los fragments -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Instrucción -->
-    <TextView
-        android:id="@+id/txtInstruccion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Organiza tus materias y actividades"
-        android:textColor="@color/colorNeutralLight"
-        android:textSize="16sp"
-        android:fontFamily="@font/nunito_regular"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/txtUniBook"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- Encabezado Mis Materias -->
-    <TextView
-        android:id="@+id/txtMateriasBanner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mis Materias"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:fontFamily="@font/roboto_slab_bold"
-        android:textStyle="bold"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/txtInstruccion"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- CARD: Mis Materias -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardMaterias"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="24dp"
-        android:padding="16dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/colorNeutralDark"
-        app:layout_constraintTop_toBottomOf="@id/txtMateriasBanner"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ListView
-            android:id="@+id/listMaterias"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="12dp"
-            android:paddingTop="8dp" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- Botón debajo de Mis Materias -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddMateria"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="24dp"
-        android:text="+ Agregar materia"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        android:fontFamily="@font/nunito_regular"
-        app:cornerRadius="16dp"
-        app:backgroundTint="@color/colorUniversityRed"
-        android:textColor="@color/colorTextOnDark"
-        app:layout_constraintTop_toBottomOf="@id/cardMaterias"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Encabezado Actividades Recientes -->
-    <TextView
-        android:id="@+id/txtActividades"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Actividades Recientes"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:fontFamily="@font/roboto_slab_bold"
-        android:textStyle="bold"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/btnAddMateria"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- CARD: Actividades Recientes -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardActividades"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="24dp"
-        android:padding="16dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/colorNeutralDark"
-        app:layout_constraintTop_toBottomOf="@id/txtActividades"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ListView
-            android:id="@+id/listActividades"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="12dp"
-            android:paddingTop="8dp" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- Floating Action Button -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Agregar actividad"
-        android:src="@drawable/ic_add"
-        app:tint="@color/colorTextOnDark"
-        app:backgroundTint="@color/colorAccent"
-        android:elevation="8dp"
-        android:layout_margin="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Bottom Navigation -->
@@ -160,6 +29,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        app:itemIconSize="24dp"
+        app:itemTextAppearanceActive="@style/BottomNavTextActive"
+        app:itemTextAppearanceInactive="@style/BottomNavTextInactive"
         app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

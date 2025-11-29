@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="15dp">
 
             <!-- Nombre materia -->
             <TextView
@@ -91,7 +91,7 @@
                     android:textColorHint="@color/colorNeutralLight"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Ícono -->
+            <!-- Íconos -->
             <TextView
                 android:layout_marginTop="20dp"
                 android:text="Ícono"
@@ -105,18 +105,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="6"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:weightSum="7"
+                android:padding="4dp"
+                android:horizontalSpacing="8dp"> <!-- Horizontal spacing manual en cada item -->
 
-                <!-- Ícono ejemplo 1 -->
                 <FrameLayout
-                    android:id="@+id/icon1"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:background="@color/colorNeutralDark"
+                    android:background="@drawable/bg_round_card"
+                    android:layout_marginEnd="8dp"
                     android:padding="12dp">
-
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -124,23 +125,64 @@
                         android:tint="@color/colorAccent" />
                 </FrameLayout>
 
-                <!-- Ícono ejemplo 2 -->
                 <FrameLayout
-                    android:id="@+id/icon2"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:background="@color/colorNeutralDark"
+                    android:background="@drawable/bg_round_card"
+                    android:layout_marginEnd="8dp"
                     android:padding="12dp">
-
                     <ImageView
-                        android:src="@drawable/ic_book"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:tint="@color/colorAccent"/>
+                        android:src="@drawable/ic_book"
+                        android:tint="@color/colorAccent" />
                 </FrameLayout>
 
-                <!-- Más íconos iguales -->
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_round_card"
+                    android:layout_marginEnd="8dp"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_book"
+                        android:tint="@color/colorAccent" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_round_card"
+                    android:layout_marginEnd="8dp"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_book"
+                        android:tint="@color/colorAccent" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_round_card"
+                    android:layout_marginEnd="8dp"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_book"
+                        android:tint="@color/colorAccent" />
+                </FrameLayout>
+
+
+
             </LinearLayout>
 
             <!-- Colores -->
@@ -152,27 +194,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <!-- Colores -->
             <LinearLayout
                 android:id="@+id/layoutColores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:weightSum="7"
+                android:padding="4dp">
 
                 <View
                     android:id="@+id/color1"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorAccent"
-                    android:layout_marginEnd="10dp" />
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_round_card"
+                    android:backgroundTint="#FF0000" />
 
                 <View
                     android:id="@+id/color2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorUniversityRed"
-                    android:layout_marginEnd="10dp" />
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_round_card"
+                    android:backgroundTint="#00FF00" />
 
+                <View
+                    android:id="@+id/color3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_round_card"
+                    android:backgroundTint="@color/colorTextOnDark" />
+
+                <View
+                    android:id="@+id/color4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_round_card"
+                    android:backgroundTint="@color/colorAccent" />
+
+                <View
+                    android:id="@+id/color5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_round_card"
+                    android:backgroundTint="@color/colorAccent" />
             </LinearLayout>
 
             <!-- Vista previa -->
@@ -197,7 +268,8 @@
                     android:id="@+id/previewIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/colorNeutralLight"
+                    android:background="@drawable/bg_round_card"
+                    android:backgroundTint="#00FF00"
                     android:padding="6dp"
                     android:src="@drawable/ic_book"
                     android:tint="@color/colorAccent" />
@@ -220,13 +292,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="28dp"
+                android:backgroundTint="@color/colorAccent"
                 android:text="Guardar Materia"
                 android:textAllCaps="false"
-                android:textSize="16sp"
                 android:textColor="@color/colorTextOnDark"
-                android:backgroundTint="@color/colorAccent"
-                app:iconTint="@color/colorTextOnDark"
-                app:iconGravity="textStart" />
+                android:textSize="16sp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/colorTextOnDark" />
 
         </LinearLayout>
 
