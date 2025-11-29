@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F7F8FF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header con gradiente -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:background="@drawable/bg_header_gradiente">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_back"
+                android:tint="@android:color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registrar Materia"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                android:layout_marginStart="16dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Contenido -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Nombre materia -->
+            <TextView
+                android:text="Nombre de la materia *"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputNombreMateria"
+                    android:hint="Ej: Programación Web"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Nombre profesor -->
+            <TextView
+                android:layout_marginTop="14dp"
+                android:text="Nombre del profesor (opcional)"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputProfesor"
+                    android:hint="Ej: Dr. García"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Ícono -->
+            <TextView
+                android:layout_marginTop="20dp"
+                android:text="Ícono"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/layoutIconos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                android:layout_marginTop="10dp">
+
+                <!-- Ícono ejemplo 1 -->
+                <FrameLayout
+                    android:id="@+id/icon1"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_icon_default"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_book"
+                        android:tint="#6C49F2" />
+                </FrameLayout>
+
+                <!-- Ícono ejemplo 2 -->
+                <FrameLayout
+                    android:id="@+id/icon2"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_icon_default"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:src="@drawable/ic_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:tint="#6C49F2"/>
+                </FrameLayout>
+
+                <!-- Más íconos iguales -->
+            </LinearLayout>
+
+            <!-- Colores -->
+            <TextView
+                android:layout_marginTop="20dp"
+                android:text="Color"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/layoutColores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <View
+                    android:id="@+id/color1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_color_circle_1"
+                    android:layout_marginEnd="10dp" />
+
+                <View
+                    android:id="@+id/color2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_color_circle_2"
+                    android:layout_marginEnd="10dp" />
+
+            </LinearLayout>
+
+            <!-- Vista previa -->
+            <TextView
+                android:text="Vista previa"
+                android:layout_marginTop="20dp"
+                android:textColor="#1E1E1E"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/cardPreview"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_preview_card">
+
+                <ImageView
+                    android:id="@+id/previewIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_icon_square"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_book" />
+
+                <TextView
+                    android:id="@+id/previewText"
+                    android:text="Nombre de la materia"
+                    android:textColor="#1E1E1E"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <!-- Guardar -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardarMateria"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="28dp"
+                android:text="Guardar Materia"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bg_boton_gradiente"
+                app:icon="@drawable/ic_lock"
+                app:iconTint="@android:color/white"
+                app:iconGravity="textStart" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

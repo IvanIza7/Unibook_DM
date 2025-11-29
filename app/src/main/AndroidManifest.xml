@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unibook">
         <activity
+            android:name=".RegistrarActividadActivity"
+            android:exported="false" />
+        <activity
             android:name=".PerfilActivity"
             android:exported="false" />
         <activity
