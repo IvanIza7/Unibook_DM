@@ -11,4 +11,12 @@
         <item name="android:textColor">@color/colorNeutralLight</item>
         <item name="android:fontFamily">@font/nunito_regular</item>
     </style>
+
+    <style name="Theme.NavifyUnibook.Splash" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">#222424</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
 </resources>

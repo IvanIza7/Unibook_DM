@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="splashBackground">#F7F8FF</color>   <!-- Fondo claro moderno -->
+    <color name="splashAccent">#FF3B30</color>       <!-- Rojo vibrante para el loader -->
 </resources>
