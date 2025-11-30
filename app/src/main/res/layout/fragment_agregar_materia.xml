@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Registrar Materia"
+                android:text="@string/titulo_agregar_materia"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -48,7 +48,7 @@
                 android:id="@+id/txtNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre de la materia *"
+                android:text="@string/nombre_materia"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp" />
 
@@ -62,7 +62,7 @@
                     android:id="@+id/inputNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Ej: Programación Web"
+                    android:hint="@string/hint_nombre_materia"
                     android:inputType="textCapWords"
                     android:textColor="@color/colorTextOnDark"
                     android:textColorHint="@color/colorNeutralLight" />
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="Nombre del profesor (opcional)"
+                android:text="@string/nombre_profesor"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp" />
 
@@ -87,7 +87,7 @@
                     android:id="@+id/inputProfesor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Ej: Dr. García"
+                    android:hint="@string/hint_nombre_profesor"
                     android:inputType="textPersonName|textCapWords"
                     android:textColor="@color/colorTextOnDark"
                     android:textColorHint="@color/colorNeutralLight" />
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Ícono"
+                android:text="@string/icono"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp" />
 
@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:contentDescription="Color"
+                android:contentDescription="@string/icono"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -199,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Color"
+                android:text="@string/color"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp" />
 
@@ -207,7 +207,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:contentDescription="@string/vista_previa"
+                android:contentDescription="@string/color"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -279,7 +279,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Vista previa"
+                android:text="@string/vista_previa"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp" />
 
@@ -319,7 +319,7 @@
                 android:layout_marginTop="28dp"
                 android:layout_marginBottom="24dp"
                 android:backgroundTint="@color/colorAccent"
-                android:text="Guardar Materia"
+                android:text="@string/btn_guardar_materia"
                 android:textAllCaps="false"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="16sp"

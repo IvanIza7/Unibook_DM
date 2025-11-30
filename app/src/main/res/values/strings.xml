@@ -42,7 +42,13 @@
     <string name="vista_previa">Vista previa</string>
     <string name="texto_preview_materia">Nombre de la materia</string>
     <string name="btn_guardar_materia">Guardar Materia</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Agregar Materia -->
+    <string name="titulo_agregar_materia">Registrar Materia</string>
+    <string name="nombre_materia">Nombre de la materia *</string>
+    <string name="nombre_profesor">Nombre del profesor (opcional)</string>
+    <string name="icono">Ícono</string>
+    <string name="color">Color</string>
+    <string name="vista_previa">Vista Previa</string>
 
 </resources>
