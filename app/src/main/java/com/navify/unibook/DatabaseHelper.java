@@ -128,6 +128,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return actividades;
     }
 
+    public List<Materia> obtenerTodasLasMaterias() {
+        List<Materia> lista = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_MATERIA, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(MATERIA_ID));
+                String nombre = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_NOMBRE));
+                String profesor = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_PROFESOR));
+                String color = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_COLOR));
+                String icono = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_ICONO));
+
+                lista.add(new Materia(id, nombre, profesor, color, icono));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return lista;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_ACTIVIDAD);

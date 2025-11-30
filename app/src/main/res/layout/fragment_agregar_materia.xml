@@ -141,7 +141,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_book"
+                            android:src="@drawable/ic_calculator"
                             app:tint="@color/colorAccent" />
                     </FrameLayout>
 
@@ -156,7 +156,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_book"
+                            android:src="@drawable/ic_science"
                             app:tint="@color/colorAccent" />
                     </FrameLayout>
 
@@ -171,7 +171,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_book"
+                            android:src="@drawable/ic_code"
                             app:tint="@color/colorAccent" />
                     </FrameLayout>
 
@@ -186,7 +186,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_book"
+                            android:src="@drawable/ic_computer"
                             app:tint="@color/colorAccent" />
                     </FrameLayout>
 

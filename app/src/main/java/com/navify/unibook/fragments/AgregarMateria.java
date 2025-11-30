@@ -1,5 +1,6 @@
-package com.navify.unibook.fragments;
+package com.navify.unibook.fragments; // <--- CONFIRMA QUE ESTE SEA TU PAQUETE
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,12 +26,11 @@ public class AgregarMateria extends Fragment {
     private TextView previewText;
     private ImageView btnBack;
 
-    // Variables para guardar la selección (valores por defecto)
-    private int selectedColorInt = Color.parseColor("#4CAF50"); // Verde
-    private String selectedColorHex = "#4CAF50"; // Para enviar a la BD
-    private int selectedIconResId = R.drawable.ic_book; // ID del recurso (asegúrate que exista en drawable)
+    // Variables de selección (Valores por defecto)
+    private int selectedColorInt = Color.parseColor("#4CAF50"); // Verde default
+    private String selectedColorHex = "#4CAF50";
+    private int selectedIconResId = R.drawable.ic_book; // Icono default
 
-    // Instancia de tu base de datos
     private DatabaseHelper dbHelper;
 
     public AgregarMateria() {
@@ -47,31 +47,24 @@ public class AgregarMateria extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // 1. Inicializar Base de Datos
         dbHelper = new DatabaseHelper(getContext());
 
-        // 2. Vincular vistas
+        // 1. VINCULACIÓN (Asegúrate que estos IDs existan en tu XML)
         etNombre = view.findViewById(R.id.inputNombre);
         etProfesor = view.findViewById(R.id.inputProfesor);
         previewIconImage = view.findViewById(R.id.pvwIcon);
         previewText = view.findViewById(R.id.txtMateriaPrevia);
         btnBack = view.findViewById(R.id.btnBack);
 
-        // 3. Botón Atrás
+        // 2. CONFIGURACIÓN INICIAL DE VISTA PREVIA
+        actualizarVistaPrevia();
+
+        // 3. BOTÓN ATRÁS
         btnBack.setOnClickListener(v -> {
-            if (getParentFragmentManager() != null) {
-                getParentFragmentManager().popBackStack();
-            }
+            if (getParentFragmentManager() != null) getParentFragmentManager().popBackStack();
         });
 
-        // 4. Configurar Clicks de Colores (Actualiza variable y vista previa)
-        setupColorClick(view.findViewById(R.id.color1), "#FF5252"); // Rojo
-        setupColorClick(view.findViewById(R.id.color2), "#4CAF50"); // Verde
-        setupColorClick(view.findViewById(R.id.color3), "#2196F3"); // Azul
-        setupColorClick(view.findViewById(R.id.color4), "#FFC107"); // Amarillo
-        setupColorClick(view.findViewById(R.id.color5), "#9C27B0"); // Morado
-
-        // 5. Actualizar texto de vista previa mientras escribes
+        // 4. LISTENER DE TEXTO (NOMBRE)
         etNombre.addTextChangedListener(new android.text.TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -87,61 +80,78 @@ public class AgregarMateria extends Fragment {
             public void afterTextChanged(android.text.Editable s) {}
         });
 
-        // 6. Botón Guardar
+        // 5. LISTENERS DE COLORES (Aquí corregimos con .mutate())
+        setupColorClick(view.findViewById(R.id.color1), "#FF5252");
+        setupColorClick(view.findViewById(R.id.color2), "#4CAF50");
+        setupColorClick(view.findViewById(R.id.color3), "#2196F3");
+        setupColorClick(view.findViewById(R.id.color4), "#FFC107");
+        setupColorClick(view.findViewById(R.id.color5), "#9C27B0");
+        setupColorClick(view.findViewById(R.id.color6), "#F875AA");
+        setupColorClick(view.findViewById(R.id.color7), "#F4F754");
+
+        // 6. [NUEVO] LISTENERS DE ÍCONOS
+        // Asegúrate de que en tu XML los FrameLayout de los iconos tengan estos IDs:
+        // iconOption1, iconOption2, iconOption3...
+        setupIconClick(view.findViewById(R.id.iconOption1), R.drawable.ic_book);
+        setupIconClick(view.findViewById(R.id.iconOption2), R.drawable.ic_calculator);
+        setupIconClick(view.findViewById(R.id.iconOption3), R.drawable.ic_science);
+        setupIconClick(view.findViewById(R.id.iconOption4), R.drawable.ic_code);
+        setupIconClick(view.findViewById(R.id.iconOption5), R.drawable.ic_computer);
+
+        // 7. BOTÓN GUARDAR
         view.findViewById(R.id.btnGuardarMateria).setOnClickListener(v -> guardarMateria());
     }
 
-    // Método para manejar selección de color
-    private void setupColorClick(View view, String colorHex) {
-        view.setOnClickListener(v -> {
-            // Guardamos el HEX para la base de datos
-            selectedColorHex = colorHex;
-            // Guardamos el INT para pintar la vista previa ahora mismo
-            selectedColorInt = Color.parseColor(colorHex);
+    // --- MÉTODOS AUXILIARES ---
 
-            // Pintamos el fondo del ícono en la vista previa
-            previewIconImage.getBackground().setTint(selectedColorInt);
+    private void setupColorClick(View view, String colorHex) {
+        if (view == null) return; // Evita crash si el ID no existe
+        view.setOnClickListener(v -> {
+            selectedColorHex = colorHex;
+            selectedColorInt = Color.parseColor(colorHex);
+            actualizarVistaPrevia();
         });
+    }
+
+    private void setupIconClick(View view, int iconResId) {
+        if (view == null) return; // Evita crash si no existe
+        view.setOnClickListener(v -> {
+            selectedIconResId = iconResId;
+            actualizarVistaPrevia();
+        });
+    }
+
+    private void actualizarVistaPrevia() {
+        // Actualizamos el icono
+        previewIconImage.setImageResource(selectedIconResId);
+
+        // Actualizamos el color de fondo del círculo
+        // .mutate() es CLAVE: asegura que no cambiemos el color de todos los círculos de la app, solo este
+        previewIconImage.getBackground().mutate().setTint(selectedColorInt);
+
+        // Opcional: Cambiar el tinte del icono mismo a blanco o dejarlo acento
+        previewIconImage.setColorFilter(Color.WHITE);
     }
 
     private void guardarMateria() {
         String nombre = etNombre.getText().toString().trim();
         String profesor = etProfesor.getText().toString().trim();
 
-        // Validación: El nombre es obligatorio
         if (nombre.isEmpty()) {
-            etNombre.setError("Escribe el nombre de la materia");
-            etNombre.requestFocus();
+            etNombre.setError("Nombre obligatorio");
             return;
         }
 
-        // Obtener el nombre del recurso del icono (ej. "ic_book") para guardarlo como TEXT
-        // Esto permite recuperarlo después con getIdentifier
+        // Recuperamos el nombre del recurso (ej. "ic_book") para guardarlo como texto
         String nombreIcono = getResources().getResourceEntryName(selectedIconResId);
 
-        // ==========================================
-        // INSERTAR EN BASE DE DATOS
-        // ==========================================
-        long idResult = dbHelper.agregarMateria(nombre, profesor, selectedColorHex, nombreIcono);
+        long id = dbHelper.agregarMateria(nombre, profesor, selectedColorHex, nombreIcono);
 
-        if (idResult > 0) {
-            Toast.makeText(getContext(), "¡Materia guardada con éxito!", Toast.LENGTH_SHORT).show();
-
-            // Cerrar el fragment y volver a la lista
-            if (getParentFragmentManager() != null) {
-                getParentFragmentManager().popBackStack();
-            }
+        if (id > 0) {
+            Toast.makeText(getContext(), "Guardado correctamente", Toast.LENGTH_SHORT).show();
+            if (getParentFragmentManager() != null) getParentFragmentManager().popBackStack();
         } else {
-            Toast.makeText(getContext(), "Error al guardar la materia", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        // Cerrar conexión BD si está abierta (buena práctica)
-        if (dbHelper != null) {
-            dbHelper.close();
+            Toast.makeText(getContext(), "Error al guardar", Toast.LENGTH_SHORT).show();
         }
     }
 }

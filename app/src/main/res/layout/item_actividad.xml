@@ -44,10 +44,10 @@
                 android:id="@+id/tvNombreActividad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_slab_bold"
                 android:text="Nombre de la Actividad"
-                android:textSize="16sp"
-                android:textColor="@color/colorTextOnLight"
-                android:fontFamily="@font/roboto_slab_bold"/>
+                android:textColor="#524E58"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvNombreMateria"
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:text="24/12"
                 android:textSize="18sp"
-                android:textColor="@color/colorTextOnLight"
+                android:textColor="#524E58"
                 android:textStyle="bold"/>
 
             <TextView

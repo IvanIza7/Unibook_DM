@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground"> <FrameLayout
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:background="@drawable/bg_round_card"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/imgIconoMateria"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_book" />
+</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp">
+
+        <TextView
+            android:id="@+id/txtNombreMateria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cálculo Diferencial"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextOnDark"/> <TextView
+        android:id="@+id/txtProfesorMateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prof. Desconocido"
+        android:textSize="14sp"
+        android:textColor="@color/colorNeutralLight"/>
+    </LinearLayout>
+
+</LinearLayout>
