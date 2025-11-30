@@ -42,5 +42,7 @@
     <string name="vista_previa">Vista previa</string>
     <string name="texto_preview_materia">Nombre de la materia</string>
     <string name="btn_guardar_materia">Guardar Materia</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
