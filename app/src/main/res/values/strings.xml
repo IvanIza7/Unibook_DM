@@ -19,6 +19,13 @@
     <string name="hint_nombre_materia">Ej: Programación Web</string>
     <string name="hint_nombre_profesor">Ej: Dr. García</string>
     <string name="titulo_registrar_materia">Registrar Materia</string>
+    <string name="nombre_de_la_materia">Nombre de la materia *</string>
+    <string name="nombre_del_profesor_opcional">Nombre del profesor (opcional)</string>
+    <string name="icono">Ícono</string>
+    <string name="color">Color</string>
+    <string name="materia_nombre_obligatorio">El nombre de la materia es obligatorio</string>
+    <string name="materia_guardada_exito">Materia guardada con éxito</string>
+    <string name="materia_guardada_error">Error al guardar la materia</string>
 
     <!-- Sección Actividades -->
     <string name="titulo_actividades_recientes">Actividades Recientes</string>
@@ -26,6 +33,7 @@
     <string name="hint_buscar_actividades">Buscar actividades...</string>
     <string name="filtro_todas_materias">Todas las materias</string>
     <string name="filtro_mas_reciente">Más reciente</string>
+    <string name="descripcion_boton_regreso">Botón de regreso</string>
 
     <!-- Sección Perfil -->
     <string name="titulo_perfil">Perfil</string>
@@ -47,8 +55,5 @@
     <string name="titulo_agregar_materia">Registrar Materia</string>
     <string name="nombre_materia">Nombre de la materia *</string>
     <string name="nombre_profesor">Nombre del profesor (opcional)</string>
-    <string name="icono">Ícono</string>
-    <string name="color">Color</string>
-    <string name="vista_previa">Vista Previa</string>
 
 </resources>

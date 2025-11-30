@@ -25,12 +25,13 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_back"
-                android:tint="@color/colorTextOnDark" />
+                app:tint="@color/colorTextOnDark" />
 
             <TextView
+                android:id="@+id/headerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Registrar Materia"
+                android:text="@string/titulo_registrar_materia"
                 android:textSize="20sp"
                 android:textColor="@color/colorTextOnDark"
                 android:layout_marginStart="16dp"
@@ -46,7 +47,8 @@
 
             <!-- Nombre materia -->
             <TextView
-                android:text="Nombre de la materia *"
+                android:id="@+id/tvNombreMateria"
+                android:text="@string/nombre_de_la_materia"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -60,7 +62,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputNombreMateria"
-                    android:hint="Ej: Programación Web"
+                    android:hint="@string/hint_nombre_materia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorTextOnDark"
@@ -69,8 +71,9 @@
 
             <!-- Nombre profesor -->
             <TextView
+                android:id="@+id/tvNombreProfesor"
                 android:layout_marginTop="14dp"
-                android:text="Nombre del profesor (opcional)"
+                android:text="@string/nombre_del_profesor_opcional"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -84,7 +87,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputProfesor"
-                    android:hint="Ej: Dr. García"
+                    android:hint="@string/hint_nombre_profesor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorTextOnDark"
@@ -94,7 +97,7 @@
             <!-- Íconos -->
             <TextView
                 android:layout_marginTop="20dp"
-                android:text="Ícono"
+                android:text="@string/icono"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -122,7 +125,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_book"
-                        android:tint="@color/colorAccent" />
+                        app:tint="@color/colorAccent" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -136,7 +139,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_book"
-                        android:tint="@color/colorAccent" />
+                        app:tint="@color/colorAccent" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -150,7 +153,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_book"
-                        android:tint="@color/colorAccent" />
+                        app:tint="@color/colorAccent" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -164,7 +167,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_book"
-                        android:tint="@color/colorAccent" />
+                        app:tint="@color/colorAccent" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -178,7 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/ic_book"
-                        android:tint="@color/colorAccent" />
+                        app:tint="@color/colorAccent" />
                 </FrameLayout>
 
 
@@ -188,7 +191,7 @@
             <!-- Colores -->
             <TextView
                 android:layout_marginTop="20dp"
-                android:text="Color"
+                android:text="@string/color"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -227,7 +230,7 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/bg_round_card"
-                    android:backgroundTint="@color/colorTextOnDark" />
+                    app:backgroundTint="@color/colorTextOnDark" />
 
                 <View
                     android:id="@+id/color4"
@@ -235,7 +238,7 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/bg_round_card"
-                    android:backgroundTint="@color/colorAccent" />
+                    app:backgroundTint="@color/colorAccent" />
 
                 <View
                     android:id="@+id/color5"
@@ -243,12 +246,12 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/bg_round_card"
-                    android:backgroundTint="@color/colorAccent" />
+                    app:backgroundTint="@color/colorAccent" />
             </LinearLayout>
 
             <!-- Vista previa -->
             <TextView
-                android:text="Vista previa"
+                android:text="@string/vista_previa"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="14sp"
@@ -269,39 +272,32 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_round_card"
-                    android:backgroundTint="#00FF00"
+                    app:backgroundTint="#00FF00"
                     android:padding="6dp"
                     android:src="@drawable/ic_book"
-                    android:tint="@color/colorAccent" />
+                    app:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/previewText"
-                    android:text="Nombre de la materia"
+                    android:text="@string/texto_preview_materia"
                     android:textColor="@color/colorTextOnDark"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
-            <!-- Guardar -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGuardarMateria"
+            <Button
+                android:id="@+id/btnGuardar"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="28dp"
-                android:backgroundTint="@color/colorAccent"
-                android:text="Guardar Materia"
-                android:textAllCaps="false"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/btn_guardar_materia"
                 android:textColor="@color/colorTextOnDark"
-                android:textSize="16sp"
-                app:iconGravity="textStart"
-                app:iconTint="@color/colorTextOnDark" />
+                app:backgroundTint="@color/colorAccent" />
 
         </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>

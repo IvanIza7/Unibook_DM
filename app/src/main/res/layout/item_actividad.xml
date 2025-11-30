@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Icono de la Materia -->
+        <FrameLayout
+            android:id="@+id/iconContainer"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_icon_square">
+
+            <ImageView
+                android:id="@+id/ivMateriaIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_book" 
+                app:tint="@color/white"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
+        <!-- Información de la Actividad -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/tvNombreActividad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre de la Actividad"
+                android:textSize="16sp"
+                android:textColor="@color/colorTextOnLight"
+                android:fontFamily="@font/roboto_slab_bold"/>
+
+            <TextView
+                android:id="@+id/tvNombreMateria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre de la Materia"
+                android:textSize="14sp"
+                android:textColor="@color/colorNeutralDark"
+                android:fontFamily="@font/nunito_regular"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Fecha de Entrega -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:layout_marginStart="8dp">
+
+            <TextView
+                android:id="@+id/tvFechaEntrega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24/12"
+                android:textSize="18sp"
+                android:textColor="@color/colorTextOnLight"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvHoraEntrega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11:59 PM"
+                android:textSize="12sp"
+                android:textColor="@color/colorNeutralDark"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
