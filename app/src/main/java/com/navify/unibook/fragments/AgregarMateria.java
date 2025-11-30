@@ -154,4 +154,28 @@ public class AgregarMateria extends Fragment {
             Toast.makeText(getContext(), "Error al guardar", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (getActivity() != null) {
+            View bottomNav = getActivity().findViewById(R.id.bottomNavigation);
+            if (bottomNav != null) {
+                bottomNav.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        if (getActivity() != null) {
+            View bottomNav = getActivity().findViewById(R.id.bottomNavigation);
+            if (bottomNav != null) {
+                bottomNav.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 }
