@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp"
+            android:background="@drawable/bg_header_gradiente">
+
+            <ImageView
+                android:id="@+id/btnBack1"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_back"
+                app:tint="@color/colorTextOnDark" />
+
+            <TextView
+                android:id="@+id/txtMateria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/titulo_editar_materia"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/txtNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_materia"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="14sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_nombre_materia"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/colorTextOnDark"
+                    android:textColorHint="@color/colorNeutralLight" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txtProfesor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/nombre_profesor"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="14sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputProfesor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_nombre_profesor"
+                    android:inputType="textPersonName|textCapWords"
+                    android:textColor="@color/colorTextOnDark"
+                    android:textColorHint="@color/colorNeutralLight" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txtIcono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/icono"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="14sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/icono"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/layoutIconos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/iconOption1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_book"
+                            app:tint="@color/colorAccent" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/iconOption2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_calculator"
+                            app:tint="@color/colorAccent" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/iconOption3"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_science"
+                            app:tint="@color/colorAccent" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/iconOption4"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_code"
+                            app:tint="@color/colorAccent" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/iconOption5"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_computer"
+                            app:tint="@color/colorAccent" />
+                    </FrameLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:id="@+id/txtColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/color"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="14sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/color"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/layoutColores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/color1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:backgroundTint="#FF5252" />
+
+                    <View
+                        android:id="@+id/color2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:backgroundTint="#4CAF50" />
+
+                    <View
+                        android:id="@+id/color3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:backgroundTint="#2196F3" />
+
+                    <View
+                        android:id="@+id/color4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:backgroundTint="#FFC107" />
+
+                    <View
+                        android:id="@+id/color5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:backgroundTint="#9C27B0" />
+
+                    <View
+                        android:id="@+id/color6"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:backgroundTint="#F875AA" />
+
+                    <View
+                        android:id="@+id/color7"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_round_card"
+                        android:backgroundTint="#F4F754" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/txtPrevia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/vista_previa"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:id="@+id/cardPreview"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorNeutralDark"> <ImageView
+                android:id="@+id/pvwIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_round_card"
+                android:backgroundTint="#4CAF50"
+                android:padding="6dp"
+                android:src="@drawable/ic_book"
+                app:tint="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/txtMateriaPrevia"
+                    android:text="Nombre de la materia"
+                    android:textColor="@color/colorTextOnDark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardarMateria"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="@string/btn_guardar_cambios"
+                android:textAllCaps="false"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="16sp"
+                app:cornerRadius="8dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/colorTextOnDark" />
+
+             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEliminarMateria"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="#FF5252"
+                android:text="@string/btn_eliminar_materia"
+                android:textAllCaps="false"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="16sp"
+                app:cornerRadius="8dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/colorTextOnDark" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -55,6 +55,10 @@
     <string name="titulo_agregar_materia">Registrar Materia</string>
     <string name="nombre_materia">Nombre de la materia *</string>
     <string name="nombre_profesor">Nombre del profesor (opcional)</string>
+    <string name="titulo_editar_materia">Editar Materia</string>
+    <string name="btn_guardar_cambios">Guardar Cambios</string>
+    <string name="btn_eliminar_materia">Eliminar Materia</string>
+
 
     <!-- Agregar Actividad -->
     <string name="titulo_agregar_actividad">Nueva Actividad</string>

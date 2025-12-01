@@ -74,6 +74,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado;
     }
 
+    public void actualizarMateria(int id, String nombre, String profesor, String color, String icono) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(MATERIA_NOMBRE, nombre);
+        cv.put(MATERIA_PROFESOR, profesor);
+        cv.put(MATERIA_COLOR, color);
+        cv.put(MATERIA_ICONO, icono);
+        db.update(TABLA_MATERIA, cv, MATERIA_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void eliminarMateria(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLA_MATERIA, MATERIA_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+    
+    public Materia obtenerMateria(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLA_MATERIA, null, MATERIA_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            String nombre = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_NOMBRE));
+            String profesor = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_PROFESOR));
+            String color = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_COLOR));
+            String icono = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_ICONO));
+            cursor.close();
+            return new Materia(id, nombre, profesor, color, icono);
+        }
+        return null;
+    }
+
     public long agregarActividad(String titulo, String desc, String fechaInicio, int porcentaje, String uriFoto, String fechaFin, int idMateria) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();

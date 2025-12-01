@@ -1,5 +1,10 @@
 package com.navify.unibook.fragments;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,12 +32,18 @@ import com.navify.unibook.R;
 
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements SensorEventListener {
     private MaterialButton btnAddMateria;
     private FloatingActionButton fabAdd;
     private ListView listMaterias;
     private ListView listActividades;
     private DatabaseHelper db;
+
+    // Variables para el sensor
+    private SensorManager sensorManager;
+    private Sensor proximitySensor;
+    private boolean isSensorRegistered = false;
+    private boolean isSensorReady = false; // Evita activaciones inmediatas al reanudar
 
     public HomeFragment() {
 
@@ -52,6 +64,14 @@ public class HomeFragment extends Fragment {
         listMaterias = view.findViewById(R.id.listMaterias);
         listActividades = view.findViewById(R.id.listActividades);
 
+        // Inicializar sensor
+        if (getActivity() != null) {
+            sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+            if (sensorManager != null) {
+                proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+            }
+        }
+
         btnAddMateria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,12 +85,38 @@ public class HomeFragment extends Fragment {
                 abrirFragmentAgregarActividad();
             }
         });
+
+        // Agregar Listener a la lista de materias para editar
+        listMaterias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtener el objeto materia de la posición seleccionada
+                Materia materiaSeleccionada = (Materia) parent.getItemAtPosition(position);
+                abrirFragmentEditarMateria(materiaSeleccionada.getId());
+            }
+        });
     }
 
     private void abrirFragmentAgregarMateria() {
+        if (!isAdded()) return;
+
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
         transaction.replace(R.id.fragmentContainer, new AgregarMateria());
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+    }
+
+    private void abrirFragmentEditarMateria(int materiaId) {
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        
+        EditarMateria fragment = new EditarMateria();
+        Bundle args = new Bundle();
+        args.putInt("materia_id", materiaId);
+        fragment.setArguments(args);
+
+        transaction.replace(R.id.fragmentContainer, fragment);
         transaction.addToBackStack(null);
 
         transaction.commit();
@@ -91,6 +137,23 @@ public class HomeFragment extends Fragment {
         if (listMaterias != null && listActividades != null) {
             cargarMaterias();
             cargarActividades();
+        }
+
+        // Registrar sensor
+        if (sensorManager != null && proximitySensor != null && !isSensorRegistered) {
+            sensorManager.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
+            isSensorRegistered = true;
+            isSensorReady = false; // Resetear estado para evitar bucle si se cubre el sensor
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // Desregistrar sensor
+        if (sensorManager != null && isSensorRegistered) {
+            sensorManager.unregisterListener(this);
+            isSensorRegistered = false;
         }
     }
 
@@ -173,5 +236,28 @@ public class HomeFragment extends Fragment {
                 return true;
             }
         });
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+            float distance = event.values[0];
+            float maxRange = proximitySensor.getMaximumRange();
+
+            boolean isNear = distance < maxRange;
+
+            if (!isNear) {
+                // Si el sensor está lejos, estamos listos para detectar acercamiento
+                isSensorReady = true;
+            } else if (isSensorReady) {
+                // Si está cerca y estábamos listos, ejecutamos la acción
+                abrirFragmentAgregarMateria();
+                isSensorReady = false; // Evitar múltiples activaciones seguidas
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 }
