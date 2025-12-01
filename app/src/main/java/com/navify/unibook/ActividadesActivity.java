@@ -1,11 +1,9 @@
 package com.navify.unibook;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -71,7 +69,7 @@ public class ActividadesActivity extends AppCompatActivity {
         btnFiltroAntiguedad = findViewById(R.id.btnFiltroAntiguedad);
         txtFiltroMateria = findViewById(R.id.txtFiltroMateria);
         txtFiltroAntiguedad = findViewById(R.id.txtFiltroAntiguedad);
-        btnBack = findViewById(R.id.btnBack);
+        btnBack = findViewById(R.id.btnBack1);
     }
 
     private void setupListeners() {

@@ -74,6 +74,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado;
     }
 
+    public long agregarActividad(String titulo, String desc, String fechaInicio, int porcentaje, String uriFoto, String fechaFin, int idMateria) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(ACTIVIDAD_TITULO, titulo);
+        cv.put(ACTIVIDAD_DESCRIPCION, desc);
+        cv.put(ACTIVIDAD_FECHA_REGISTRO, fechaInicio);
+        cv.put(ACTIVIDAD_PORCENTAJE, porcentaje);
+        cv.put(ACTIVIDAD_FOTO_URI, uriFoto);
+        cv.put(ACTIVIDAD_FECHA_FIN, fechaFin);
+        cv.put(ACTIVIDAD_MATERIA_ID, idMateria);
+        long resultado = db.insert(TABLA_ACTIVIDAD, null, cv);
+        db.close();
+        return resultado;
+    }
+
+    public List<ActividadHome> obtenerActividadesRecientes() {
+        List<ActividadHome> lista = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT a.id, a.titulo, a.fecha_fin, a.porcentaje, m.nombre, m.color " +
+                "FROM " + TABLA_ACTIVIDAD + " a " +
+                "INNER JOIN " + TABLA_MATERIA + " m ON a.materia_id = m.id " +
+                "ORDER BY a.id DESC";
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String titulo = cursor.getString(1);
+                String fecha = cursor.getString(2);
+                int porcentaje = cursor.getInt(3);
+                String nombreMat = cursor.getString(4);
+                String colorMat = cursor.getString(5);
+
+                lista.add(new ActividadHome(id, titulo, fecha, porcentaje, nombreMat, colorMat));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return lista;
+    }
+
     public List<String> getNombresDeTodasLasMaterias() {
         List<String> materias = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();

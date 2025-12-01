@@ -21,7 +21,7 @@
             android:background="@drawable/bg_header_gradiente">
 
             <ImageView
-                android:id="@+id/btnBack"
+                android:id="@+id/btnBack1"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_back"
@@ -81,8 +81,9 @@
                     android:id="@+id/inputTitulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Ej. Maqueta de volcanes"
                     android:inputType="textCapSentences"
-                    android:hint="Ej. Maqueta de volcanes" />
+                    android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -104,8 +105,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:gravity="top|start"
+                    android:hint="Detalles..."
                     android:inputType="textMultiLine"
-                    android:hint="Detalles..." />
+                    android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -198,9 +200,10 @@
                     android:id="@+id/inputFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="false"
                     android:clickable="true"
-                    android:hint="Seleccionar fecha" />
+                    android:focusable="false"
+                    android:hint="Seleccionar fecha"
+                    android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
 
 

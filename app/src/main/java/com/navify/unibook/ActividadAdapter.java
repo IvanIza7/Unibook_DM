@@ -65,29 +65,59 @@ public class ActividadAdapter extends RecyclerView.Adapter<ActividadAdapter.Acti
         }
 
         void bind(final Actividad actividad) {
-            tvNombreActividad.setText(actividad.getNombre());
-            tvNombreMateria.setText(actividad.getMateriaNombre());
-            tvFechaEntrega.setText(actividad.getFechaEntrega());
-            tvHoraEntrega.setText(actividad.getHoraEntrega());
+            // 1. Validaciones básicas de texto para evitar "null" en pantalla
+            if (actividad.getNombre() != null) tvNombreActividad.setText(actividad.getNombre());
+            // Nota: Verifica si tu objeto Actividad tiene getMateriaNombre() o getNombreMateria()
+            // Si te marca error en rojo aquí, ajusta el nombre del getter según TU clase Actividad.
+            // tvNombreMateria.setText(actividad.getMateriaNombre());
 
-            int color = Color.parseColor(actividad.getMateriaColor());
+            if (actividad.getFechaEntrega() != null) tvFechaEntrega.setText(actividad.getFechaEntrega());
+            // tvHoraEntrega.setText(actividad.getHoraEntrega());
 
-            // Tinta el fondo de la tarjeta
-            Drawable cardBackground = DrawableCompat.wrap(cardContainer.getBackground()).mutate();
-            DrawableCompat.setTint(cardBackground, color);
-            cardContainer.setBackground(cardBackground);
+            // 2. PROTECCIÓN DE COLOR (Evita crash si el color viene mal o nulo)
+            int color;
+            try {
+                String colorHex = actividad.getMateriaColor();
+                if (colorHex != null && !colorHex.isEmpty()) {
+                    color = Color.parseColor(colorHex);
+                } else {
+                    color = Color.GRAY; // Color por defecto si no hay
+                }
+            } catch (Exception e) {
+                color = Color.GRAY; // Color por defecto si el código Hex está mal
+            }
 
-            // Tinta el contenedor del icono con un color más oscuro
-            float[] hsv = new float[3];
-            Color.colorToHSV(color, hsv);
-            hsv[2] *= 0.8f; // Reduce el brillo
-            int darkerColor = Color.HSVToColor(hsv);
-            iconContainer.setBackgroundTintList(ColorStateList.valueOf(darkerColor));
+            // 3. SOLUCIÓN DEL CRASH (Solo intentamos pintar si EXISTE un fondo)
+            if (cardContainer.getBackground() != null) {
+                Drawable cardBackground = DrawableCompat.wrap(cardContainer.getBackground()).mutate();
+                DrawableCompat.setTint(cardBackground, color);
+                cardContainer.setBackground(cardBackground);
+            } else {
+                // Si no hay fondo en el XML, le ponemos un color de fondo plano para que se vea algo
+                cardContainer.setBackgroundColor(color);
+            }
 
-            // Asigna el icono
-            int iconResId = context.getResources().getIdentifier(actividad.getMateriaIcono(), "drawable", context.getPackageName());
-            if (iconResId != 0) {
-                ivMateriaIcon.setImageResource(iconResId);
+            // 4. Tinta el contenedor del icono (con validación)
+            if (iconContainer != null) {
+                float[] hsv = new float[3];
+                Color.colorToHSV(color, hsv);
+                hsv[2] *= 0.8f; // Reduce el brillo
+                int darkerColor = Color.HSVToColor(hsv);
+                iconContainer.setBackgroundTintList(ColorStateList.valueOf(darkerColor));
+            }
+
+            // 5. Asigna el icono (con validación)
+            // Asegúrate que getMateriaIcono() devuelva el nombre del recurso (ej: "ic_book")
+            if (actividad.getMateriaIcono() != null) {
+                int iconResId = context.getResources().getIdentifier(
+                        actividad.getMateriaIcono(), "drawable", context.getPackageName());
+
+                if (iconResId != 0) {
+                    ivMateriaIcon.setImageResource(iconResId);
+                } else {
+                    // Icono por defecto si no encuentra la imagen
+                    ivMateriaIcon.setImageResource(R.drawable.ic_book);
+                }
             }
         }
     }

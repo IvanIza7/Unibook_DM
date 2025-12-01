@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.navify.unibook.ActividadAdapterHome;
+import com.navify.unibook.ActividadHome;
 import com.navify.unibook.DatabaseHelper;
 import com.navify.unibook.Materia;
 import com.navify.unibook.MateriaAdapter;
@@ -86,7 +88,10 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        cargarMaterias();
+        if (listMaterias != null && listActividades != null) {
+            cargarMaterias();
+            cargarActividades();
+        }
     }
 
     private void cargarMaterias() {
@@ -104,6 +109,29 @@ public class HomeFragment extends Fragment {
             } else {
                 limitarAlturaListView(listMaterias, 3);
                 limitarAlturaListView(listMaterias, listaMaterias.size());
+            }
+        }
+    }
+
+    public void cargarActividades() {
+        // 1. Evitar crash si el contexto es nulo (el fragment se cerró)
+        if (getContext() == null) return;
+
+        // 2. Inicializar DB si es nula
+        if (db == null) db = new DatabaseHelper(getContext());
+
+        List<ActividadHome> listaActividades = db.obtenerActividadesRecientes();
+
+        // 3. Verificar que la lista no sea nula
+        if (listaActividades != null) {
+            ActividadAdapterHome adapter = new ActividadAdapterHome(getContext(), listaActividades);
+            listActividades.setAdapter(adapter);
+
+            if (listaActividades.size() > 3) {
+                limitarAlturaListView(listActividades, 3);
+            } else {
+                // Usar Math.min para evitar errores de índice
+                limitarAlturaListView(listActividades, Math.max(1, listaActividades.size()));
             }
         }
     }

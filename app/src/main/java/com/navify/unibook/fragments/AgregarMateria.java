@@ -1,6 +1,5 @@
 package com.navify.unibook.fragments; // <--- CONFIRMA QUE ESTE SEA TU PAQUETE
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -54,7 +53,7 @@ public class AgregarMateria extends Fragment {
         etProfesor = view.findViewById(R.id.inputProfesor);
         previewIconImage = view.findViewById(R.id.pvwIcon);
         previewText = view.findViewById(R.id.txtMateriaPrevia);
-        btnBack = view.findViewById(R.id.btnBack);
+        btnBack = view.findViewById(R.id.btnBack1);
 
         // 2. CONFIGURACIÓN INICIAL DE VISTA PREVIA
         actualizarVistaPrevia();

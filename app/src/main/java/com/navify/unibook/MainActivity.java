@@ -1,3 +1,10 @@
+/*
+    Emilio Tomás Peralta Váldez
+    Erick Hernández Trejo
+    Iván Alberto Izaguirre Vázquez
+    Teodoro Juan de Dios Ramos García
+ */
+
 package com.navify.unibook;
 
 import android.graphics.Color;

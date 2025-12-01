@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="4dp"
+    android:background="?attr/selectableItemBackground">
+
+    <View
+        android:id="@+id/viewColorMateriaHome"
+        android:layout_width="6dp"
+        android:layout_height="match_parent"
+        android:background="#4CAF50"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNombreMateriaActHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matemáticas"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"/>
+
+        <TextView
+            android:id="@+id/txtTituloActividadHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Examen Parcial 1"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextOnDark"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtFechaActividadHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Para: 12/10/2023"
+            android:textSize="12sp"
+            android:textColor="@color/colorNeutralLight"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtPorcentajeActHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_round_card"
+        android:backgroundTint="@color/colorNeutralDark"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="0%"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextOnDark"/>
+
+</LinearLayout>
