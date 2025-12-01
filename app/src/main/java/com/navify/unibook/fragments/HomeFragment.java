@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Agregar Actividad", Toast.LENGTH_SHORT).show();
+                abrirFragmentAgregarActividad();
             }
         });
     }
@@ -69,6 +69,15 @@ public class HomeFragment extends Fragment {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
         transaction.replace(R.id.fragmentContainer, new AgregarMateria());
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+    }
+
+    private void abrirFragmentAgregarActividad() {
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+
+        transaction.replace(R.id.fragmentContainer, new AgregarActividad());
         transaction.addToBackStack(null);
 
         transaction.commit();
