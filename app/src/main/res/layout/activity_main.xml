@@ -19,7 +19,7 @@
     <LinearLayout
         android:id="@+id/customBottomNav"
         android:layout_width="0dp"
-        android:layout_height="72dp"
+        android:layout_height="52dp"
         android:orientation="horizontal"
         android:background="#B7B7B7"
         app:layout_constraintBottom_toBottomOf="parent"
