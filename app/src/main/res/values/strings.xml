@@ -56,4 +56,15 @@
     <string name="nombre_materia">Nombre de la materia *</string>
     <string name="nombre_profesor">Nombre del profesor (opcional)</string>
 
+    <!-- Agregar Actividad -->
+    <string name="titulo_agregar_actividad">Nueva Actividad</string>
+    <string name="materia">Materia</string>
+    <string name="titulo_actividad">Título de la actividad</string>
+    <string name="descripcion">Descripción</string>
+    <string name="avance">Avance</string>
+    <string name="evidencia_foto">Evidencia (Foto)</string>
+    <string name="camara">Cámara</string>
+    <string name="fecha_entrega">Fecha de entrega</string>
+    <string name="btn_guardar_actividad">Guardar Actividad"</string>
+
 </resources>
