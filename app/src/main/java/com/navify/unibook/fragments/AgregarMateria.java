@@ -160,7 +160,7 @@ public class AgregarMateria extends Fragment {
         super.onResume();
 
         if (getActivity() != null) {
-            View bottomNav = getActivity().findViewById(R.id.bottomNavigation);
+            View bottomNav = getActivity().findViewById(R.id.customBottomNav);
             if (bottomNav != null) {
                 bottomNav.setVisibility(View.GONE);
             }
@@ -172,7 +172,7 @@ public class AgregarMateria extends Fragment {
         super.onDestroyView();
 
         if (getActivity() != null) {
-            View bottomNav = getActivity().findViewById(R.id.bottomNavigation);
+            View bottomNav = getActivity().findViewById(R.id.customBottomNav);
             if (bottomNav != null) {
                 bottomNav.setVisibility(View.VISIBLE);
             }
