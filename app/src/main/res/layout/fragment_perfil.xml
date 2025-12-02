@@ -28,9 +28,9 @@
                 android:id="@+id/topContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorNeutralDark"
-                android:padding="24dp"
-                android:orientation="vertical">
+                android:background="@drawable/rounded_bottom"
+                android:orientation="vertical"
+                android:padding="24dp">
 
                 <TextView
                     android:id="@+id/txtPerfil"
@@ -87,8 +87,10 @@
                     app:cardBackgroundColor="@color/colorNeutralDark">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/containerMaterias"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_container">
 
                         <TextView
                             android:id="@+id/tvMateriasCount"
@@ -130,8 +132,10 @@
                     app:cardBackgroundColor="@color/colorNeutralDark">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/containerActividades"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_container">
 
                         <TextView
                             android:id="@+id/tvActividadesCount"
@@ -164,10 +168,11 @@
 
             <!-- Apariencia -->
             <LinearLayout
+                android:id="@+id/containerApariencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/colorNeutralDark"
+                android:background="@drawable/rounded_container"
                 android:padding="16dp"
                 android:layout_margin="16dp">
 
@@ -249,12 +254,13 @@
 
             <!-- Información -->
             <LinearLayout
+                android:id="@+id/containerInformacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/rounded_container"
                 android:orientation="vertical"
-                android:background="@color/colorNeutralDark"
-                android:padding="16dp"
-                android:layout_margin="16dp">
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -267,9 +273,9 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
@@ -284,10 +290,10 @@
                         android:id="@+id/txtVersion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_regular"
                         android:text="1.0.0"
                         android:textColor="@color/colorTextOnDark"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/nunito_regular" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <TextView
