@@ -59,7 +59,6 @@
     <string name="btn_guardar_cambios">Guardar Cambios</string>
     <string name="btn_eliminar_materia">Eliminar Materia</string>
 
-
     <!-- Agregar Actividad -->
     <string name="titulo_agregar_actividad">Nueva Actividad</string>
     <string name="materia">Materia</string>
@@ -80,5 +79,7 @@
     <string name="version">Versión: </string>
     <string name="config">Configuración y ajustes</string>
     <string name="apariencia">Apariencia</string>
+    <string name="tema_claro">Tema Claro</string>
+    <string name="tema_oscuro">Tema Oscuro</string>
 
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- colorBackgroundLight -->
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+
+    <!-- Diagonal Line or Split -->
+    <!-- Simulating split by using a rotated shape or gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#FFFFFF"
+                android:centerColor="#B761FF"
+                android:endColor="#B761FF"
+                android:angle="45"
+                android:type="linear"/>
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+
+    <!-- Border to define the box -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="2dp" android:color="#B761FF"/> <!-- colorNeutral -->
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+</layer-list>

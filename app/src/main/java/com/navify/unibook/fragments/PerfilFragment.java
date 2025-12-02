@@ -1,10 +1,12 @@
 package com.navify.unibook.fragments;
 
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.navify.unibook.DatabaseHelper;
@@ -19,6 +21,8 @@ public class PerfilFragment extends Fragment {
     private DatabaseHelper db;
     private TextView tvMateriasCount;
     private TextView tvActividadesCount;
+    private LinearLayout themeLightSelector;
+    private LinearLayout themeDarkSelector;
 
     public PerfilFragment() {}
 
@@ -30,13 +34,42 @@ public class PerfilFragment extends Fragment {
         db = new DatabaseHelper(getContext());
         tvMateriasCount = view.findViewById(R.id.tvMateriasCount);
         tvActividadesCount = view.findViewById(R.id.tvActividadesCount);
+        
+        themeLightSelector = view.findViewById(R.id.themeLightSelector);
+        themeDarkSelector = view.findViewById(R.id.themeDarkSelector);
 
+        // Configurar listeners para cambio de tema
+        themeLightSelector.setOnClickListener(v -> {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        });
+
+        themeDarkSelector.setOnClickListener(v -> {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        });
+
+        cargarEstadisticas();
+
+        return view;
+    }
+
+    private void cargarEstadisticas() {
+        if (db == null) return;
+        
         List<Materia> materias = db.obtenerTodasLasMaterias();
         List<Actividad> actividades = db.getTodasLasActividades();
 
-        tvMateriasCount.setText(String.valueOf(materias.size()));
-        tvActividadesCount.setText(String.valueOf(actividades.size()));
-
-        return view;
+        if (tvMateriasCount != null) {
+            tvMateriasCount.setText(String.valueOf(materias.size()));
+        }
+        
+        if (tvActividadesCount != null) {
+            tvActividadesCount.setText(String.valueOf(actividades.size()));
+        }
+    }
+    
+    @Override
+    public void onResume() {
+        super.onResume();
+        cargarEstadisticas();
     }
 }

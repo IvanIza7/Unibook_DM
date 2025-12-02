@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TEMA OSCURO (Definiciones originales) -->
+    
+    <!-- Fondo principal de la pantalla -->
+    <color name="colorBackground">#242223</color>
+    
+    <!-- Fondo de tarjetas, headers y contenedores secundarios -->
+    <color name="colorNeutralDark">#4A4A4A</color>
+    
+    <!-- Textos secundarios, líneas divisorias, iconos inactivos -->
+    <color name="colorNeutralLight">#EAEAEA</color>
+    
+    <!-- Texto principal (Claro sobre fondo oscuro) -->
+    <color name="colorTextOnDark">#F5F5F5</color>
+
+    <!-- Color de acento (Dorado/Naranja en Dark) -->
+    <color name="colorAccent">#CE9B50</color>
+
+    <!-- Colores compartidos -->
+    <color name="colorUniversityRed">#B22222</color>
+    <color name="colorUniversityRedBright">#DC143C</color>
+    <color name="colorUniversityBlue">#7638B9</color>
+    <color name="colorUniversityBlueBright">#17AAD1</color>
+</resources>

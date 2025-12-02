@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background Dark -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#242223"/> <!-- colorBackground (Dark) -->
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+
+    <!-- Diagonal Line or Split -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#242223"
+                android:centerColor="#CE9B50"
+                android:endColor="#CE9B50"
+                android:angle="45"
+                android:type="linear"/>
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+
+    <!-- Border -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="2dp" android:color="#CE9B50"/> <!-- colorAccent -->
+            <corners android:radius="16dp"/>
+        </shape>
+    </item>
+</layer-list>

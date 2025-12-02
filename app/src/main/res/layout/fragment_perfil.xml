@@ -182,31 +182,69 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvTemaClaro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tema Claro"
-                    android:textColor="@color/colorTextOnDark"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/nunito_regular"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:id="@+id/tvTemaOscuro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tema Oscuro"
-                    android:textColor="@color/colorTextOnDark"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/nunito_regular"
-                    android:layout_marginBottom="8dp" />
-
-                <View
+                <!-- Contenedor de selección de temas -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorNeutralLight"
-                    android:layout_marginVertical="10dp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="8dp">
+                    
+                    <!-- Opción Tema Claro -->
+                    <LinearLayout
+                        android:id="@+id/themeLightSelector"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginEnd="12dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="8dp">
+                        
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_theme_light_preview"
+                            android:layout_marginBottom="8dp"/>
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tema_claro"
+                            android:textColor="@color/colorTextOnDark"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/nunito_regular"/>
+                    </LinearLayout>
+                    
+                    <!-- Opción Tema Oscuro -->
+                    <LinearLayout
+                        android:id="@+id/themeDarkSelector"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginStart="12dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="8dp">
+                        
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_theme_dark_preview"
+                            android:layout_marginBottom="8dp"/>
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tema_oscuro"
+                            android:textColor="@color/colorTextOnDark"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/nunito_regular"/>
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
 
             <!-- Información -->
