@@ -8,8 +8,9 @@ public class Actividad {
     private String materiaIcono;
     private String fechaEntrega;
     private String horaEntrega;
+    private int porcentaje;
 
-    public Actividad(int id, String nombre, String materiaNombre, String materiaColor, String materiaIcono, String fechaEntrega, String horaEntrega) {
+    public Actividad(int id, String nombre, String materiaNombre, String materiaColor, String materiaIcono, String fechaEntrega, String horaEntrega, int porcentaje) {
         this.id = id;
         this.nombre = nombre;
         this.materiaNombre = materiaNombre;
@@ -17,6 +18,7 @@ public class Actividad {
         this.materiaIcono = materiaIcono;
         this.fechaEntrega = fechaEntrega;
         this.horaEntrega = horaEntrega;
+        this.porcentaje = porcentaje;
     }
 
     // Getters
@@ -27,4 +29,5 @@ public class Actividad {
     public String getMateriaIcono() { return materiaIcono; }
     public String getFechaEntrega() { return fechaEntrega; }
     public String getHoraEntrega() { return horaEntrega; }
+    public int getPorcentaje() { return porcentaje; }
 }

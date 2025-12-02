@@ -28,6 +28,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -47,7 +48,7 @@ public class ActivityFragment extends Fragment {
     private TextView txtFiltroMateria, txtFiltroAntiguedad;
 
     private String filtroMateriaActual;
-    private String ordenActual = "reciente"; // "reciente" o "materia"
+    private String ordenActual = "reciente"; // "reciente" o "porcentaje"
 
     public ActivityFragment() {
         // Required empty public constructor
@@ -141,15 +142,15 @@ public class ActivityFragment extends Fragment {
     private void showSortOrderMenu(View v) {
         PopupMenu popup = new PopupMenu(getContext(), v);
         popup.getMenu().add(Menu.NONE, 1, 1, "Más reciente");
-        popup.getMenu().add(Menu.NONE, 2, 2, "Por materia");
+        popup.getMenu().add(Menu.NONE, 2, 2, "Porcentaje");
 
         popup.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == 1) {
                 ordenActual = "reciente";
                 txtFiltroAntiguedad.setText("Más reciente");
             } else {
-                ordenActual = "materia";
-                txtFiltroAntiguedad.setText("Por materia");
+                ordenActual = "porcentaje";
+                txtFiltroAntiguedad.setText("Porcentaje");
             }
             filtrarYOrdenarLista();
             return true;
@@ -197,8 +198,8 @@ public class ActivityFragment extends Fragment {
                 } catch (ParseException e) {
                     return 0;
                 }
-            } else { // "materia"
-                return a1.getMateriaNombre().compareTo(a2.getMateriaNombre());
+            } else { // "porcentaje"
+                return Integer.compare(a2.getPorcentaje(), a1.getPorcentaje()); // Descendente
             }
         });
 

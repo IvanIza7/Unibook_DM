@@ -127,7 +127,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT a.id, a.titulo, a.fecha_fin, a.porcentaje, m.nombre, m.color " +
                 "FROM " + TABLA_ACTIVIDAD + " a " +
                 "INNER JOIN " + TABLA_MATERIA + " m ON a.materia_id = m.id " +
-                "ORDER BY a.id DESC";
+                "ORDER BY a.fecha_fin DESC";
 
         Cursor cursor = db.rawQuery(query, null);
 
@@ -167,10 +167,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<Actividad> actividades = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String query = "SELECT a." + ACTIVIDAD_ID + ", a." + ACTIVIDAD_TITULO + ", a." + ACTIVIDAD_FECHA_FIN + ", " +
+        String query = "SELECT a." + ACTIVIDAD_ID + ", a." + ACTIVIDAD_TITULO + ", a." + ACTIVIDAD_FECHA_FIN + ", a." + ACTIVIDAD_PORCENTAJE + ", " +
                 "m." + MATERIA_NOMBRE + ", m." + MATERIA_COLOR + ", m." + MATERIA_ICONO + " " +
                 "FROM " + TABLA_ACTIVIDAD + " a " +
-                "JOIN " + TABLA_MATERIA + " m ON a." + ACTIVIDAD_MATERIA_ID + " = m." + MATERIA_ID;
+                "JOIN " + TABLA_MATERIA + " m ON a." + ACTIVIDAD_MATERIA_ID + " = m." + MATERIA_ID + " ORDER BY a." + ACTIVIDAD_FECHA_FIN + " DESC";
 
         Cursor cursor = db.rawQuery(query, null);
 
@@ -182,6 +182,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String materiaColor = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_COLOR));
                 String materiaIcono = cursor.getString(cursor.getColumnIndexOrThrow(MATERIA_ICONO));
                 String fechaFinCompleta = cursor.getString(cursor.getColumnIndexOrThrow(ACTIVIDAD_FECHA_FIN));
+                int porcentaje = cursor.getInt(cursor.getColumnIndexOrThrow(ACTIVIDAD_PORCENTAJE));
 
                 String fecha = "";
                 String hora = "";
@@ -194,7 +195,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     }
                 }
 
-                actividades.add(new Actividad(id, nombre, materiaNombre, materiaColor, materiaIcono, fecha, hora));
+                actividades.add(new Actividad(id, nombre, materiaNombre, materiaColor, materiaIcono, fecha, hora, porcentaje));
             } while (cursor.moveToNext());
         }
         cursor.close();
