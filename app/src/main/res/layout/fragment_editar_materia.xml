@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/colorBackground">
+    android:background="@color/colorAgregar">
 
     <LinearLayout
         android:orientation="vertical"
@@ -62,6 +62,7 @@
                     android:id="@+id/inputNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorCuadros"
                     android:hint="@string/hint_nombre_materia"
                     android:inputType="textCapWords"
                     android:textColor="@color/colorTextOnDark"
@@ -87,6 +88,7 @@
                     android:id="@+id/inputProfesor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorCuadros"
                     android:hint="@string/hint_nombre_profesor"
                     android:inputType="textPersonName|textCapWords"
                     android:textColor="@color/colorTextOnDark"
@@ -302,14 +304,14 @@
 
                 <TextView
                     android:id="@+id/txtMateriaPrevia"
-                    android:text="Nombre de la materia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/nombre_materia_titulo"
                     android:textColor="@color/colorTextOnDark"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="12dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -320,7 +322,7 @@
                 android:backgroundTint="@color/colorAccent"
                 android:text="@string/btn_guardar_cambios"
                 android:textAllCaps="false"
-                android:textColor="@color/colorTextOnDark"
+                android:textColor="@color/colorHeader"
                 android:textSize="16sp"
                 app:cornerRadius="8dp"
                 app:iconGravity="textStart"

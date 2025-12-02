@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/colorBackground">
+    android:background="@color/colorAgregar"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:background="@drawable/bg_header_gradiente"
             android:gravity="center_vertical"
             android:paddingHorizontal="20dp"
-            android:paddingTop="24dp"
-            android:background="@drawable/bg_header_gradiente">
+            android:paddingTop="24dp">
 
             <ImageView
                 android:id="@+id/btnBack"
@@ -72,16 +72,17 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputTitulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Ej. Maqueta de volcanes"
+                    android:background="@color/colorCuadros"
+                    android:hint="@string/hint_actividad"
                     android:inputType="textCapSentences"
                     android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -95,17 +96,18 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputDescripcion"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
+                    android:background="@color/colorCuadros"
                     android:gravity="top|start"
-                    android:hint="Detalles..."
+                    android:hint="@string/hint_descripcion"
                     android:inputType="textMultiLine"
                     android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -113,9 +115,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="20dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -128,11 +130,11 @@
                     android:id="@+id/txtPorcentajeValor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="0%"
-                    android:textStyle="bold"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:layout_marginStart="8dp"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <SeekBar
@@ -143,7 +145,7 @@
                 android:max="100"
                 android:progress="0"
                 android:progressTint="@color/colorAccent"
-                android:thumbTint="@color/colorAccent"/>
+                android:thumbTint="@color/colorAccent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -156,9 +158,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="8dp">
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTomarFoto"
@@ -166,6 +168,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorNeutralLight"
                     android:text="@string/camara"
+                    android:textColor="@color/colorCamara"
                     app:icon="@android:drawable/ic_menu_camera" />
 
                 <ImageView
@@ -175,9 +178,9 @@
                     android:layout_marginStart="16dp"
                     android:background="@drawable/bg_round_card"
                     android:scaleType="centerCrop"
+                    android:src="@android:drawable/ic_menu_gallery"
                     android:visibility="gone"
-                    tools:visibility="visible"
-                    android:src="@android:drawable/ic_menu_gallery"/>
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <TextView
@@ -189,20 +192,21 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:endIconMode="custom"
                 app:endIconDrawable="@android:drawable/ic_menu_my_calendar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                app:endIconMode="custom">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/colorCuadros"
                     android:clickable="true"
                     android:focusable="false"
-                    android:hint="Seleccionar fecha"
+                    android:hint="@string/seleccionar_fecha"
                     android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -213,10 +217,10 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/btn_guardar_actividad"
-                app:cornerRadius="10dp"
                 android:backgroundTint="@color/colorAccent"
-                android:textColor="@color/colorTextOnDark" />
+                android:text="@string/btn_guardar_actividad"
+                android:textColor="@color/colorHeader"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
     </LinearLayout>

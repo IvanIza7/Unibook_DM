@@ -26,27 +26,27 @@
             android:id="@+id/txtNombreMateriaActHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Matemáticas"
+            android:text="@string/actividad_ejemplo"
+            android:textColor="@color/colorAccent"
             android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtTituloActividadHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Examen Parcial 1"
-            android:textSize="16sp"
+            android:text="@string/nombreAct_ejemplo"
             android:textColor="@color/colorTextOnDark"
-            android:textStyle="bold"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtFechaActividadHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Para: 12/10/2023"
-            android:textSize="12sp"
-            android:textColor="@color/colorNeutralLight"/>
+            android:text="@string/fecha_ejemplo"
+            android:textColor="@color/colorNeutralLight"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <TextView

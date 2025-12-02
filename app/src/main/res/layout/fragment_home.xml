@@ -27,36 +27,36 @@
                 android:id="@+id/txtUniBook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UniBook"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/app_name"
                 android:textColor="@color/colorAccent"
                 android:textSize="32sp"
-                android:fontFamily="@font/poppins_bold"
-                android:textStyle="bold"
-                android:layout_marginStart="24dp" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtInstruccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Organiza tus materias y actividades"
-                android:textColor="@color/colorNeutralLight"
-                android:textSize="16sp"
-                android:fontFamily="@font/nunito_regular"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="24dp" />
+                android:fontFamily="@font/nunito_regular"
+                android:text="@string/instruccion_principal"
+                android:textColor="@color/colorNeutralLight"
+                android:textSize="16sp" />
 
             <!-- Card Mis Materias -->
             <TextView
                 android:id="@+id/txtMateriasBanner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mis Materias"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/titulo_mis_materias"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"
-                android:fontFamily="@font/roboto_slab_bold"
-                android:textStyle="bold"
-                android:layout_marginTop="24dp"
-                android:layout_marginStart="24dp" />
+                android:textStyle="bold" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardMaterias"
@@ -82,28 +82,28 @@
                 android:id="@+id/btnAddMateria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginHorizontal="24dp"
-                android:text="+ Agregar materia"
-                android:textAllCaps="false"
-                android:textSize="16sp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/nunito_regular"
-                app:cornerRadius="16dp"
+                android:text="@string/btn_agregar_materia"
+                android:textAllCaps="false"
+                android:textColor="@color/colorHeader"
+                android:textSize="16sp"
                 app:backgroundTint="@color/colorUniversityRed"
-                android:textColor="@color/colorTextOnDark" />
+                app:cornerRadius="16dp" />
 
             <!-- Card Actividades -->
             <TextView
                 android:id="@+id/txtActividades"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Actividades Recientes"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/titulo_actividades_recientes"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"
-                android:fontFamily="@font/roboto_slab_bold"
-                android:textStyle="bold"
-                android:layout_marginTop="24dp"
-                android:layout_marginStart="24dp" />
+                android:textStyle="bold" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardActividades"
@@ -127,7 +127,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="16dp" />
+                android:layout_height="129dp" />
 
         </LinearLayout>
     </ScrollView>

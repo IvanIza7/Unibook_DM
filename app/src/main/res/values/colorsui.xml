@@ -3,6 +3,8 @@
     <!-- TEMA CLARO -->
 
     <color name="colorBackground">#FFFFFF</color>
+    <color name="colorAgregar">#F1F6FF</color>
+    <color name="colorCuadros">#F3F3F5</color>
     <color name="colorNeutralDark">#F5F5F5</color>
     <color name="colorNeutralLight">#757575</color>
     <color name="colorTextOnDark">#242223</color>
@@ -15,7 +17,8 @@
 
     <!-- Nuevos colores para ajustes solicitados -->
     <color name="colorBottomNavBackground">#FFFFFF</color>
-    <color name="colorHeader">#F5F5F5</color> <!-- Blanco fijo para headers -->
+    <color name="colorHeader">#F5F5F5</color>
+    <color name="colorCamara">#F5F5F5</color>
 
     <!-- Legacy -->
     <color name="colorBackgroundLight">#FFFFFF</color>

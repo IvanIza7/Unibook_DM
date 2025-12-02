@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/colorBackground">
+    android:background="@color/colorAgregar">
 
     <LinearLayout
         android:orientation="vertical"
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Editar Actividad"
+                android:text="@string/editar_actividad"
                 android:textColor="@color/colorHeader"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -81,7 +81,8 @@
                     android:id="@+id/inputTitulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Ej. Maqueta de volcanes"
+                    android:background="@color/colorCuadros"
+                    android:hint="@string/hint_actividad"
                     android:inputType="textCapSentences"
                     android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -104,8 +105,9 @@
                     android:id="@+id/inputDescripcion"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
+                    android:background="@color/colorCuadros"
                     android:gravity="top|start"
-                    android:hint="Detalles..."
+                    android:hint="@string/hint_descripcion"
                     android:inputType="textMultiLine"
                     android:textColor="@color/colorTextOnDark" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -166,6 +168,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorNeutralLight"
                     android:text="@string/camara"
+                    android:textColor="@color/colorCamara"
                     app:icon="@android:drawable/ic_menu_camera" />
 
                 <ImageView
@@ -198,12 +201,14 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputFecha"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android.clickable="true"
                     android.focusable="false"
                     android.hint="Seleccionar fecha"
-                    android.textColor="@color/colorTextOnDark" />
+                    android.textColor="@color/colorTextOnDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorCuadros"
+                    android:hint="@string/seleccionar_fecha" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -213,10 +218,10 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/btn_guardar_actividad"
-                app:cornerRadius="10dp"
                 android:backgroundTint="@color/colorAccent"
-                android:textColor="@color/colorTextOnDark" />
+                android:text="@string/btn_guardar_actividad"
+                android:textColor="@color/colorHeader"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
     </LinearLayout>

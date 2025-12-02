@@ -23,22 +23,22 @@
             android:id="@+id/btnBack"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:src="@drawable/ic_back"
-            app:tint="@color/colorTextOnDark"
-            android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
-            android:contentDescription="@string/descripcion_boton_regreso" />
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/descripcion_boton_regreso"
+            android:src="@drawable/ic_back"
+            app:tint="@color/colorHeader" />
 
         <TextView
             android:id="@+id/headerTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/titulo_actividades"
-            android:textSize="20sp"
-            android:textColor="@color/colorTextOnDark"
-            android:textStyle="bold"
+            android:layout_centerInParent="true"
             android:fontFamily="@font/roboto_slab_bold"
-            android:layout_centerInParent="true"/>
+            android:text="@string/titulo_actividades"
+            android:textColor="@color/colorHeader"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <!-- BLOQUE SUPERIOR CON FILTROS -->
@@ -143,6 +143,7 @@
     <!-- LISTA DE ACTIVIDADES (RECYCLERVIEW) -->
 
     <!-- BOTTOM NAVIGATION -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listActividades"
         android:layout_width="0dp"

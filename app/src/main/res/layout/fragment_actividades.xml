@@ -78,14 +78,14 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/nunito_regular"
                     android:text="@string/filtro_todas_materias"
-                    android:textColor="@color/colorTextOnDark"
+                    android:textColor="@color/colorHeader"
                     android:textSize="14sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_arrow_drop_down"
-                    app:tint="@color/colorTextOnDark" />
+                    app:tint="@color/colorHeader" />
             </LinearLayout>
 
             <Space
@@ -110,14 +110,14 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/nunito_regular"
                     android:text="@string/filtro_mas_reciente"
-                    android:textColor="@color/colorTextOnDark"
+                    android:textColor="@color/colorHeader"
                     android:textSize="14sp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_arrow_drop_down"
-                    app:tint="@color/colorTextOnDark" />
+                    app:tint="@color/colorHeader" />
             </LinearLayout>
 
         </LinearLayout>

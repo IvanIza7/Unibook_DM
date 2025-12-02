@@ -96,14 +96,14 @@
                             android:id="@+id/tvMateriasCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0"
+                            android:fontFamily="@font/roboto_slab_bold"
+                            android:text="@string/cero"
                             android:textColor="@color/colorAccent"
                             android:textSize="40sp"
                             android:textStyle="bold"
-                            android:fontFamily="@font/roboto_slab_bold"
-                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/tvMateriasLabel"
@@ -141,21 +141,21 @@
                             android:id="@+id/tvActividadesCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0"
+                            android:fontFamily="@font/roboto_slab_bold"
+                            android:text="@string/cero"
                             android:textColor="@color/colorAccent"
                             android:textSize="40sp"
                             android:textStyle="bold"
-                            android:fontFamily="@font/roboto_slab_bold"
-                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
                             android:id="@+id/tvActividadesLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/nunito_regular"
-                            android:text="@string/titulo_actividades"
+                            android:text="@string/mis_actividades"
                             android:textColor="@color/colorTextOnDark"
                             android:textSize="16sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -291,7 +291,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_regular"
-                        android:text="1.0.0"
+                        android:text="@string/num_version"
                         android:textColor="@color/colorTextOnDark"
                         android:textSize="16sp" />
                 </LinearLayout>

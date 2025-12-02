@@ -37,21 +37,21 @@
                     android:id="@+id/txtPerfil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Perfil"
+                    android:fontFamily="@font/roboto_slab_bold"
+                    android:text="@string/titulo_perfil"
                     android:textColor="@color/colorAccent"
                     android:textSize="26sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/roboto_slab_bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtConfig"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Configuración y ajustes"
-                    android:textColor="@color/colorNeutralLight"
-                    android:textSize="14sp"
+                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/nunito_regular"
-                    android:layout_marginTop="4dp" />
+                    android:text="@string/config"
+                    android:textColor="@color/colorNeutralLight"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <!-- ESTADÍSTICAS -->
@@ -59,14 +59,14 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estadísticas"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/titulo_estadisticas"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/roboto_slab_bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="8dp"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -109,14 +109,14 @@
                             android:id="@+id/tvMateriasLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Mis materias"
+                            android:fontFamily="@font/nunito_regular"
+                            android:text="@string/titulo_mis_materias"
                             android:textColor="@color/colorTextOnDark"
                             android:textSize="16sp"
-                            android:fontFamily="@font/nunito_regular"
-                            app:layout_constraintTop_toBottomOf="@id/tvMateriasCount"
-                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvMateriasCount" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -153,14 +153,14 @@
                             android:id="@+id/tvActividadesLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Actividades"
+                            android:fontFamily="@font/nunito_regular"
+                            android:text="@string/mis_actividades"
                             android:textColor="@color/colorTextOnDark"
                             android:textSize="16sp"
-                            android:fontFamily="@font/nunito_regular"
-                            app:layout_constraintTop_toBottomOf="@id/tvActividadesCount"
-                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvActividadesCount" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -230,13 +230,13 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:text="Versión"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="@string/version"
                         android:textColor="@color/colorTextOnDark"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/nunito_regular"/>
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/txtVersion"

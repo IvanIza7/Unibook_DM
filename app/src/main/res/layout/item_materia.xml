@@ -29,16 +29,18 @@
             android:id="@+id/txtNombreMateria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cálculo Diferencial"
+            android:text="@string/item_materiaNom"
+            android:textColor="@color/colorTextOnDark"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorTextOnDark"/> <TextView
-        android:id="@+id/txtProfesorMateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Prof. Desconocido"
-        android:textSize="14sp"
-        android:textColor="@color/colorNeutralLight"/>
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtProfesorMateria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_profesorNom"
+            android:textColor="@color/colorNeutralLight"
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>

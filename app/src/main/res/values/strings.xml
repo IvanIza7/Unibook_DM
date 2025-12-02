@@ -68,7 +68,10 @@
     <string name="evidencia_foto">Evidencia (Foto)</string>
     <string name="camara">Cámara</string>
     <string name="fecha_entrega">Fecha de entrega</string>
-    <string name="btn_guardar_actividad">Guardar Actividad"</string>
+    <string name="btn_guardar_actividad">Guardar Actividad</string>
+    <string name="hint_actividad">Ej. Maqueta de volcanes</string>
+    <string name="hint_descripcion">Detalles...</string>
+    <string name="seleccionar_fecha">Seleccionar fecha</string>
 
     <!-- Actividad Perfil -->
     <string name="autor1">Iván Alberto Izaguirre Vázquez</string>
@@ -82,4 +85,18 @@
     <string name="tema_claro">Tema Claro</string>
     <string name="tema_oscuro">Tema Oscuro</string>
 
+    <string name="editar_actividad">Editar Actividad</string>
+    <string name="nombre_actividad">Nombre de la Actividad</string>
+    <string name="nombre_materia_titulo">Nombre de la Materia</string>
+    <string name="fecha">24/12</string>
+    <string name="hora">11:59 PM</string>
+    <string name="porcentaje">75</string>
+    <string name="cero">0</string>
+    <string name="num_version">1.0.0</string>
+    <string name="actividad_ejemplo">Matemáticas</string>
+    <string name="nombreAct_ejemplo">Examen Parcial 1</string>
+    <string name="fecha_ejemplo">Para: 12/12/2025</string>
+    <string name="item_materiaNom">Cálculo Diferencial</string>
+    <string name="item_profesorNom">Prof. Desconocido</string>
+    <string name="mis_actividades">Mis Actividades</string>
 </resources>
