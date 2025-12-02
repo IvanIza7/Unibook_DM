@@ -1,32 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TEMA CLARO (Redefinición usando los colores Light pero con nombres genéricos) -->
+    <!-- TEMA CLARO -->
 
-    <!-- Fondo principal de la pantalla (Blanco) -->
     <color name="colorBackground">#FFFFFF</color>
-
-    <!-- Fondo de tarjetas y headers (Gris muy claro o blanco humo para contrastar sutilmente) -->
-    <!-- En Dark era #4A4A4A. En Light usaremos algo suave. -->
     <color name="colorNeutralDark">#F5F5F5</color>
-
-    <!-- Textos secundarios (Gris oscuro) -->
-    <!-- En Dark era #EAEAEA (claro). En Light debe ser oscuro. -->
     <color name="colorNeutralLight">#757575</color>
-
-    <!-- Texto principal (Oscuro sobre fondo claro) -->
-    <!-- En Dark era #F5F5F5 (Blanco). En Light debe ser oscuro, casi negro o el morado oscuro de tu paleta -->
     <color name="colorTextOnDark">#242223</color>
-
-    <!-- Color de acento (Azul/Morado en Light) -->
     <color name="colorAccent">#5578FF</color>
 
-    <!-- Colores compartidos -->
     <color name="colorUniversityRed">#B22222</color>
     <color name="colorUniversityRedBright">#DC143C</color>
     <color name="colorUniversityBlue">#7638B9</color>
     <color name="colorUniversityBlueBright">#17AAD1</color>
 
-    <!-- Colores específicos del tema claro (Legacy, por si acaso algún layout viejo los llama) -->
+    <!-- Nuevos colores para ajustes solicitados -->
+    <color name="colorBottomNavBackground">#FFFFFF</color>
+    <color name="colorHeaderText">#FFFFFF</color> <!-- Blanco fijo para headers -->
+
+    <!-- Legacy -->
     <color name="colorBackgroundLight">#FFFFFF</color>
     <color name="colorNeutral">#B761FF</color>
     <color name="colorNeutralL">#B43AB0</color>

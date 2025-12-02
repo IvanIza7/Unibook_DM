@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private View indicatorHome, indicatorBook, indicatorUser;
 
     // Colores del bottom navigation
-    private final int COLOR_NORMAL = Color.parseColor("#B7B7B7"); // gris claro
-    private final int COLOR_SELECTED = Color.parseColor("#A0A0A0"); // gris más oscuro
+    private final int COLOR_NORMAL = Color.TRANSPARENT; // Ahora transparente
+    private final int COLOR_SELECTED = Color.TRANSPARENT; // Ahora transparente
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +78,15 @@ public class MainActivity extends AppCompatActivity {
         tabPerfil.setBackgroundColor(COLOR_NORMAL);
 
         // RESET: animaciones y líneas
-        lottieHome.pauseAnimation();
-        lottieBook.pauseAnimation();
-        lottieUser.pauseAnimation();
+        // Cancelamos y reseteamos al frame 0 para evitar que se queden congeladas
+        lottieHome.cancelAnimation();
+        lottieHome.setProgress(0f);
+
+        lottieBook.cancelAnimation();
+        lottieBook.setProgress(0f);
+
+        lottieUser.cancelAnimation();
+        lottieUser.setProgress(0f);
 
         indicatorHome.setVisibility(View.GONE);
         indicatorBook.setVisibility(View.GONE);
@@ -91,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         indicator.setVisibility(View.VISIBLE);
 
         // Reproducir animación
-        lottie.setMinAndMaxFrame(15, 60);  // ajusta según tu animación
+        lottie.setMinAndMaxFrame(0, 60);  // ajusta según tu animación
         lottie.playAnimation();
     }
 
