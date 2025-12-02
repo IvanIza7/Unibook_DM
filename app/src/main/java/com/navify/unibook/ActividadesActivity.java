@@ -69,7 +69,7 @@ public class ActividadesActivity extends AppCompatActivity {
         btnFiltroAntiguedad = findViewById(R.id.btnFiltroAntiguedad);
         txtFiltroMateria = findViewById(R.id.txtFiltroMateria);
         txtFiltroAntiguedad = findViewById(R.id.txtFiltroAntiguedad);
-        btnBack = findViewById(R.id.btnBack1);
+        btnBack = findViewById(R.id.btnBack);
     }
 
     private void setupListeners() {

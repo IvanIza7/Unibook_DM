@@ -1,6 +1,5 @@
 package com.navify.unibook.fragments;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -64,7 +63,7 @@ public class EditarMateria extends Fragment {
         etProfesor = view.findViewById(R.id.inputProfesor);
         previewIconImage = view.findViewById(R.id.pvwIcon);
         previewText = view.findViewById(R.id.txtMateriaPrevia);
-        btnBack = view.findViewById(R.id.btnBack1);
+        btnBack = view.findViewById(R.id.btnBack);
 
         // Cargar datos si existe ID
         if (materiaId != -1) {

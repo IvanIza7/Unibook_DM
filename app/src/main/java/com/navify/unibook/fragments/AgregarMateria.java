@@ -53,7 +53,7 @@ public class AgregarMateria extends Fragment {
         etProfesor = view.findViewById(R.id.inputProfesor);
         previewIconImage = view.findViewById(R.id.pvwIcon);
         previewText = view.findViewById(R.id.txtMateriaPrevia);
-        btnBack = view.findViewById(R.id.btnBack1);
+        btnBack = view.findViewById(R.id.btnBack);
 
         // 2. CONFIGURACIÓN INICIAL DE VISTA PREVIA
         actualizarVistaPrevia();

@@ -66,7 +66,7 @@ public class AgregarActividad extends Fragment {
         txtPorcentajeValor = view.findViewById(R.id.txtPorcentajeValor);
         btnTomarFoto = view.findViewById(R.id.btnTomarFoto);
         imgPreviewFoto = view.findViewById(R.id.imgPreviewFoto);
-        btnBack = view.findViewById(R.id.btnBack1);
+        btnBack = view.findViewById(R.id.btnBack);
 
         edtFecha.setOnClickListener(v -> mostrarCalendario());
 
@@ -100,7 +100,7 @@ public class AgregarActividad extends Fragment {
         view.findViewById(R.id.btnGuardarActividad).setOnClickListener(v -> guardarActividad());
 
         btnBack.setOnClickListener(v -> {
-            if (getParentFragment() != null)
+            if (getParentFragmentManager() != null)
                 getParentFragmentManager().popBackStack();
         });
     }
