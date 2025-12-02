@@ -71,4 +71,14 @@
     <string name="fecha_entrega">Fecha de entrega</string>
     <string name="btn_guardar_actividad">Guardar Actividad"</string>
 
+    <!-- Actividad Perfil -->
+    <string name="autor1">Iván Alberto Izaguirre Vázquez</string>
+    <string name="autor2">Erick Hernandez Trejo</string>
+    <string name="autor3">Teodoro Juan de Dios Ramos García</string>
+    <string name="autor4">Emilio Tomas Peralta Valdez</string>
+
+    <string name="version">Versión: </string>
+    <string name="config">Configuración y ajustes</string>
+    <string name="apariencia">Apariencia</string>
+
 </resources>
