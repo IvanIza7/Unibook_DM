@@ -25,14 +25,14 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_back"
-                app:tint="@color/colorHeaderText" />
+                app:tint="@color/colorHeader" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/titulo_agregar_actividad"
-                android:textColor="@color/colorHeaderText"
+                android:textColor="@color/colorHeader"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -162,11 +162,11 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTomarFoto"
-                    android:layout_width="wrap_content"
+                    android:layout_width="284dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorNeutralLight"
                     android:text="@string/camara"
-                    app:icon="@android:drawable/ic_menu_camera"
-                    android:backgroundTint="@color/colorNeutralLight"/>
+                    app:icon="@android:drawable/ic_menu_camera" />
 
                 <ImageView
                     android:id="@+id/imgPreviewFoto"

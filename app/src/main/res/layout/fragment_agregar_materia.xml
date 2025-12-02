@@ -25,7 +25,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_back"
-                app:tint="@color/colorHeaderText" />
+                app:tint="@color/colorHeader" />
 
             <TextView
                 android:id="@+id/txtMateria"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/titulo_agregar_materia"
-                android:textColor="@color/colorHeaderText"
+                android:textColor="@color/colorHeader"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -222,7 +222,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#FF5252" />
+                        android:backgroundTint="#E8F5E9" />
 
                     <View
                         android:id="@+id/color2"
@@ -230,7 +230,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#4CAF50" />
+                        android:backgroundTint="#E3F2FD" />
 
                     <View
                         android:id="@+id/color3"
@@ -238,7 +238,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#2196F3" />
+                        android:backgroundTint="#FFF3E0" />
 
                     <View
                         android:id="@+id/color4"
@@ -246,7 +246,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#FFC107" />
+                        android:backgroundTint="#F3E5F5" />
 
                     <View
                         android:id="@+id/color5"
@@ -254,7 +254,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#9C27B0" />
+                        android:backgroundTint="#E0F7FA" />
 
                     <View
                         android:id="@+id/color6"
@@ -262,7 +262,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#F875AA" />
+                        android:backgroundTint="#FFF9C4" />
 
                     <View
                         android:id="@+id/color7"
@@ -270,7 +270,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#F4F754" />
+                        android:backgroundTint="#FFF9C4" />
                 </LinearLayout>
             </HorizontalScrollView>
 

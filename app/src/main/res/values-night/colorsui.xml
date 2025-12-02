@@ -13,6 +13,8 @@
     
     <!-- Texto principal (Claro sobre fondo oscuro) -->
     <color name="colorTextOnDark">#F5F5F5</color>
+    <color name="colorHeader">#F5F5F5</color>
+
 
     <!-- Color de acento (Dorado/Naranja en Dark) -->
     <color name="colorAccent">#CE9B50</color>
@@ -22,4 +24,7 @@
     <color name="colorUniversityRedBright">#DC143C</color>
     <color name="colorUniversityBlue">#7638B9</color>
     <color name="colorUniversityBlueBright">#17AAD1</color>
+
+    <color name="gradiente_inicio">#1565C0</color>
+    <color name="gradiente_centro">#0D47A1</color>
 </resources>

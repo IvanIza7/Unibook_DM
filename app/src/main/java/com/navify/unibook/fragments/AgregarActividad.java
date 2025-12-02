@@ -1,7 +1,14 @@
 package com.navify.unibook.fragments;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +19,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
@@ -22,9 +32,14 @@ import com.navify.unibook.DatabaseHelper;
 import com.navify.unibook.Materia;
 import com.navify.unibook.R;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class AgregarActividad extends Fragment {
     private TextInputEditText edtTitulo, edtFecha, edtDescripcion;
@@ -40,7 +55,19 @@ public class AgregarActividad extends Fragment {
     private List<String> listaNombresMaterias = new ArrayList<>();
 
     private int porcentajeSeleccionado = 0;
-    private String uriFoto = "";
+    private String currentPhotoPath = "";
+    private Uri photoUri;
+
+    private final ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    mostrarFotoEnPreview();
+                } else {
+                    Toast.makeText(getContext(), "Foto cancelada", Toast.LENGTH_SHORT).show();
+                }
+            }
+    );
 
     public AgregarActividad() {
 
@@ -88,12 +115,7 @@ public class AgregarActividad extends Fragment {
             }
         });
 
-        btnTomarFoto.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Tomar Foto", Toast.LENGTH_SHORT).show();
-
-            imgPreviewFoto.setVisibility(View.VISIBLE);
-            uriFoto = "ruta_simulada";
-        });
+        btnTomarFoto.setOnClickListener(v -> abrirCamara());
 
         cargarMateriasenSpinner();
 
@@ -103,6 +125,53 @@ public class AgregarActividad extends Fragment {
             if (getParentFragmentManager() != null)
                 getParentFragmentManager().popBackStack();
         });
+    }
+
+    private void abrirCamara() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        if (takePictureIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = crearArchivoImagen();
+            } catch (IOException ex) {
+                Toast.makeText(getContext(), "Error creando archivo", Toast.LENGTH_SHORT).show();
+            }
+
+            if (photoFile != null) {
+                photoUri = FileProvider.getUriForFile(requireContext(),
+                        "com.navify.unibook.fileprovider",
+                        photoFile);
+
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                cameraLauncher.launch(takePictureIntent);
+            }
+        } else {
+            Toast.makeText(getContext(), "No se encontro app de camara", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private File crearArchivoImagen() throws IOException {
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        String imageFileName = "JPEG_" + timestamp + "_";
+
+        File storageDir = requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,
+                ".jpg",
+                storageDir
+        );
+
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void mostrarFotoEnPreview() {
+        imgPreviewFoto.setVisibility(View.VISIBLE);
+
+        Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath);
+
+        imgPreviewFoto.setImageBitmap(bitmap);
     }
 
     private void mostrarCalendario() {
@@ -160,7 +229,7 @@ public class AgregarActividad extends Fragment {
                 descripcion,
                 "HOY",
                 porcentajeSeleccionado,
-                uriFoto,
+                currentPhotoPath,
                 fecha,
                 idMateria);
 

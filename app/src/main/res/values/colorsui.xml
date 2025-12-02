@@ -15,7 +15,7 @@
 
     <!-- Nuevos colores para ajustes solicitados -->
     <color name="colorBottomNavBackground">#FFFFFF</color>
-    <color name="colorHeaderText">#FFFFFF</color> <!-- Blanco fijo para headers -->
+    <color name="colorHeader">#F5F5F5</color> <!-- Blanco fijo para headers -->
 
     <!-- Legacy -->
     <color name="colorBackgroundLight">#FFFFFF</color>
