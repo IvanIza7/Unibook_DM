@@ -3,6 +3,7 @@ package com.navify.unibook;
 public class Actividad {
     private int id;
     private String nombre;
+    private String descripcion;
     private String materiaNombre;
     private String materiaColor;
     private String materiaIcono;
@@ -24,10 +25,14 @@ public class Actividad {
     // Getters
     public int getId() { return id; }
     public String getNombre() { return nombre; }
+    public String getDescripcion() { return descripcion; }
     public String getMateriaNombre() { return materiaNombre; }
     public String getMateriaColor() { return materiaColor; }
     public String getMateriaIcono() { return materiaIcono; }
     public String getFechaEntrega() { return fechaEntrega; }
     public String getHoraEntrega() { return horaEntrega; }
     public int getPorcentaje() { return porcentaje; }
+
+    // Setters
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 }

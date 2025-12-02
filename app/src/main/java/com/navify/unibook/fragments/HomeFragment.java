@@ -95,6 +95,14 @@ public class HomeFragment extends Fragment implements SensorEventListener {
                 abrirFragmentEditarMateria(materiaSeleccionada.getId());
             }
         });
+
+        listActividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ActividadHome actividadSeleccionada = (ActividadHome) parent.getItemAtPosition(position);
+                abrirFragmentEditarActividad(actividadSeleccionada.getId());
+            }
+        });
     }
 
     private void abrirFragmentAgregarMateria() {
@@ -126,6 +134,20 @@ public class HomeFragment extends Fragment implements SensorEventListener {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
         transaction.replace(R.id.fragmentContainer, new AgregarActividad());
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+    }
+
+    private void abrirFragmentEditarActividad(int actividadId) {
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        
+        EditarActividad fragment = new EditarActividad();
+        Bundle args = new Bundle();
+        args.putInt("actividad_id", actividadId);
+        fragment.setArguments(args);
+
+        transaction.replace(R.id.fragmentContainer, fragment);
         transaction.addToBackStack(null);
 
         transaction.commit();

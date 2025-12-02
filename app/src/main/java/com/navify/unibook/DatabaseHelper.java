@@ -120,6 +120,53 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return resultado;
     }
 
+    public int actualizarActividad(int id, String titulo, String desc, int porcentaje, String uriFoto, String fechaFin, int idMateria) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(ACTIVIDAD_TITULO, titulo);
+        cv.put(ACTIVIDAD_DESCRIPCION, desc);
+        cv.put(ACTIVIDAD_PORCENTAJE, porcentaje);
+        cv.put(ACTIVIDAD_FOTO_URI, uriFoto);
+        cv.put(ACTIVIDAD_FECHA_FIN, fechaFin);
+        cv.put(ACTIVIDAD_MATERIA_ID, idMateria);
+        int resultado = db.update(TABLA_ACTIVIDAD, cv, ACTIVIDAD_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+        return resultado;
+    }
+
+    public Actividad getActividad(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLA_ACTIVIDAD, null, ACTIVIDAD_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            String titulo = cursor.getString(cursor.getColumnIndexOrThrow(ACTIVIDAD_TITULO));
+            String descripcion = cursor.getString(cursor.getColumnIndexOrThrow(ACTIVIDAD_DESCRIPCION));
+            String fechaFin = cursor.getString(cursor.getColumnIndexOrThrow(ACTIVIDAD_FECHA_FIN));
+            int porcentaje = cursor.getInt(cursor.getColumnIndexOrThrow(ACTIVIDAD_PORCENTAJE));
+            int materiaId = cursor.getInt(cursor.getColumnIndexOrThrow(ACTIVIDAD_MATERIA_ID));
+            String fotoUri = cursor.getString(cursor.getColumnIndexOrThrow(ACTIVIDAD_FOTO_URI));
+
+            Materia materia = obtenerMateria(materiaId);
+
+            String fecha = "";
+            String hora = "";
+
+            if (fechaFin != null && !fechaFin.isEmpty()) {
+                String[] parts = fechaFin.split(" ", 2);
+                fecha = parts[0];
+                if (parts.length > 1) {
+                    hora = parts[1];
+                }
+            }
+
+            cursor.close();
+            Actividad actividad = new Actividad(id, titulo, materia.getNombre(), materia.getColor(), materia.getIcono(), fecha, hora, porcentaje);
+            actividad.setDescripcion(descripcion);
+            return actividad;
+        }
+        return null;
+    }
+
+
     public List<ActividadHome> obtenerActividadesRecientes() {
         List<ActividadHome> lista = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
