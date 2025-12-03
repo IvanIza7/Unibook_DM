@@ -53,118 +53,120 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
-            <!-- Estadísticas -->
-            <TextView
-                android:id="@+id/textView2"
+            <!-- Estadísticas CARD -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/roboto_slab_bold"
-                android:text="@string/titulo_estadisticas"
-                android:textColor="@color/colorAccent"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
                 android:layout_marginBottom="16dp"
-                android:weightSum="2">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/colorNeutralDark">
 
-                <!-- Materias -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginEnd="8dp"
-                    android:padding="8dp"
-                    app:cardBackgroundColor="@color/colorNeutralDark">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/containerMaterias"
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="@font/roboto_slab_bold"
+                        android:text="@string/titulo_estadisticas"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorNeutralDark">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-                        <TextView
-                            android:id="@+id/tvMateriasCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_slab_bold"
-                            android:text="@string/cero"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="40sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        <!-- Materias -->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/containerMaterias"
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_round_card"
+                            android:backgroundTint="@color/colorBackground">
 
-                        <TextView
-                            android:id="@+id/tvMateriasLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_regular"
-                            android:text="@string/titulo_mis_materias"
-                            android:textColor="@color/colorTextOnDark"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tvMateriasCount" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </com.google.android.material.card.MaterialCardView>
+                            <TextView
+                                android:id="@+id/tvMateriasCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_slab_bold"
+                                android:text="@string/cero"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="40sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@id/tvMateriasLabel"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="packed"/>
 
-                <!-- Actividades -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginStart="8dp"
-                    android:padding="8dp"
-                    app:cardBackgroundColor="@color/colorNeutralDark">
+                            <TextView
+                                android:id="@+id/tvMateriasLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:text="@string/titulo_mis_materias"
+                                android:textColor="@color/colorTextOnDark"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvMateriasCount" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/containerActividades"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/colorNeutralDark">
+                        <!-- Actividades -->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/containerActividades"
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_round_card"
+                            android:backgroundTint="@color/colorBackground">
 
-                        <TextView
-                            android:id="@+id/tvActividadesCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_slab_bold"
-                            android:text="@string/cero"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="40sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            <TextView
+                                android:id="@+id/tvActividadesCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_slab_bold"
+                                android:text="@string/cero"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="40sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@id/tvActividadesLabel"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="packed"/>
 
-                        <TextView
-                            android:id="@+id/tvActividadesLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/nunito_regular"
-                            android:text="@string/mis_actividades"
-                            android:textColor="@color/colorTextOnDark"
-                            android:textSize="16sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tvActividadesCount" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvActividadesLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:text="@string/mis_actividades"
+                                android:textColor="@color/colorTextOnDark"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvActividadesCount" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Apariencia CARD -->
             <com.google.android.material.card.MaterialCardView
@@ -214,11 +216,24 @@
                             android:background="?attr/selectableItemBackground"
                             android:padding="8dp">
                             
-                            <View
+                            <FrameLayout
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:background="@drawable/bg_theme_light_preview"
-                                android:layout_marginBottom="8dp"/>
+                                android:background="@drawable/bg_theme_light_gradient"
+                                android:layout_marginBottom="8dp">
+
+                                <ImageView
+                                    android:id="@+id/ivCheckLight"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/ic_check"
+                                    app:tint="@color/colorAccent"
+                                    android:background="@drawable/bg_round_card"
+                                    android:backgroundTint="@color/colorBackground"
+                                    android:padding="6dp"
+                                    android:layout_gravity="center"
+                                    android:visibility="invisible"/>
+                            </FrameLayout>
                                 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -241,11 +256,24 @@
                             android:background="?attr/selectableItemBackground"
                             android:padding="8dp">
                             
-                            <View
+                            <FrameLayout
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
-                                android:background="@drawable/bg_theme_dark_preview"
-                                android:layout_marginBottom="8dp"/>
+                                android:background="@drawable/bg_theme_dark_gradient"
+                                android:layout_marginBottom="8dp">
+
+                                <ImageView
+                                    android:id="@+id/ivCheckDark"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:src="@drawable/ic_check"
+                                    app:tint="@color/colorAccent"
+                                    android:background="@drawable/bg_round_card"
+                                    android:backgroundTint="@color/colorBackground"
+                                    android:padding="6dp"
+                                    android:layout_gravity="center"
+                                    android:visibility="invisible"/>
+                            </FrameLayout>
                                 
                             <TextView
                                 android:layout_width="wrap_content"

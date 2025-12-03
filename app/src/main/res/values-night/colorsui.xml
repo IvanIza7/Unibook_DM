@@ -5,7 +5,7 @@
     <color name="colorBackground">#242223</color>
     <color name="colorNeutralDark">#4A4A4A</color>
     <color name="colorNeutralLight">#EAEAEA</color>
-    <color name="colorTextOnDark">#F5F5F5</color>
+    <color name="colorTextOnDark">#F5F5F5</color> <!-- Texto claro en oscuro -->
 
     <color name="colorAccent">#CE9B50</color>
 
@@ -23,6 +23,9 @@
     <color name="colorAgregar">#242223</color>
     <color name="colorCuadros">#4A4A4A</color>
     <color name="colorCamara">#CE9B50</color>
+    
+    <!-- Color Success añadido para arreglar error -->
+    <color name="colorSuccess">#66BB6A</color>
 
     <!-- Colores Pastel Materias (Oscuro - Matizados) -->
     <color name="colorPastelGreen">#949C95</color>
@@ -32,6 +35,9 @@
     <color name="colorPastelPink">#C2AFB5</color>
     <color name="colorPastelCyan">#ACBDC0</color>
     <color name="colorPastelYellow">#C5C097</color>
+
+    <!-- Color de texto sobre tarjetas pastel (Siempre oscuro para contraste) -->
+    <color name="colorTextOnPastel">#242223</color>
 
     <!-- Borde tarjetas selección -->
     <color name="colorCardBorder">#CE9B50</color>

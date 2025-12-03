@@ -290,20 +290,23 @@
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorNeutralDark"> <ImageView
-                android:id="@+id/pvwIcon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
                 android:background="@drawable/bg_round_card"
-                android:backgroundTint="@color/colorPastelGreen"
-                android:padding="6dp"
-                android:src="@drawable/ic_book"
-                app:tint="@color/colorAccent" />
+                android:backgroundTint="@color/colorPastelGreen"> 
+
+                <ImageView
+                    android:id="@+id/pvwIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_round_card"
+                    android:backgroundTint="@color/colorBackground"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_book"
+                    app:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/txtMateriaPrevia"
                     android:text="Nombre de la materia"
-                    android:textColor="@color/colorTextOnDark"
+                    android:textColor="@color/colorTextOnPastel"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginStart="12dp"

@@ -306,7 +306,7 @@
                 <TextView
                     android:id="@+id/txtMateriaPrevia"
                     android:text="Nombre de la materia"
-                    android:textColor="@color/colorTextOnDark"
+                    android:textColor="@color/colorTextOnPastel"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginStart="12dp"

@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_materiaNom"
-            android:textColor="@color/colorTextOnDark"
+            android:textColor="@color/colorTextOnPastel"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -45,7 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/item_profesorNom"
-            android:textColor="@color/colorNeutralLight"
+            android:textColor="@color/colorTextOnPastel"
+            android:alpha="0.8"
             android:textSize="14sp" />
     </LinearLayout>
 

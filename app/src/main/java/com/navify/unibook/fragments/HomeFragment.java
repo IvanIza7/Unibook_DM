@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
@@ -37,13 +38,15 @@ public class HomeFragment extends Fragment implements SensorEventListener {
     private FloatingActionButton fabAdd;
     private ListView listMaterias;
     private ListView listActividades;
+    // Eliminada la referencia a LottieAnimationView
+    private TextView txtUniBook; // Opcional si quieres manipularlo, si no, no es necesario referenciarlo.
     private DatabaseHelper db;
 
     // Variables para el sensor
     private SensorManager sensorManager;
     private Sensor proximitySensor;
     private boolean isSensorRegistered = false;
-    private boolean isSensorReady = false; // Evita activaciones inmediatas al reanudar
+    private boolean isSensorReady = false;
 
     public HomeFragment() {
 
@@ -63,6 +66,9 @@ public class HomeFragment extends Fragment implements SensorEventListener {
         fabAdd = view.findViewById(R.id.fabAdd);
         listMaterias = view.findViewById(R.id.listMaterias);
         listActividades = view.findViewById(R.id.listActividades);
+        txtUniBook = view.findViewById(R.id.txtUniBook);
+
+        // Se eliminó la configuración de la animación Lottie
 
         // Inicializar sensor
         if (getActivity() != null) {
@@ -86,11 +92,9 @@ public class HomeFragment extends Fragment implements SensorEventListener {
             }
         });
 
-        // Agregar Listener a la lista de materias para editar
         listMaterias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Obtener el objeto materia de la posición seleccionada
                 Materia materiaSeleccionada = (Materia) parent.getItemAtPosition(position);
                 abrirFragmentEditarMateria(materiaSeleccionada.getId());
             }
@@ -104,6 +108,8 @@ public class HomeFragment extends Fragment implements SensorEventListener {
             }
         });
     }
+
+    // Eliminado método configurarAnimacionTitulo()
 
     private void abrirFragmentAgregarMateria() {
         if (!isAdded()) return;
@@ -161,18 +167,16 @@ public class HomeFragment extends Fragment implements SensorEventListener {
             cargarActividades();
         }
 
-        // Registrar sensor
         if (sensorManager != null && proximitySensor != null && !isSensorRegistered) {
             sensorManager.registerListener(this, proximitySensor, SensorManager.SENSOR_DELAY_NORMAL);
             isSensorRegistered = true;
-            isSensorReady = false; // Resetear estado para evitar bucle si se cubre el sensor
+            isSensorReady = false;
         }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        // Desregistrar sensor
         if (sensorManager != null && isSensorRegistered) {
             sensorManager.unregisterListener(this);
             isSensorRegistered = false;
@@ -199,15 +203,11 @@ public class HomeFragment extends Fragment implements SensorEventListener {
     }
 
     public void cargarActividades() {
-        // 1. Evitar crash si el contexto es nulo (el fragment se cerró)
         if (getContext() == null) return;
-
-        // 2. Inicializar DB si es nula
         if (db == null) db = new DatabaseHelper(getContext());
 
         List<ActividadHome> listaActividades = db.obtenerActividadesRecientes();
 
-        // 3. Verificar que la lista no sea nula
         if (listaActividades != null) {
             ActividadAdapterHome adapter = new ActividadAdapterHome(getContext(), listaActividades);
             listActividades.setAdapter(adapter);
@@ -215,7 +215,6 @@ public class HomeFragment extends Fragment implements SensorEventListener {
             if (listaActividades.size() > 3) {
                 limitarAlturaListView(listActividades, 3);
             } else {
-                // Usar Math.min para evitar errores de índice
                 limitarAlturaListView(listActividades, Math.max(1, listaActividades.size()));
             }
         }
@@ -269,12 +268,10 @@ public class HomeFragment extends Fragment implements SensorEventListener {
             boolean isNear = distance < maxRange;
 
             if (!isNear) {
-                // Si el sensor está lejos, estamos listos para detectar acercamiento
                 isSensorReady = true;
             } else if (isSensorReady) {
-                // Si está cerca y estábamos listos, ejecutamos la acción
                 abrirFragmentAgregarMateria();
-                isSensorReady = false; // Evitar múltiples activaciones seguidas
+                isSensorReady = false;
             }
         }
     }

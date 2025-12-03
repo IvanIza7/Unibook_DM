@@ -1,16 +1,17 @@
 package com.navify.unibook.fragments;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.fragment.app.Fragment;
 
 import com.navify.unibook.DatabaseHelper;
 import com.navify.unibook.R;
@@ -26,6 +27,8 @@ public class PerfilFragment extends Fragment {
     private TextView tvActividadesCount;
     private LinearLayout themeLightSelector;
     private LinearLayout themeDarkSelector;
+    private ImageView ivCheckLight;
+    private ImageView ivCheckDark;
 
     public PerfilFragment() {}
 
@@ -40,14 +43,26 @@ public class PerfilFragment extends Fragment {
         
         themeLightSelector = view.findViewById(R.id.themeLightSelector);
         themeDarkSelector = view.findViewById(R.id.themeDarkSelector);
+        
+        ivCheckLight = view.findViewById(R.id.ivCheckLight);
+        ivCheckDark = view.findViewById(R.id.ivCheckDark);
+
+        // Configurar estado inicial de los checks según el tema actual
+        actualizarEstadoChecks();
 
         // Configurar listeners para cambio de tema
         themeLightSelector.setOnClickListener(v -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            if (AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_NO) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                // No necesitamos llamar actualizarEstadoChecks() aquí porque la activity se recreará
+            }
         });
 
         themeDarkSelector.setOnClickListener(v -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            if (AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                // No necesitamos llamar actualizarEstadoChecks() aquí porque la activity se recreará
+            }
         });
 
         // Configurar botón Eliminar Datos
@@ -59,6 +74,19 @@ public class PerfilFragment extends Fragment {
         cargarEstadisticas();
 
         return view;
+    }
+
+    private void actualizarEstadoChecks() {
+        int currentMode = AppCompatDelegate.getDefaultNightMode();
+        if (currentMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            // Modo Oscuro Activo
+            ivCheckLight.setVisibility(View.INVISIBLE);
+            ivCheckDark.setVisibility(View.VISIBLE);
+        } else {
+            // Modo Claro Activo (por defecto o explícito)
+            ivCheckLight.setVisibility(View.VISIBLE);
+            ivCheckDark.setVisibility(View.INVISIBLE);
+        }
     }
 
     private void confirmarEliminarDatos() {

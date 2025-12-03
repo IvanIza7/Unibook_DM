@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,35 +16,77 @@ public class SplashActivity extends AppCompatActivity {
 
     private VideoView videoView;
     private LottieAnimationView lottieLoader;
-    private final int SPLASH_DURATION = 4000; // 3 segundos
+    
+    private final int LOADING_DELAY = 0; 
+    private final int MAX_SPLASH_TIME = 15000; 
+
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+    private final Runnable timeoutRunnable = this::irAMainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Fijar tema oscuro antes de cargar layout para evitar flash blanco
+        
         setTheme(R.style.Theme_NavifyUnibook_Splash);
-
         setContentView(R.layout.activity_splash);
 
         videoView = findViewById(R.id.videoView);
         lottieLoader = findViewById(R.id.lottieLoader);
+        
+        // Traemos Lottie al frente en la jerarquía normal
+        lottieLoader.bringToFront();
 
-        // Video desde res/raw
         Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.logo);
         videoView.setVideoURI(videoUri);
+        
+        // Configuración inicial
+        videoView.setZOrderOnTop(false); 
+        videoView.setVisibility(View.VISIBLE);
+        videoView.setAlpha(0f);
 
         videoView.setOnPreparedListener(mp -> {
-            mp.setLooping(false); // No repetir
-            videoView.start();
+            mp.setLooping(false);
+            
+            mainHandler.postDelayed(() -> {
+                if (!isFinishing()) {
+                    mostrarVideo();
+                }
+            }, LOADING_DELAY);
         });
 
-        // Transición a MainActivity después de 4 segundos
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            finish();
-        }, SPLASH_DURATION);
+        videoView.setOnCompletionListener(mp -> {
+            mainHandler.removeCallbacks(timeoutRunnable);
+            irAMainActivity();
+        });
 
-        // Lottie se reproduce automáticamente en loop (configurado en XML)
+        mainHandler.postDelayed(timeoutRunnable, MAX_SPLASH_TIME);
+    }
+
+    private void mostrarVideo() {
+        // Mostramos el video
+        videoView.setZOrderOnTop(true); // Asegura que se vea el video
+        videoView.setAlpha(1f); 
+        videoView.bringToFront();       
+        
+        videoView.start();
+        
+        // CAMBIO: NO ocultamos la animación Lottie.
+        // Se seguirán reproduciendo ambos simultáneamente hasta que termine el video.
+        // lottieLoader.setVisibility(View.GONE); // Comentado
+        // lottieLoader.cancelAnimation();       // Comentado
+    }
+
+    private void irAMainActivity() {
+        if (isFinishing()) return;
+        mainHandler.removeCallbacksAndMessages(null);
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        finish();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mainHandler.removeCallbacksAndMessages(null);
     }
 }

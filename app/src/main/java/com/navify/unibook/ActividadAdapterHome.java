@@ -41,23 +41,21 @@ public class ActividadAdapterHome extends ArrayAdapter<ActividadHome> {
             txtPorcentaje.setText(actividadHome.getPorcentaje() + "%");
 
             try {
-                // Validamos que no sea nulo antes de intentar leerlo
                 if (actividadHome.getColorMateria() != null && !actividadHome.getColorMateria().isEmpty()) {
                     int color = Color.parseColor(actividadHome.getColorMateria());
                     lineaColor.setBackgroundColor(color);
-                    txtMateria.setTextColor(color);
+                    
+                    // CAMBIO: El texto NO se tiñe del color de la materia, para asegurar contraste.
+                    // El color de materia ya está en la línea indicadora.
+                    // txtMateria.setTextColor(color); // ELIMINADO
                 } else {
-                    // Color por defecto si viene nulo
                     lineaColor.setBackgroundColor(Color.GRAY);
-                    txtMateria.setTextColor(Color.GRAY);
+                    // txtMateria.setTextColor(Color.GRAY); // ELIMINADO
                 }
 
-                // ... resto del código ...
-
             } catch (IllegalArgumentException e) {
-                // Si el código Hex es inválido (ej: "rojo" en vez de "#FF0000")
                 lineaColor.setBackgroundColor(Color.GRAY);
-                txtMateria.setTextColor(Color.GRAY);
+                // txtMateria.setTextColor(Color.GRAY); // ELIMINADO
             }
         }
 
