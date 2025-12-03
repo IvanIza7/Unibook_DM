@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/colorAgregar">
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:orientation="vertical"
@@ -25,7 +25,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_back"
-                app:tint="@color/colorHeader" />
+                app:tint="@color/colorHeaderText" />
 
             <TextView
                 android:id="@+id/txtMateria"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/titulo_editar_materia"
-                android:textColor="@color/colorHeader"
+                android:textColor="@color/colorHeaderText"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -62,7 +62,6 @@
                     android:id="@+id/inputNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorCuadros"
                     android:hint="@string/hint_nombre_materia"
                     android:inputType="textCapWords"
                     android:textColor="@color/colorTextOnDark"
@@ -88,7 +87,6 @@
                     android:id="@+id/inputProfesor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorCuadros"
                     android:hint="@string/hint_nombre_profesor"
                     android:inputType="textPersonName|textCapWords"
                     android:textColor="@color/colorTextOnDark"
@@ -224,7 +222,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#FF5252" />
+                        android:backgroundTint="@color/colorPastelGreen" />
 
                     <View
                         android:id="@+id/color2"
@@ -232,7 +230,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#4CAF50" />
+                        android:backgroundTint="@color/colorPastelBlue" />
 
                     <View
                         android:id="@+id/color3"
@@ -240,7 +238,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#2196F3" />
+                        android:backgroundTint="@color/colorPastelOrange" />
 
                     <View
                         android:id="@+id/color4"
@@ -248,7 +246,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#FFC107" />
+                        android:backgroundTint="@color/colorPastelPurple" />
 
                     <View
                         android:id="@+id/color5"
@@ -256,7 +254,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#9C27B0" />
+                        android:backgroundTint="@color/colorPastelPink" />
 
                     <View
                         android:id="@+id/color6"
@@ -264,7 +262,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#F875AA" />
+                        android:backgroundTint="@color/colorPastelCyan" />
 
                     <View
                         android:id="@+id/color7"
@@ -272,7 +270,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#F4F754" />
+                        android:backgroundTint="@color/colorPastelYellow" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -297,21 +295,21 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_round_card"
-                android:backgroundTint="#4CAF50"
+                android:backgroundTint="@color/colorPastelGreen"
                 android:padding="6dp"
                 android:src="@drawable/ic_book"
                 app:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/txtMateriaPrevia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="12dp"
-                    android:text="@string/nombre_materia_titulo"
+                    android:text="Nombre de la materia"
                     android:textColor="@color/colorTextOnDark"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -322,7 +320,7 @@
                 android:backgroundTint="@color/colorAccent"
                 android:text="@string/btn_guardar_cambios"
                 android:textAllCaps="false"
-                android:textColor="@color/colorHeader"
+                android:textColor="@color/colorTextOnDark"
                 android:textSize="16sp"
                 app:cornerRadius="8dp"
                 app:iconGravity="textStart"

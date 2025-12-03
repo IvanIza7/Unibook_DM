@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.navify.unibook.DatabaseHelper;
 import com.navify.unibook.R;
@@ -47,9 +50,38 @@ public class PerfilFragment extends Fragment {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         });
 
+        // Configurar botón Eliminar Datos
+        View btnEliminarDatos = view.findViewById(R.id.btnEliminarDatos);
+        if (btnEliminarDatos != null) {
+            btnEliminarDatos.setOnClickListener(v -> confirmarEliminarDatos());
+        }
+
         cargarEstadisticas();
 
         return view;
+    }
+
+    private void confirmarEliminarDatos() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle(R.string.zona_peligro)
+                .setMessage(R.string.advertencia_eliminar_datos)
+                .setPositiveButton(R.string.btn_eliminar_todos_datos, (dialog, which) -> {
+                    eliminarTodosLosDatos();
+                })
+                .setNegativeButton("Cancelar", null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+    private void eliminarTodosLosDatos() {
+        // Eliminar todas las materias (y sus actividades en cascada)
+        List<Materia> materias = db.obtenerTodasLasMaterias();
+        for (Materia m : materias) {
+            db.eliminarMateria(m.getId());
+        }
+
+        Toast.makeText(getContext(), R.string.datos_eliminados_exito, Toast.LENGTH_LONG).show();
+        cargarEstadisticas(); // Actualizar contadores a 0
     }
 
     private void cargarEstadisticas() {

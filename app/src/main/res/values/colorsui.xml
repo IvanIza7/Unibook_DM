@@ -3,8 +3,6 @@
     <!-- TEMA CLARO -->
 
     <color name="colorBackground">#FFFFFF</color>
-    <color name="colorAgregar">#F1F6FF</color>
-    <color name="colorCuadros">#F3F3F5</color>
     <color name="colorNeutralDark">#F5F5F5</color>
     <color name="colorNeutralLight">#757575</color>
     <color name="colorTextOnDark">#242223</color>
@@ -17,8 +15,25 @@
 
     <!-- Nuevos colores para ajustes solicitados -->
     <color name="colorBottomNavBackground">#FFFFFF</color>
-    <color name="colorHeader">#F5F5F5</color>
-    <color name="colorCamara">#F5F5F5</color>
+    <color name="colorHeaderText">#FFFFFF</color>
+
+    <!-- Colores Agregados Solicitados -->
+    <color name="colorHeader">#FFFFFF</color>
+    <color name="colorAgregar">#FFFFFF</color>
+    <color name="colorCuadros">#FFFFFF</color>
+    <color name="colorCamara">#5578FF</color>
+
+    <!-- Colores Pastel Materias (Claro) -->
+    <color name="colorPastelGreen">#E9F5EA</color>
+    <color name="colorPastelBlue">#E3F2FD</color>
+    <color name="colorPastelOrange">#FFF3E0</color>
+    <color name="colorPastelPurple">#F3E5F5</color>
+    <color name="colorPastelPink">#FCE4EC</color>
+    <color name="colorPastelCyan">#E0F7FA</color>
+    <color name="colorPastelYellow">#FFF9C4</color>
+    
+    <!-- Borde tarjetas selección -->
+    <color name="colorCardBorder">#AD46FF</color>
 
     <!-- Legacy -->
     <color name="colorBackgroundLight">#FFFFFF</color>

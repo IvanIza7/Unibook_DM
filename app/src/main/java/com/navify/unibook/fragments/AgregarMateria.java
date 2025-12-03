@@ -1,6 +1,7 @@
-package com.navify.unibook.fragments; // <--- CONFIRMA QUE ESTE SEA TU PAQUETE
+package com.navify.unibook.fragments; 
 
 import android.graphics.Color;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,11 +24,12 @@ public class AgregarMateria extends Fragment {
     private TextInputEditText etNombre, etProfesor;
     private ImageView previewIconImage;
     private TextView previewText;
+    private View cardPreviewContainer; // Referencia al contenedor
     private ImageView btnBack;
 
     // Variables de selección (Valores por defecto)
-    private int selectedColorInt = Color.parseColor("#4CAF50"); // Verde default
-    private String selectedColorHex = "#4CAF50";
+    private int selectedColorInt;
+    private String selectedColorHex = "#E9F5EA"; // Default green pastel light
     private int selectedIconResId = R.drawable.ic_book; // Icono default
 
     private DatabaseHelper dbHelper;
@@ -48,11 +50,16 @@ public class AgregarMateria extends Fragment {
 
         dbHelper = new DatabaseHelper(getContext());
 
-        // 1. VINCULACIÓN (Asegúrate que estos IDs existan en tu XML)
+        // Inicializar color default con recurso
+        selectedColorInt = getResources().getColor(R.color.colorPastelGreen, null);
+        selectedColorHex = String.format("#%06X", (0xFFFFFF & selectedColorInt));
+
+        // 1. VINCULACIÓN
         etNombre = view.findViewById(R.id.inputNombre);
         etProfesor = view.findViewById(R.id.inputProfesor);
         previewIconImage = view.findViewById(R.id.pvwIcon);
         previewText = view.findViewById(R.id.txtMateriaPrevia);
+        cardPreviewContainer = view.findViewById(R.id.cardPreview); // Bind del contenedor
         btnBack = view.findViewById(R.id.btnBack);
 
         // 2. CONFIGURACIÓN INICIAL DE VISTA PREVIA
@@ -79,18 +86,16 @@ public class AgregarMateria extends Fragment {
             public void afterTextChanged(android.text.Editable s) {}
         });
 
-        // 5. LISTENERS DE COLORES (Aquí corregimos con .mutate())
-        setupColorClick(view.findViewById(R.id.color1), "#FF5252");
-        setupColorClick(view.findViewById(R.id.color2), "#4CAF50");
-        setupColorClick(view.findViewById(R.id.color3), "#2196F3");
-        setupColorClick(view.findViewById(R.id.color4), "#FFC107");
-        setupColorClick(view.findViewById(R.id.color5), "#9C27B0");
-        setupColorClick(view.findViewById(R.id.color6), "#F875AA");
-        setupColorClick(view.findViewById(R.id.color7), "#F4F754");
+        // 5. LISTENERS DE COLORES
+        setupColorClick(view.findViewById(R.id.color1));
+        setupColorClick(view.findViewById(R.id.color2));
+        setupColorClick(view.findViewById(R.id.color3));
+        setupColorClick(view.findViewById(R.id.color4));
+        setupColorClick(view.findViewById(R.id.color5));
+        setupColorClick(view.findViewById(R.id.color6));
+        setupColorClick(view.findViewById(R.id.color7));
 
-        // 6. [NUEVO] LISTENERS DE ÍCONOS
-        // Asegúrate de que en tu XML los FrameLayout de los iconos tengan estos IDs:
-        // iconOption1, iconOption2, iconOption3...
+        // 6. LISTENERS DE ÍCONOS
         setupIconClick(view.findViewById(R.id.iconOption1), R.drawable.ic_book);
         setupIconClick(view.findViewById(R.id.iconOption2), R.drawable.ic_calculator);
         setupIconClick(view.findViewById(R.id.iconOption3), R.drawable.ic_science);
@@ -103,17 +108,22 @@ public class AgregarMateria extends Fragment {
 
     // --- MÉTODOS AUXILIARES ---
 
-    private void setupColorClick(View view, String colorHex) {
-        if (view == null) return; // Evita crash si el ID no existe
+    private void setupColorClick(View view) {
+        if (view == null) return;
         view.setOnClickListener(v -> {
-            selectedColorHex = colorHex;
-            selectedColorInt = Color.parseColor(colorHex);
-            actualizarVistaPrevia();
+            // Obtener el color real visualizado (respetando el tema actual)
+            ColorStateList tintList = view.getBackgroundTintList();
+            if (tintList != null) {
+                selectedColorInt = tintList.getDefaultColor();
+                // Guardamos el valor Hex del color actual para la BD
+                selectedColorHex = String.format("#%06X", (0xFFFFFF & selectedColorInt));
+                actualizarVistaPrevia();
+            }
         });
     }
 
     private void setupIconClick(View view, int iconResId) {
-        if (view == null) return; // Evita crash si no existe
+        if (view == null) return;
         view.setOnClickListener(v -> {
             selectedIconResId = iconResId;
             actualizarVistaPrevia();
@@ -121,15 +131,16 @@ public class AgregarMateria extends Fragment {
     }
 
     private void actualizarVistaPrevia() {
-        // Actualizamos el icono
         previewIconImage.setImageResource(selectedIconResId);
-
-        // Actualizamos el color de fondo del círculo
-        // .mutate() es CLAVE: asegura que no cambiemos el color de todos los círculos de la app, solo este
-        previewIconImage.getBackground().mutate().setTint(selectedColorInt);
-
-        // Opcional: Cambiar el tinte del icono mismo a blanco o dejarlo acento
-        previewIconImage.setColorFilter(Color.WHITE);
+        
+        // CAMBIO: Aplicar color al fondo de la tarjeta (contenedor), no al icono
+        if (cardPreviewContainer != null && cardPreviewContainer.getBackground() != null) {
+            cardPreviewContainer.getBackground().mutate().setTint(selectedColorInt);
+        }
+        
+        // El icono ya tiene un fondo estático definido en XML (@color/colorBackground)
+        // Solo aseguramos el tinte del icono
+        previewIconImage.setColorFilter(getResources().getColor(R.color.colorAccent, null));
     }
 
     private void guardarMateria() {
@@ -141,7 +152,6 @@ public class AgregarMateria extends Fragment {
             return;
         }
 
-        // Recuperamos el nombre del recurso (ej. "ic_book") para guardarlo como texto
         String nombreIcono = getResources().getResourceEntryName(selectedIconResId);
 
         long id = dbHelper.agregarMateria(nombre, profesor, selectedColorHex, nombreIcono);
@@ -157,7 +167,6 @@ public class AgregarMateria extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
         if (getActivity() != null) {
             View bottomNav = getActivity().findViewById(R.id.customBottomNav);
             if (bottomNav != null) {
@@ -169,7 +178,6 @@ public class AgregarMateria extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
         if (getActivity() != null) {
             View bottomNav = getActivity().findViewById(R.id.customBottomNav);
             if (bottomNav != null) {

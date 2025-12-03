@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAgregar"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/colorBackground">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:background="@drawable/bg_header_gradiente"
             android:gravity="center_vertical"
             android:paddingHorizontal="20dp"
-            android:paddingTop="24dp">
+            android:paddingTop="24dp"
+            android:background="@drawable/bg_header_gradiente">
 
             <ImageView
                 android:id="@+id/btnBack"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_back"
-                app:tint="@color/colorHeader" />
+                app:tint="@color/colorHeaderText" />
 
             <TextView
                 android:id="@+id/txtMateria"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/titulo_agregar_materia"
-                android:textColor="@color/colorHeader"
+                android:textColor="@color/colorHeaderText"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -53,16 +53,15 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="6dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorCuadros"
                     android:hint="@string/hint_nombre_materia"
                     android:inputType="textCapWords"
                     android:textColor="@color/colorTextOnDark"
@@ -79,16 +78,15 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="6dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputProfesor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/colorCuadros"
                     android:hint="@string/hint_nombre_profesor"
                     android:inputType="textPersonName|textCapWords"
                     android:textColor="@color/colorTextOnDark"
@@ -224,7 +222,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#E8F5E9" />
+                        android:backgroundTint="@color/colorPastelGreen" />
 
                     <View
                         android:id="@+id/color2"
@@ -232,7 +230,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#E3F2FD" />
+                        android:backgroundTint="@color/colorPastelBlue" />
 
                     <View
                         android:id="@+id/color3"
@@ -240,7 +238,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#FFF3E0" />
+                        android:backgroundTint="@color/colorPastelOrange" />
 
                     <View
                         android:id="@+id/color4"
@@ -248,7 +246,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#F3E5F5" />
+                        android:backgroundTint="@color/colorPastelPurple" />
 
                     <View
                         android:id="@+id/color5"
@@ -256,7 +254,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#E0F7FA" />
+                        android:backgroundTint="@color/colorPastelPink" />
 
                     <View
                         android:id="@+id/color6"
@@ -264,7 +262,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#FFF9C4" />
+                        android:backgroundTint="@color/colorPastelCyan" />
 
                     <View
                         android:id="@+id/color7"
@@ -272,7 +270,7 @@
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
                         android:background="@drawable/bg_round_card"
-                        android:backgroundTint="#FFF9C4" />
+                        android:backgroundTint="@color/colorPastelYellow" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -289,31 +287,32 @@
                 android:id="@+id/cardPreview"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/colorNeutralDark"
                 android:orientation="horizontal"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_round_card"
+                android:backgroundTint="@color/colorPastelGreen">
 
                 <ImageView
                     android:id="@+id/pvwIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_round_card"
-                    android:backgroundTint="#4CAF50"
+                    android:backgroundTint="@color/colorBackground"
                     android:padding="6dp"
                     android:src="@drawable/ic_book"
                     app:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/txtMateriaPrevia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="12dp"
-                    android:text="@string/nombre_materia_titulo"
+                    android:text="Nombre de la materia"
                     android:textColor="@color/colorTextOnDark"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -325,7 +324,7 @@
                 android:backgroundTint="@color/colorAccent"
                 android:text="@string/btn_guardar_materia"
                 android:textAllCaps="false"
-                android:textColor="@color/colorHeader"
+                android:textColor="@color/colorTextOnDark"
                 android:textSize="16sp"
                 app:cornerRadius="8dp"
                 app:iconGravity="textStart"

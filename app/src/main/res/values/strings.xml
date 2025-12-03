@@ -99,4 +99,10 @@
     <string name="item_materiaNom">Cálculo Diferencial</string>
     <string name="item_profesorNom">Prof. Desconocido</string>
     <string name="mis_actividades">Mis Actividades</string>
+
+    <string name="zona_peligro">Zona de peligro</string>
+    <string name="eliminar_datos_permanente">Esta acción eliminará todos tus datos de manera permanente</string>
+    <string name="btn_eliminar_todos_datos">Eliminar todos los datos</string>
+    <string name="advertencia_eliminar_datos">ADVERTENCIA: ¿Estás seguro de eliminar TODOS tus datos? Esta acción no se puede deshacer.</string>
+    <string name="datos_eliminados_exito">Se han eliminado todos los datos correctamente.</string>
 </resources>

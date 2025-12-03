@@ -1,6 +1,6 @@
 package com.navify.unibook.fragments;
 
-import android.content.DialogInterface;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,11 +26,12 @@ public class EditarMateria extends Fragment {
     private TextInputEditText etNombre, etProfesor;
     private ImageView previewIconImage;
     private TextView previewText;
+    private View cardPreviewContainer; // Referencia al contenedor
     private ImageView btnBack;
 
     // Variables de selección (Valores por defecto)
-    private int selectedColorInt = Color.parseColor("#4CAF50"); // Verde default
-    private String selectedColorHex = "#4CAF50";
+    private int selectedColorInt;
+    private String selectedColorHex;
     private int selectedIconResId = R.drawable.ic_book; // Icono default
 
     private DatabaseHelper dbHelper;
@@ -59,11 +60,16 @@ public class EditarMateria extends Fragment {
             materiaId = getArguments().getInt("materia_id", -1);
         }
 
+        // Inicializar color default
+        selectedColorInt = getResources().getColor(R.color.colorPastelGreen, null);
+        selectedColorHex = String.format("#%06X", (0xFFFFFF & selectedColorInt));
+
         // 1. VINCULACIÓN
         etNombre = view.findViewById(R.id.inputNombre);
         etProfesor = view.findViewById(R.id.inputProfesor);
         previewIconImage = view.findViewById(R.id.pvwIcon);
         previewText = view.findViewById(R.id.txtMateriaPrevia);
+        cardPreviewContainer = view.findViewById(R.id.cardPreview); // Bind del contenedor
         // CORRECCIÓN: ID correcto es btnBack1, no btnBack
         btnBack = view.findViewById(R.id.btnBack1);
 
@@ -97,13 +103,13 @@ public class EditarMateria extends Fragment {
         });
 
         // 5. LISTENERS DE COLORES
-        setupColorClick(view.findViewById(R.id.color1), "#FF5252");
-        setupColorClick(view.findViewById(R.id.color2), "#4CAF50");
-        setupColorClick(view.findViewById(R.id.color3), "#2196F3");
-        setupColorClick(view.findViewById(R.id.color4), "#FFC107");
-        setupColorClick(view.findViewById(R.id.color5), "#9C27B0");
-        setupColorClick(view.findViewById(R.id.color6), "#F875AA");
-        setupColorClick(view.findViewById(R.id.color7), "#F4F754");
+        setupColorClick(view.findViewById(R.id.color1));
+        setupColorClick(view.findViewById(R.id.color2));
+        setupColorClick(view.findViewById(R.id.color3));
+        setupColorClick(view.findViewById(R.id.color4));
+        setupColorClick(view.findViewById(R.id.color5));
+        setupColorClick(view.findViewById(R.id.color6));
+        setupColorClick(view.findViewById(R.id.color7));
 
         // 6. LISTENERS DE ÍCONOS
         setupIconClick(view.findViewById(R.id.iconOption1), R.drawable.ic_book);
@@ -142,12 +148,17 @@ public class EditarMateria extends Fragment {
 
     // --- MÉTODOS AUXILIARES ---
 
-    private void setupColorClick(View view, String colorHex) {
+    private void setupColorClick(View view) {
         if (view == null) return; 
         view.setOnClickListener(v -> {
-            selectedColorHex = colorHex;
-            selectedColorInt = Color.parseColor(colorHex);
-            actualizarVistaPrevia();
+            // Obtener el color real visualizado (respetando el tema actual)
+            ColorStateList tintList = view.getBackgroundTintList();
+            if (tintList != null) {
+                selectedColorInt = tintList.getDefaultColor();
+                // Guardamos el valor Hex del color actual para la BD
+                selectedColorHex = String.format("#%06X", (0xFFFFFF & selectedColorInt));
+                actualizarVistaPrevia();
+            }
         });
     }
 
@@ -161,8 +172,15 @@ public class EditarMateria extends Fragment {
 
     private void actualizarVistaPrevia() {
         previewIconImage.setImageResource(selectedIconResId);
-        previewIconImage.getBackground().mutate().setTint(selectedColorInt);
-        previewIconImage.setColorFilter(Color.WHITE);
+        
+        // CAMBIO: Aplicar color al fondo de la tarjeta (contenedor), no al icono
+        if (cardPreviewContainer != null && cardPreviewContainer.getBackground() != null) {
+            cardPreviewContainer.getBackground().mutate().setTint(selectedColorInt);
+        }
+
+        // El icono ya tiene un fondo estático definido en XML (@color/colorBackground)
+        // Solo aseguramos el tinte del icono
+        previewIconImage.setColorFilter(getResources().getColor(R.color.colorAccent, null));
     }
 
     private void guardarCambiosMateria() {

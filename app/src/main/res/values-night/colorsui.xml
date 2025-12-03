@@ -2,32 +2,38 @@
 <resources>
     <!-- TEMA OSCURO (Definiciones originales) -->
     
-    <!-- Fondo principal de la pantalla -->
     <color name="colorBackground">#242223</color>
-    
-    <!-- Fondo de tarjetas, headers y contenedores secundarios -->
     <color name="colorNeutralDark">#4A4A4A</color>
-    <color name="colorAgregar">#4A4A4A</color>
-    <color name="colorCuadros">#605B5B</color>
-    
-    <!-- Textos secundarios, líneas divisorias, iconos inactivos -->
     <color name="colorNeutralLight">#EAEAEA</color>
-    
-    <!-- Texto principal (Claro sobre fondo oscuro) -->
     <color name="colorTextOnDark">#F5F5F5</color>
-    <color name="colorHeader">#F5F5F5</color>
-    <color name="colorCamara">#757575</color>
 
-
-    <!-- Color de acento (Dorado/Naranja en Dark) -->
     <color name="colorAccent">#CE9B50</color>
 
-    <!-- Colores compartidos -->
     <color name="colorUniversityRed">#B22222</color>
     <color name="colorUniversityRedBright">#DC143C</color>
     <color name="colorUniversityBlue">#7638B9</color>
     <color name="colorUniversityBlueBright">#17AAD1</color>
 
-    <color name="gradiente_inicio">#1565C0</color>
-    <color name="gradiente_centro">#0D47A1</color>
+    <!-- Nuevos colores para ajustes solicitados -->
+    <color name="colorBottomNavBackground">#B7B7B7</color>
+    <color name="colorHeaderText">#FFFFFF</color>
+
+    <!-- Colores Agregados Solicitados -->
+    <color name="colorHeader">#FFFFFF</color>
+    <color name="colorAgregar">#242223</color>
+    <color name="colorCuadros">#4A4A4A</color>
+    <color name="colorCamara">#CE9B50</color>
+
+    <!-- Colores Pastel Materias (Oscuro - Matizados) -->
+    <color name="colorPastelGreen">#949C95</color>
+    <color name="colorPastelBlue">#AFBAC2</color>
+    <color name="colorPastelOrange">#C5BCAD</color>
+    <color name="colorPastelPurple">#B9ADBB</color>
+    <color name="colorPastelPink">#C2AFB5</color>
+    <color name="colorPastelCyan">#ACBDC0</color>
+    <color name="colorPastelYellow">#C5C097</color>
+
+    <!-- Borde tarjetas selección -->
+    <color name="colorCardBorder">#CE9B50</color>
+
 </resources>

@@ -35,7 +35,7 @@ public class MateriaAdapter extends ArrayAdapter<Materia> {
         TextView txtNombre = convertView.findViewById(R.id.txtNombreMateria);
         TextView txtProfesor = convertView.findViewById(R.id.txtProfesorMateria);
         ImageView imgIcono = convertView.findViewById(R.id.imgIconoMateria);
-        View fondoIcono = (View) imgIcono.getParent(); // El FrameLayout padre
+        // Ya no obtenemos fondoIcono para teñirlo, se queda estático
 
         // 4. Asignar datos
         if (materia != null) {
@@ -51,23 +51,28 @@ public class MateriaAdapter extends ArrayAdapter<Materia> {
             // --- MAGIA DEL COLOR ---
             try {
                 int color = Color.parseColor(materia.getColor());
-                // Cambiamos el color del ícono y el fondo (según tu gusto)
-                // Aquí pinto el fondo del círculo:
-                fondoIcono.getBackground().mutate().setTint(color);
-                imgIcono.setColorFilter(Color.WHITE); // Ícono blanco para que contraste
+                
+                // CAMBIO: Teñimos el fondo de toda la tarjeta (convertView)
+                // El drawable bg_round_card es el background del layout raíz en item_materia.xml
+                convertView.getBackground().mutate().setTint(color);
+
+                // CAMBIO: El ícono ahora usa el color de acento (o blanco si prefieres, pero acento destaca más sobre pastel)
+                // Usaremos Color Accent definido en recursos
+                int colorAccent = getContext().getResources().getColor(R.color.colorAccent, null);
+                imgIcono.setColorFilter(colorAccent); 
+                
             } catch (Exception e) {
                 // Color por defecto si falla
             }
 
             // --- MAGIA DEL ÍCONO ---
-            // Convertimos el String "ic_calculator" en un ID numérico (R.drawable.ic_calculator)
             int resId = getContext().getResources().getIdentifier(
                     materia.getIcono(), "drawable", getContext().getPackageName());
 
             if (resId != 0) {
                 imgIcono.setImageResource(resId);
             } else {
-                imgIcono.setImageResource(R.drawable.ic_book); // Default si no encuentra la imagen
+                imgIcono.setImageResource(R.drawable.ic_book); 
             }
         }
 

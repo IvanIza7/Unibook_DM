@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="12dp"
     android:gravity="center_vertical"
-    android:background="?attr/selectableItemBackground"> <FrameLayout
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:background="@drawable/bg_round_card"
-    android:padding="10dp">
+    android:background="@drawable/bg_round_card">
 
-    <ImageView
-        android:id="@+id/imgIconoMateria"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_book" />
-</FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameIconoMateria"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_round_card"
+        android:backgroundTint="@color/colorBackground"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imgIconoMateria"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_book"
+            app:tint="@color/colorAccent" />
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="0dp"
