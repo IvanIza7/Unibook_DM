@@ -107,4 +107,6 @@
     <string name="datos_eliminados_exito">Se han eliminado todos los datos correctamente.</string>
     <string name="detalle_actividad">Detalle de la Actividad</string>
     <string name="progreso">Progreso</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
 </resources>

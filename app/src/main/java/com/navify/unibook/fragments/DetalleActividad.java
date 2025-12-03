@@ -93,26 +93,27 @@ public class DetalleActividad extends Fragment {
                 txtDescripcion.setText("Sin descripción.");
             }
 
-            // 3. Lógica de Colores
+            // 3. Lógica de Colores (ESTILO "PILL" SÓLIDO CON ALTO CONTRASTE)
             try {
                 int colorMateria = Color.parseColor(actividadHome.getColorMateria());
 
-                // Fondo de la etiqueta (Pastilla de materia)
-                int colorFondo = ColorUtils.setAlphaComponent(colorMateria, 50);
+                // A) Fondo de la etiqueta: Color SÓLIDO de la materia
                 GradientDrawable background = (GradientDrawable) txtMateria.getBackground();
-                background.setColor(colorFondo);
-                txtMateria.setTextColor(colorMateria);
+                background.setColor(colorMateria);
 
-                // --- CORRECCIÓN DE LA BARRA DE PROGRESO ---
+                // B) Texto: Calculamos si necesitamos Blanco o Negro para que se lea bien
+                // ColorUtils viene en androidx.core.graphics
+                if (ColorUtils.calculateLuminance(colorMateria) > 0.5) {
+                    txtMateria.setTextColor(Color.BLACK); // Si el fondo es claro (ej. Amarillo), texto negro
+                } else {
+                    txtMateria.setTextColor(Color.WHITE); // Si el fondo es oscuro (ej. Azul), texto blanco
+                }
 
-                // Opción A (Para Android 5.0+): Usar TintList es lo más seguro
-                // Esto solo tiñe la parte del "progress", respetando el fondo gris del XML
+                // C) Barra de progreso: Se queda con el color de la materia
                 progressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(colorMateria));
 
-                // Nota: Borra la línea vieja que decía "progressBar.getProgressDrawable().setTint..."
-
             } catch (Exception e) {
-                // Si falla, no pasa nada
+                // Si falla, por defecto se ve gris/verde según tu XML
             }
 
             // 5. CARGAR FOTO (Lógica Corregida)
