@@ -2,6 +2,8 @@ package com.navify.unibook.fragments;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -10,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +65,7 @@ public class DetalleActividad extends Fragment {
 
         db = new DatabaseHelper(getContext());
 
+        // 1. Vincular Vistas
         TextView txtMateria = view.findViewById(R.id.txtMateriaDetalle);
         TextView txtTitulo = view.findViewById(R.id.txtTituloDetalle);
         TextView txtFecha = view.findViewById(R.id.txtFechaDetalle);
@@ -82,59 +84,86 @@ public class DetalleActividad extends Fragment {
             txtFecha.setText(actividadHome.getFechaEntrega());
             txtPorcentaje.setText(actividadHome.getPorcentaje() + "%");
             progressBar.setProgress(actividadHome.getPorcentaje());
-
             txtMateria.setText(actividadHome.getNombreMateria());
-            try {
-                int colorMateria = Color.parseColor(actividadHome.getColorMateria());
 
-                int colorFondo = ColorUtils.setAlphaComponent(colorMateria, 50);
-
-                GradientDrawable background = (GradientDrawable) txtMateria.getBackground();
-                background.setColor(colorFondo);
-
-                txtMateria.setTextColor(colorMateria);
-
-                progressBar.getProgressDrawable().setTint(colorMateria);
-            } catch (Exception e) {
-
+            // Descripción
+            if (actividadHome.getDescripcion() != null && !actividadHome.getDescripcion().isEmpty()) {
+                txtDescripcion.setText(actividadHome.getDescripcion());
+            } else {
+                txtDescripcion.setText("Sin descripción.");
             }
 
-            String rutaFoto = "";
+            // Colores
+            try {
+                int colorMateria = Color.parseColor(actividadHome.getColorMateria());
+                int colorFondo = ColorUtils.setAlphaComponent(colorMateria, 50);
+                GradientDrawable background = (GradientDrawable) txtMateria.getBackground();
+                background.setColor(colorFondo);
+                txtMateria.setTextColor(colorMateria);
+                progressBar.getProgressDrawable().setTint(colorMateria);
+            } catch (Exception e) { }
+
+            // 5. CARGAR FOTO (Lógica Corregida)
+            String rutaFoto = actividadHome.getFotoUri();
+            File imgFile = null;
+
             if (rutaFoto != null && !rutaFoto.isEmpty()) {
-                File imgFile = new File(rutaFoto);
-                if (imgFile.exists()) {
-                    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                    imgEvidencia.setImageBitmap(myBitmap);
-                    imgEvidencia.setPadding(0,0,0,0);
-                    imgEvidencia.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                }
+                imgFile = new File(rutaFoto);
+            }
+
+            // VERIFICAMOS: ¿Hay archivo válido?
+            if (imgFile != null && imgFile.exists() && imgFile.length() > 0) {
+
+                // --- CASO A: SÍ HAY FOTO ---
+                // 1. Limpiamos cualquier filtro de color
+                imgEvidencia.clearColorFilter();
+                // 2. Quitamos el relleno
+                imgEvidencia.setPadding(0, 0, 0, 0);
+                // 3. Ajustamos la escala
+                imgEvidencia.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+                // 4. Cargamos con Glide
+                Glide.with(this)
+                        .load(imgFile)
+                        .into(imgEvidencia);
+
+            } else {
+
+                // --- CASO B: NO HAY FOTO (O archivo vacío) ---
+                // Restauramos el estilo de "Placeholder" (Icono verde)
+                imgEvidencia.setImageResource(android.R.drawable.ic_menu_gallery);
+
+                // Aplicamos el tinte verde programáticamente
+                imgEvidencia.setColorFilter(Color.parseColor("#A5D6A7"));
+
+                // Agregamos padding para que se vea como ícono pequeño
+                imgEvidencia.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                int paddingPixel = 200; // Un valor aproximado a 60-80dp
+                imgEvidencia.setPadding(paddingPixel, paddingPixel, paddingPixel, paddingPixel);
             }
         } else {
             Toast.makeText(getContext(), "Error al cargar actividad", Toast.LENGTH_SHORT).show();
         }
 
+        // Botones
         btnBack.setOnClickListener(v -> {
-            if (getParentFragmentManager() != null)
-                    getParentFragmentManager().popBackStack();
+            if (getParentFragmentManager() != null) getParentFragmentManager().popBackStack();
         });
 
         btnEditar.setOnClickListener(v -> {
-            EditarActividad editarActividadFragment = new EditarActividad();
+            EditarActividad editarActividad = new EditarActividad();
             Bundle args = new Bundle();
             args.putInt("actividad_id", actividadId);
-            editarActividadFragment.setArguments(args);
-
+            editarActividad.setArguments(args);
             if (getParentFragmentManager() != null) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer, editarActividadFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainer, editarActividad)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
-        btnEliminar.setOnClickListener(v -> {
-            mostrarDialogoEliminar();
-        });
+        btnEliminar.setOnClickListener(v -> mostrarDialogoEliminar());
     }
 
     @Override
