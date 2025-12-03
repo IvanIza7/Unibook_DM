@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -113,16 +114,26 @@ public class DetalleActividad extends Fragment {
         }
 
         btnBack.setOnClickListener(v -> {
-            if (getParentFragment() != null)
+            if (getParentFragmentManager() != null)
                     getParentFragmentManager().popBackStack();
         });
 
         btnEditar.setOnClickListener(v -> {
+            EditarActividad editarActividadFragment = new EditarActividad();
+            Bundle args = new Bundle();
+            args.putInt("actividad_id", actividadId);
+            editarActividadFragment.setArguments(args);
 
+            if (getParentFragmentManager() != null) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragmentContainer, editarActividadFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
         });
 
         btnEliminar.setOnClickListener(v -> {
-
+            mostrarDialogoEliminar();
         });
     }
 
