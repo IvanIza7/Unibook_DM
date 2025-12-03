@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -99,7 +98,7 @@ public class DetalleActividad extends Fragment {
 
             }
 
-            String rutaFoto = actividadHome.getFotoUri();
+            String rutaFoto = "";
             if (rutaFoto != null && !rutaFoto.isEmpty()) {
                 File imgFile = new File(rutaFoto);
                 if (imgFile.exists()) {
@@ -114,7 +113,8 @@ public class DetalleActividad extends Fragment {
         }
 
         btnBack.setOnClickListener(v -> {
-            if (getParentFragmentManager() != null) getParentFragmentManager().popBackStack();
+            if (getParentFragment() != null)
+                    getParentFragmentManager().popBackStack();
         });
 
         btnEditar.setOnClickListener(v -> {
@@ -142,5 +142,24 @@ public class DetalleActividad extends Fragment {
             View bottomNav = getActivity().findViewById(R.id.bottomNavigation);
             if (bottomNav != null) bottomNav.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void mostrarDialogoEliminar() {
+        new androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                .setTitle("Eliminar Actividad")
+                .setMessage("¿Estás seguro de que deseas eliminar esta actividad? No se podrá recuperar.")
+                .setPositiveButton("Eliminar", (dialog, which) -> {
+                    // Llamamos a la BD para borrar
+                    db.eliminarActividad(actividadId); // Asegúrate de tener este método en DBHelper (te lo paso abajo)
+
+                    Toast.makeText(getContext(), "Actividad eliminada", Toast.LENGTH_SHORT).show();
+
+                    // Regresamos a la pantalla anterior
+                    if (getParentFragmentManager() != null) {
+                        getParentFragmentManager().popBackStack();
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
     }
 }
