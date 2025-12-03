@@ -273,6 +273,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return lista;
     }
 
+    public ActividadHome obtenerActividadporId(int idActividadHome) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ActividadHome actividad = null;
+
+        String query = "SELECT a.id, a.titulo, a.fecha_fin, a.porcentaje, a.descripcion, a.foto_uri, m.nombre, m.color " +
+                "FROM " + TABLA_ACTIVIDAD + " a " +
+                "INNER JOIN " + TABLA_MATERIA + " m ON a.materia_id = m.id " +
+                "WHERE a.id = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(idActividadHome)});
+
+        if (cursor.moveToFirst()) {
+            int id = cursor.getInt(0);
+            String titulo = cursor.getString(1);
+            String fecha = cursor.getString(2);
+            int porcentaje = cursor.getInt(3);
+            String descripcion = cursor.getString(4);
+            String fotoUri = cursor.getString(5);
+            String nombreMat = cursor.getString(6);
+            String colorMat = cursor.getString(7);
+
+            actividad = new ActividadHome(id, titulo, fecha, porcentaje, nombreMat, colorMat);
+        }
+        cursor.close();
+        db.close();
+        return actividad;
+    }
+
+    public void eliminarActividad(int idActividad) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLA_ACTIVIDAD, ACTIVIDAD_ID + "=?", new String[]{String.valueOf(idActividad)});
+        db.close();
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_ACTIVIDAD);
