@@ -99,7 +99,7 @@ public class DetalleActividad extends Fragment {
 
             }
 
-            String rutaFoto = "";
+            String rutaFoto = actividadHome.getFotoUri();
             if (rutaFoto != null && !rutaFoto.isEmpty()) {
                 File imgFile = new File(rutaFoto);
                 if (imgFile.exists()) {

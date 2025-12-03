@@ -295,6 +295,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String colorMat = cursor.getString(7);
 
             actividad = new ActividadHome(id, titulo, fecha, porcentaje, nombreMat, colorMat);
+
+            actividad.setDescripcion(descripcion);
+            actividad.setFotoUri(fotoUri);
         }
         cursor.close();
         db.close();
