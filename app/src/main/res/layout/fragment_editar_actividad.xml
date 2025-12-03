@@ -223,6 +223,16 @@
                 android:textColor="@color/colorHeader"
                 app:cornerRadius="10dp" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMarcarCompleta"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/colorSuccess"
+                android:text="Marcar como completada"
+                android:textColor="@color/colorHeader"
+                app:cornerRadius="10dp" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

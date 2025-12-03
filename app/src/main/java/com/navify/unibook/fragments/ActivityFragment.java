@@ -48,7 +48,7 @@ public class ActivityFragment extends Fragment {
     private TextView txtFiltroMateria, txtFiltroAntiguedad;
 
     private String filtroMateriaActual;
-    private String ordenActual = "reciente"; // "reciente" o "porcentaje"
+    private String filtroOrdenActual = "reciente"; // "reciente", "porcentaje", "completadas", "no_completadas"
 
     public ActivityFragment() {
         // Required empty public constructor
@@ -143,14 +143,27 @@ public class ActivityFragment extends Fragment {
         PopupMenu popup = new PopupMenu(getContext(), v);
         popup.getMenu().add(Menu.NONE, 1, 1, "Más reciente");
         popup.getMenu().add(Menu.NONE, 2, 2, "Porcentaje");
+        popup.getMenu().add(Menu.NONE, 3, 3, "Completadas");
+        popup.getMenu().add(Menu.NONE, 4, 4, "No completadas");
 
         popup.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == 1) {
-                ordenActual = "reciente";
-                txtFiltroAntiguedad.setText("Más reciente");
-            } else {
-                ordenActual = "porcentaje";
-                txtFiltroAntiguedad.setText("Porcentaje");
+            switch (item.getItemId()) {
+                case 1:
+                    filtroOrdenActual = "reciente";
+                    txtFiltroAntiguedad.setText("Más reciente");
+                    break;
+                case 2:
+                    filtroOrdenActual = "porcentaje";
+                    txtFiltroAntiguedad.setText("Porcentaje");
+                    break;
+                case 3:
+                    filtroOrdenActual = "completadas";
+                    txtFiltroAntiguedad.setText("Completadas");
+                    break;
+                case 4:
+                    filtroOrdenActual = "no_completadas";
+                    txtFiltroAntiguedad.setText("No completadas");
+                    break;
             }
             filtrarYOrdenarLista();
             return true;
@@ -187,10 +200,29 @@ public class ActivityFragment extends Fragment {
             tempLista = porMateria;
         }
 
+        // Filtrado por estado de finalización
+        if (filtroOrdenActual.equals("completadas")) {
+            List<Actividad> completadas = new ArrayList<>();
+            for (Actividad actividad : tempLista) {
+                if (actividad.getPorcentaje() == 100) {
+                    completadas.add(actividad);
+                }
+            }
+            tempLista = completadas;
+        } else if (filtroOrdenActual.equals("no_completadas")) {
+            List<Actividad> noCompletadas = new ArrayList<>();
+            for (Actividad actividad : tempLista) {
+                if (actividad.getPorcentaje() < 100) {
+                    noCompletadas.add(actividad);
+                }
+            }
+            tempLista = noCompletadas;
+        }
+
         // Ordenación
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Collections.sort(tempLista, (a1, a2) -> {
-            if (ordenActual.equals("reciente")) {
+            if (filtroOrdenActual.equals("reciente")) {
                 try {
                     Date d1 = sdf.parse(a1.getFechaEntrega());
                     Date d2 = sdf.parse(a2.getFechaEntrega());
@@ -198,8 +230,17 @@ public class ActivityFragment extends Fragment {
                 } catch (ParseException e) {
                     return 0;
                 }
-            } else { // "porcentaje"
-                return Integer.compare(a2.getPorcentaje(), a1.getPorcentaje()); // Descendente
+            } else if (filtroOrdenActual.equals("porcentaje")) {
+                return Integer.compare(a1.getPorcentaje(), a2.getPorcentaje()); // Descendente
+            } else {
+                // Orden por defecto para "completadas" y "no_completadas"
+                try {
+                    Date d1 = sdf.parse(a1.getFechaEntrega());
+                    Date d2 = sdf.parse(a2.getFechaEntrega());
+                    return d2.compareTo(d1); // Descendente para más reciente
+                } catch (ParseException e) {
+                    return 0;
+                }
             }
         });
 

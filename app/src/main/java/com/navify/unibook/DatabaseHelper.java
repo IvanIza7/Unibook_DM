@@ -174,6 +174,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT a.id, a.titulo, a.fecha_fin, a.porcentaje, m.nombre, m.color " +
                 "FROM " + TABLA_ACTIVIDAD + " a " +
                 "INNER JOIN " + TABLA_MATERIA + " m ON a.materia_id = m.id " +
+                "WHERE a.porcentaje < 100 " + 
                 "ORDER BY a.fecha_fin DESC";
 
         Cursor cursor = db.rawQuery(query, null);

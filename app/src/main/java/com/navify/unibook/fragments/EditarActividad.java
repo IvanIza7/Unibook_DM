@@ -47,7 +47,7 @@ public class EditarActividad extends Fragment {
     private Spinner spinnerMaterias;
     private SeekBar seekBarAvance;
     private TextView txtPorcentajeValor;
-    private MaterialButton btnTomarFoto;
+    private MaterialButton btnTomarFoto, btnMarcarCompleta;
     private ImageView imgPreviewFoto;
     private ImageView btnBack;
 
@@ -103,6 +103,7 @@ public class EditarActividad extends Fragment {
         btnTomarFoto = view.findViewById(R.id.btnTomarFoto);
         imgPreviewFoto = view.findViewById(R.id.imgPreviewFoto);
         btnBack = view.findViewById(R.id.btnBack);
+        btnMarcarCompleta = view.findViewById(R.id.btnMarcarCompleta);
 
         edtFecha.setOnClickListener(v -> mostrarCalendario());
 
@@ -125,6 +126,13 @@ public class EditarActividad extends Fragment {
         });
 
         btnTomarFoto.setOnClickListener(v -> abrirCamara());
+
+        btnMarcarCompleta.setOnClickListener(v -> {
+            porcentajeSeleccionado = 100;
+            seekBarAvance.setProgress(100);
+            txtPorcentajeValor.setText("100%");
+            guardarCambiosActividad();
+        });
 
         cargarMateriasenSpinner();
         cargarDatosActividad();

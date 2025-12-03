@@ -22,6 +22,7 @@
     <color name="colorAgregar">#FFFFFF</color>
     <color name="colorCuadros">#FFFFFF</color>
     <color name="colorCamara">#5578FF</color>
+    <color name="colorSuccess">#4CAF50</color>
 
     <!-- Colores Pastel Materias (Claro) -->
     <color name="colorPastelGreen">#E9F5EA</color>
