@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Fondo de la barra de progreso -->
+
     <item android:id="@android:id/background">
         <shape>
-            <corners android:radius="4dp" />
-            <solid android:color="#E0E0E0" />
-        </shape>
+            <corners android:radius="10dp"/>
+            <solid android:color="#E0E0E0"/> </shape>
     </item>
 
-    <!-- Progreso -->
     <item android:id="@android:id/progress">
-        <clip>
+        <scale android:scaleWidth="100%">
             <shape>
-                <corners android:radius="4dp" />
-                <solid android:color="@color/colorAccent" />
-            </shape>
-        </clip>
+                <corners android:radius="10dp"/>
+                <solid android:color="#FFFFFF"/> </shape>
+        </scale>
     </item>
+
 </layer-list>

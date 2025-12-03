@@ -93,15 +93,27 @@ public class DetalleActividad extends Fragment {
                 txtDescripcion.setText("Sin descripción.");
             }
 
-            // Colores
+            // 3. Lógica de Colores
             try {
                 int colorMateria = Color.parseColor(actividadHome.getColorMateria());
+
+                // Fondo de la etiqueta (Pastilla de materia)
                 int colorFondo = ColorUtils.setAlphaComponent(colorMateria, 50);
                 GradientDrawable background = (GradientDrawable) txtMateria.getBackground();
                 background.setColor(colorFondo);
                 txtMateria.setTextColor(colorMateria);
-                progressBar.getProgressDrawable().setTint(colorMateria);
-            } catch (Exception e) { }
+
+                // --- CORRECCIÓN DE LA BARRA DE PROGRESO ---
+
+                // Opción A (Para Android 5.0+): Usar TintList es lo más seguro
+                // Esto solo tiñe la parte del "progress", respetando el fondo gris del XML
+                progressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(colorMateria));
+
+                // Nota: Borra la línea vieja que decía "progressBar.getProgressDrawable().setTint..."
+
+            } catch (Exception e) {
+                // Si falla, no pasa nada
+            }
 
             // 5. CARGAR FOTO (Lógica Corregida)
             String rutaFoto = actividadHome.getFotoUri();
