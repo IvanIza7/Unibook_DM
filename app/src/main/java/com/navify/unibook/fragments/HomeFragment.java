@@ -104,7 +104,7 @@ public class HomeFragment extends Fragment implements SensorEventListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ActividadHome actividadSeleccionada = (ActividadHome) parent.getItemAtPosition(position);
-                abrirFragmentEditarActividad(actividadSeleccionada.getId());
+                abrirFragmentDetallesActividad(actividadSeleccionada.getId());
             }
         });
     }
@@ -145,10 +145,10 @@ public class HomeFragment extends Fragment implements SensorEventListener {
         transaction.commit();
     }
 
-    private void abrirFragmentEditarActividad(int actividadId) {
+    private void abrirFragmentDetallesActividad(int actividadId) {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        
-        EditarActividad fragment = new EditarActividad();
+
+        DetalleActividad fragment = new DetalleActividad();
         Bundle args = new Bundle();
         args.putInt("actividad_id", actividadId);
         fragment.setArguments(args);
