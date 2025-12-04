@@ -397,7 +397,7 @@
                 android:layout_marginBottom="32dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
-                app:cardBackgroundColor="#FEF2F2">
+                app:cardBackgroundColor="@color/colorDangerBackground">
             
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -411,7 +411,7 @@
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/roboto_slab_bold"
                         android:text="@string/zona_peligro"
-                        android:textColor="#B91C1C"
+                        android:textColor="@color/colorDangerTitle"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -421,7 +421,7 @@
                         android:layout_marginBottom="16dp"
                         android:fontFamily="@font/nunito_regular"
                         android:text="@string/eliminar_datos_permanente"
-                        android:textColor="#7F1D1D"
+                        android:textColor="@color/colorDangerText"
                         android:textSize="14sp" />
 
                     <com.google.android.material.button.MaterialButton
@@ -432,7 +432,7 @@
                         android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         app:cornerRadius="8dp"
-                        android:backgroundTint="#EF4444"
+                        android:backgroundTint="@color/colorDangerButtonBackground"
                         app:elevation="0dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

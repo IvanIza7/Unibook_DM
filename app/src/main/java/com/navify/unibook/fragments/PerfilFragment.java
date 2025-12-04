@@ -1,5 +1,7 @@
 package com.navify.unibook.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +56,7 @@ public class PerfilFragment extends Fragment {
         themeLightSelector.setOnClickListener(v -> {
             if (AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_NO) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                guardarPreferenciaTema(AppCompatDelegate.MODE_NIGHT_NO);
                 // No necesitamos llamar actualizarEstadoChecks() aquí porque la activity se recreará
             }
         });
@@ -61,6 +64,7 @@ public class PerfilFragment extends Fragment {
         themeDarkSelector.setOnClickListener(v -> {
             if (AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_YES) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                guardarPreferenciaTema(AppCompatDelegate.MODE_NIGHT_YES);
                 // No necesitamos llamar actualizarEstadoChecks() aquí porque la activity se recreará
             }
         });
@@ -74,6 +78,14 @@ public class PerfilFragment extends Fragment {
         cargarEstadisticas();
 
         return view;
+    }
+
+    private void guardarPreferenciaTema(int mode) {
+        if (getActivity() == null) return;
+        SharedPreferences prefs = getActivity().getSharedPreferences("UnibookPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("night_mode", mode);
+        editor.apply();
     }
 
     private void actualizarEstadoChecks() {

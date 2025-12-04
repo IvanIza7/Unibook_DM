@@ -26,20 +26,33 @@
     <!-- Color Success (Faltaba aquí) -->
     <color name="colorSuccess">#4CAF50</color>
 
-    <!-- Colores Pastel Materias (Claro) -->
-    <color name="colorPastelGreen">#E9F5EA</color>
-    <color name="colorPastelBlue">#E3F2FD</color>
-    <color name="colorPastelOrange">#FFF3E0</color>
-    <color name="colorPastelPurple">#F3E5F5</color>
-    <color name="colorPastelPink">#FCE4EC</color>
-    <color name="colorPastelCyan">#E0F7FA</color>
-    <color name="colorPastelYellow">#FFF9C4</color>
+    <!-- Colores Pastel Materias (Claro - Vibrantes) -->
+    <color name="colorPastelGreen">#FF6B6B</color>
+    <color name="colorPastelBlue">#4ECDC4</color>
+    <color name="colorPastelOrange">#A78BFA</color>
+    <color name="colorPastelPurple">#51CF66</color>
+    <color name="colorPastelPink">#FFA94D</color>
+    <color name="colorPastelCyan">#FF6AD5</color>
+    <color name="colorPastelYellow">#FFD93D</color>
     
     <!-- Color de texto sobre tarjetas pastel (Siempre oscuro para contraste) -->
     <color name="colorTextOnPastel">#242223</color>
 
-    <!-- Borde tarjetas selección -->
-    <color name="colorCardBorder">#AD46FF</color>
+    <!-- Boton Agregar Materia (Home) -->
+    <color name="colorBtnAddMateria">#7638B9</color> <!-- Azul/Morado Universitario -->
+
+    <!-- Header Actividades (Azul en Claro) -->
+    <color name="colorHeaderActivity">@color/colorAccent</color>
+    <color name="colorHeaderActivityContent">#FFFFFF</color>
+
+    <!-- Fondo Filtros (Azul en Claro) -->
+    <color name="colorFilterBackground">@color/colorAccent</color>
+
+    <!-- ZONA DE PELIGRO (Claro - Estilo Alerta Original) -->
+    <color name="colorDangerBackground">#FEF2F2</color>
+    <color name="colorDangerTitle">#B91C1C</color>
+    <color name="colorDangerText">#7F1D1D</color>
+    <color name="colorDangerButtonBackground">#EF4444</color>
 
     <!-- Legacy -->
     <color name="colorBackgroundLight">#FFFFFF</color>

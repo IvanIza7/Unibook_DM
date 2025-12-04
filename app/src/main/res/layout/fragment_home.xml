@@ -89,7 +89,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorHeader"
                 android:textSize="16sp"
-                app:backgroundTint="@color/colorUniversityBlue"
+                app:backgroundTint="@color/colorBtnAddMateria"
                 app:cornerRadius="16dp" />
 
             <!-- Card Actividades -->

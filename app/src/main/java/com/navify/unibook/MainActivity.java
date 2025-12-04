@@ -7,12 +7,14 @@
 
 package com.navify.unibook;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -33,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Configurar Tema (Default: Claro) antes de setContentView
+        SharedPreferences prefs = getSharedPreferences("UnibookPrefs", MODE_PRIVATE);
+        int defaultNightMode = AppCompatDelegate.MODE_NIGHT_NO; // Forzar tema claro por defecto
+        int nightMode = prefs.getInt("night_mode", defaultNightMode);
+        AppCompatDelegate.setDefaultNightMode(nightMode);
+
         setContentView(R.layout.activity_main);
 
         // Bind views

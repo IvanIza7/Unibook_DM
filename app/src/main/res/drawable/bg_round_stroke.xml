@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Selected State: Accent Stroke -->
+    <!-- Selected State: Accent Stroke, Transparent Solid -->
     <item android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF"/> 
-            <stroke android:width="2dp" android:color="@color/colorAccent"/>
+            <solid android:color="@android:color/transparent"/> 
+            <stroke android:width="3dp" android:color="@color/colorAccent"/>
             <corners android:radius="16dp"/>
         </shape>
     </item>
     
-    <!-- Default State: Theme Dependent Border -->
+    <!-- Default State: Theme Dependent Border, Transparent Solid -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF"/> 
+            <solid android:color="@android:color/transparent"/> 
             <stroke android:width="2dp" android:color="@color/colorCardBorder"/>
             <corners android:radius="16dp"/>
         </shape>

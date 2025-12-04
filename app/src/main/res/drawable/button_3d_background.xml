@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 1. Shadow (Deepest) - #8C8C8C - Offset 14dp from top -->
+    <item android:top="14dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="26dp" />
+            <solid android:color="#8C8C8C" />
+            <stroke android:width="2dp" android:color="#242622" />
+        </shape>
+    </item>
+    
+    <!-- 2. Depth (Middle) - #E5E5C7 - Offset 10dp from top -->
+    <item android:top="10dp" android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="26dp" />
+            <solid android:color="#E5E5C7" />
+            <stroke android:width="2dp" android:color="#242622" />
+        </shape>
+    </item>
+    
+    <!-- 3. Top Face (Front) - #FFFFEE - Bottom offset to leave room for depth/shadow -->
+    <item android:bottom="14dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="26dp" />
+            <solid android:color="#FFFFEE" />
+            <stroke android:width="2dp" android:color="#242622" />
+        </shape>
+    </item>
+</layer-list>

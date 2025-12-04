@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Padding para que el texto se centre en la parte SUPERIOR (la cara) -->
+    <padding android:bottom="10dp" android:top="0dp" android:left="0dp" android:right="0dp"/>
+
+    <!-- Sombra/Profundidad (Fondo) -->
+    <item android:top="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E5E5C7"/>
+            <corners android:radius="20dp"/>
+            <stroke android:width="2dp" android:color="#242622"/>
+        </shape>
+    </item>
+
+    <!-- Cara Frontal (Arriba) - Dejamos espacio abajo (bottom=10dp) para ver la sombra -->
+    <item android:bottom="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFEE"/>
+            <corners android:radius="20dp"/>
+            <stroke android:width="2dp" android:color="#242622"/>
+        </shape>
+    </item>
+</layer-list>

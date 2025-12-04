@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="splashBackground">#F7F8FF</color>   <!-- Fondo claro moderno -->
     <color name="splashAccent">#FF3B30</color>       <!-- Rojo vibrante para el loader -->
+    
+    <!-- Colors for Card Border -->
+    <color name="colorCardBorder">#000000</color>
 </resources>

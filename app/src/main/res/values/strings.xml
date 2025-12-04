@@ -16,8 +16,8 @@
     <!-- Sección Materias -->
     <string name="titulo_mis_materias">Mis Materias</string>
     <string name="btn_agregar_materia">+ Agregar materia</string>
-    <string name="hint_nombre_materia">Ej: Programación Web</string>
-    <string name="hint_nombre_profesor">Ej: Dr. García</string>
+    <string name="hint_nombre_materia">Ej: Programación de dispositivos móviles</string>
+    <string name="hint_nombre_profesor">Ej: Roberto</string>
     <string name="titulo_registrar_materia">Registrar Materia</string>
     <string name="nombre_de_la_materia">Nombre de la materia *</string>
     <string name="nombre_del_profesor_opcional">Nombre del profesor (opcional)</string>
@@ -69,7 +69,7 @@
     <string name="camara">Cámara</string>
     <string name="fecha_entrega">Fecha de entrega</string>
     <string name="btn_guardar_actividad">Guardar Actividad</string>
-    <string name="hint_actividad">Ej. Maqueta de volcanes</string>
+    <string name="hint_actividad">Ej. Proyecto Aplicación Android</string>
     <string name="hint_descripcion">Detalles...</string>
     <string name="seleccionar_fecha">Seleccionar fecha</string>
 

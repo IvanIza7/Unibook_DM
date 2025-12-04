@@ -260,9 +260,8 @@ public class AgregarActividad extends Fragment {
     public void onResume() {
         super.onResume();
         if (getActivity() != null) {
-            // Intento cubrir ambos nombres por si tu amigo le puso diferente
+            // Using only customBottomNav because that's what is defined in activity_main.xml
             View custombottomNav = getActivity().findViewById(R.id.customBottomNav);
-            if (custombottomNav == null) custombottomNav = getActivity().findViewById(R.id.bottomNavigation);
 
             if (custombottomNav != null)
                 custombottomNav.setVisibility(View.GONE);
@@ -274,7 +273,6 @@ public class AgregarActividad extends Fragment {
         super.onDestroyView();
         if (getActivity() != null) {
             View custombottomNav = getActivity().findViewById(R.id.customBottomNav);
-            if (custombottomNav == null) custombottomNav = getActivity().findViewById(R.id.bottomNavigation);
 
             if (custombottomNav != null)
                 custombottomNav.setVisibility(View.VISIBLE);

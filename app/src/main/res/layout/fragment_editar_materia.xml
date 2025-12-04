@@ -221,7 +221,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelGreen" />
 
                     <View
@@ -229,7 +230,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelBlue" />
 
                     <View
@@ -237,7 +239,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelOrange" />
 
                     <View
@@ -245,7 +248,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelPurple" />
 
                     <View
@@ -253,7 +257,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelPink" />
 
                     <View
@@ -261,7 +266,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelCyan" />
 
                     <View
@@ -269,7 +275,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelYellow" />
                 </LinearLayout>
             </HorizontalScrollView>
@@ -317,22 +324,24 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGuardarMateria"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="28dp"
-                android:backgroundTint="@color/colorAccent"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
                 android:text="@string/btn_guardar_cambios"
                 android:textAllCaps="false"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="16sp"
-                app:cornerRadius="8dp"
-                app:iconGravity="textStart"
+                app:backgroundTint="#8C52FF"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/outline_edit_24"
                 app:iconTint="@color/colorTextOnDark" />
 
              <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEliminarMateria"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="24dp"
                 android:backgroundTint="#FF5252"
@@ -340,9 +349,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="16sp"
-                app:cornerRadius="8dp"
-                app:iconGravity="textStart"
-                app:iconTint="@color/colorTextOnDark" />
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_delete"
+                app:iconTint="@color/colorTextOnDark"
+                app:strokeWidth="1dp" />
 
         </LinearLayout>
     </LinearLayout>

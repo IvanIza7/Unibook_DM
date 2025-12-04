@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TEMA OSCURO (Definiciones originales) -->
+    <!-- TEMA OSCURO -->
     
     <color name="colorBackground">#242223</color>
     <color name="colorNeutralDark">#4A4A4A</color>
@@ -15,7 +15,7 @@
     <color name="colorUniversityBlueBright">#17AAD1</color>
 
     <!-- Nuevos colores para ajustes solicitados -->
-    <color name="colorBottomNavBackground">#B7B7B7</color>
+    <color name="colorBottomNavBackground">#FFFFFF</color> <!-- Navbar igual que en tema claro (Blanco) -->
     <color name="colorHeaderText">#FFFFFF</color>
 
     <!-- Colores Agregados Solicitados -->
@@ -24,22 +24,35 @@
     <color name="colorCuadros">#4A4A4A</color>
     <color name="colorCamara">#CE9B50</color>
     
-    <!-- Color Success añadido para arreglar error -->
+    <!-- Color Success -->
     <color name="colorSuccess">#66BB6A</color>
 
-    <!-- Colores Pastel Materias (Oscuro - Matizados) -->
-    <color name="colorPastelGreen">#949C95</color>
-    <color name="colorPastelBlue">#AFBAC2</color>
-    <color name="colorPastelOrange">#C5BCAD</color>
-    <color name="colorPastelPurple">#B9ADBB</color>
-    <color name="colorPastelPink">#C2AFB5</color>
-    <color name="colorPastelCyan">#ACBDC0</color>
-    <color name="colorPastelYellow">#C5C097</color>
+    <!-- Colores Pastel Materias (VIBRANTES para Tema Oscuro también) -->
+    <color name="colorPastelGreen">#FF6B6B</color> <!-- Coral -->
+    <color name="colorPastelBlue">#4ECDC4</color>  <!-- Azul Eléctrico -->
+    <color name="colorPastelOrange">#A78BFA</color> <!-- Morado Brillante -->
+    <color name="colorPastelPurple">#51CF66</color> <!-- Verde Menta -->
+    <color name="colorPastelPink">#FFA94D</color>   <!-- Naranja Sunset -->
+    <color name="colorPastelCyan">#FF6AD5</color>   <!-- Rosa Fucsia -->
+    <color name="colorPastelYellow">#FFD93D</color> <!-- Amarillo Brillante -->
 
     <!-- Color de texto sobre tarjetas pastel (Siempre oscuro para contraste) -->
     <color name="colorTextOnPastel">#242223</color>
+    
+    <!-- Boton Agregar Materia (Rojo en Tema Oscuro) -->
+    <color name="colorBtnAddMateria">#D32F2F</color>
 
-    <!-- Borde tarjetas selección -->
-    <color name="colorCardBorder">#CE9B50</color>
+    <!-- Header Actividades (Blanco en Oscuro) -->
+    <color name="colorHeaderActivity">#FFFFFF</color>
+    <color name="colorHeaderActivityContent">#000000</color>
+
+    <!-- Fondo Filtros (Rojo en Oscuro) -->
+    <color name="colorFilterBackground">@color/colorUniversityRed</color>
+
+    <!-- ZONA DE PELIGRO (Oscuro - Integrado como las otras cards) -->
+    <color name="colorDangerBackground">@color/colorNeutralDark</color>
+    <color name="colorDangerTitle">@color/colorAccent</color>
+    <color name="colorDangerText">@color/colorTextOnDark</color>
+    <color name="colorDangerButtonBackground">#D32F2F</color> <!-- Rojo (o UniversityRed) -->
 
 </resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Padding diferente para centrar el texto en el botón presionado -->
+    <padding android:bottom="0dp" android:top="10dp" android:left="0dp" android:right="0dp"/>
+
+    <!-- Sombra pequeña (Apenas visible o tapada) -->
+    <item android:top="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#E5E5C7"/>
+            <corners android:radius="20dp"/>
+            <stroke android:width="2dp" android:color="#242622"/>
+        </shape>
+    </item>
+
+    <!-- Cara Frontal (Abajo) - Sin espacio abajo para simular presión -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFEE"/>
+            <corners android:radius="20dp"/>
+            <stroke android:width="2dp" android:color="#242622"/>
+        </shape>
+    </item>
+</layer-list>

@@ -221,7 +221,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelGreen" />
 
                     <View
@@ -229,7 +230,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelBlue" />
 
                     <View
@@ -237,7 +239,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelOrange" />
 
                     <View
@@ -245,7 +248,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelPurple" />
 
                     <View
@@ -253,7 +257,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelPink" />
 
                     <View
@@ -261,7 +266,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelCyan" />
 
                     <View
@@ -269,7 +275,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/bg_round_card"
+                        android:background="@drawable/bg_round_solid"
+                        android:foreground="@drawable/bg_round_stroke"
                         android:backgroundTint="@color/colorPastelYellow" />
                 </LinearLayout>
             </HorizontalScrollView>
@@ -315,18 +322,20 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+            <!-- ESTILO BOTÓN ACTUALIZADO (Primary - Agregar) -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGuardarMateria"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginBottom="24dp"
-                android:backgroundTint="@color/colorAccent"
                 android:text="@string/btn_guardar_materia"
                 android:textAllCaps="false"
                 android:textColor="@color/colorTextOnDark"
                 android:textSize="16sp"
-                app:cornerRadius="8dp"
+                app:backgroundTint="#8C52FF"
+                app:cornerRadius="12dp"
                 app:iconGravity="textStart"
                 app:iconTint="@color/colorTextOnDark" />
 

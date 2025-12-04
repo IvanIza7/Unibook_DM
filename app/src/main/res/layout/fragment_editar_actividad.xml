@@ -212,26 +212,40 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
+            <!-- BUTTONS UPDATED TO DETAIL STYLE -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGuardarActividad"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="@color/colorAccent"
                 android:text="@string/btn_guardar_actividad"
-                android:textColor="@color/colorHeader"
-                app:cornerRadius="10dp" />
+                android:textAllCaps="false"
+                android:textColor="@color/colorTextOnDark"
+                android:textSize="16sp"
+                app:backgroundTint="#8C52FF"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/outline_edit_24"
+                app:iconTint="@color/colorTextOnDark" />
 
+            <!-- This button could follow secondary style (Outlined) or primary if it's a main action too. 
+                 User said "apply the same style of detail activity buttons". 
+                 Usually "Complete" is a primary positive action. I'll keep it filled but with consistent corner radius. 
+                 Or maybe use the outline style for secondary action if "Save" is primary. 
+                 But "Marcar como completa" is quite important. I'll stick to "style consistency" -> radius 12dp. -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnMarcarCompleta"
+                style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="56dp"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/colorSuccess"
                 android:text="Marcar como completada"
+                android:textAllCaps="false"
                 android:textColor="@color/colorHeader"
-                app:cornerRadius="10dp" />
+                android:textSize="16sp"
+                app:cornerRadius="12dp" />
 
         </LinearLayout>
     </LinearLayout>

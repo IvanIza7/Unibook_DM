@@ -183,7 +183,7 @@ public class DetalleActividad extends Fragment {
     public void onResume() {
         super.onResume();
         if (getActivity() != null) {
-            View bottomNav = getActivity().findViewById(R.id.bottomNavigation); // O customBottomNav
+            View bottomNav = getActivity().findViewById(R.id.customBottomNav); // O customBottomNav
             if (bottomNav != null) bottomNav.setVisibility(View.GONE);
         }
     }
@@ -192,7 +192,7 @@ public class DetalleActividad extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         if (getActivity() != null) {
-            View bottomNav = getActivity().findViewById(R.id.bottomNavigation);
+            View bottomNav = getActivity().findViewById(R.id.customBottomNav); // O customBottomNav);
             if (bottomNav != null) bottomNav.setVisibility(View.VISIBLE);
         }
     }
