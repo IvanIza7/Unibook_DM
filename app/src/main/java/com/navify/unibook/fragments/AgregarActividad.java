@@ -65,9 +65,6 @@ public class AgregarActividad extends Fragment {
                     mostrarFotoEnPreview();
                 } else {
                     Toast.makeText(getContext(), "Foto cancelada", Toast.LENGTH_SHORT).show();
-                    // Opcional: Si cancelan, podrías borrar el archivo vacío para no ocupar espacio
-                    // new File(currentPhotoPath).delete();
-                    // currentPhotoPath = "";
                 }
             }
     );
@@ -139,16 +136,13 @@ public class AgregarActividad extends Fragment {
 
             if (photoFile != null) {
                 photoUri = FileProvider.getUriForFile(requireContext(),
-                        "com.navify.unibook.fileprovider", // Asegúrate que esto coincida con tu AndroidManifest.xml
+                        "com.navify.unibook.fileprovider",
                         photoFile);
 
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
 
-                // --- ¡ESTO ES LO QUE FALTABA! ---
-                // Damos permiso a la cámara para escribir en el archivo
                 takePictureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 takePictureIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                // --------------------------------
 
                 cameraLauncher.launch(takePictureIntent);
             }
@@ -178,11 +172,9 @@ public class AgregarActividad extends Fragment {
         imgPreviewFoto.setPadding(0,0,0,0);
         imgPreviewFoto.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-        // --- DIAGNÓSTICO DE PESO ---
         File archivo = new File(currentPhotoPath);
         long peso = archivo.length();
         Toast.makeText(getContext(), "Foto capturada. Peso: " + peso + " bytes", Toast.LENGTH_LONG).show();
-        // ---------------------------
 
         Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath);
         imgPreviewFoto.setImageBitmap(bitmap);
@@ -243,7 +235,7 @@ public class AgregarActividad extends Fragment {
                 descripcion,
                 "HOY",
                 porcentajeSeleccionado,
-                currentPhotoPath, // Aquí se guarda la ruta
+                currentPhotoPath,
                 fecha,
                 idMateria);
 
@@ -260,7 +252,7 @@ public class AgregarActividad extends Fragment {
     public void onResume() {
         super.onResume();
         if (getActivity() != null) {
-            // Using only customBottomNav because that's what is defined in activity_main.xml
+
             View custombottomNav = getActivity().findViewById(R.id.customBottomNav);
 
             if (custombottomNav != null)

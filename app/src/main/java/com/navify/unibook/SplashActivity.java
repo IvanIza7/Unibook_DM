@@ -32,8 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 
         videoView = findViewById(R.id.videoView);
         lottieLoader = findViewById(R.id.lottieLoader);
-        
-        // Traemos Lottie al frente en la jerarquía normal
+
         lottieLoader.bringToFront();
 
         Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.logo);
@@ -64,16 +63,12 @@ public class SplashActivity extends AppCompatActivity {
 
     private void mostrarVideo() {
         // Mostramos el video
-        videoView.setZOrderOnTop(true); // Asegura que se vea el video
+        videoView.setZOrderOnTop(true);
         videoView.setAlpha(1f); 
         videoView.bringToFront();       
         
         videoView.start();
-        
-        // CAMBIO: NO ocultamos la animación Lottie.
-        // Se seguirán reproduciendo ambos simultáneamente hasta que termine el video.
-        // lottieLoader.setVisibility(View.GONE); // Comentado
-        // lottieLoader.cancelAnimation();       // Comentado
+
     }
 
     private void irAMainActivity() {

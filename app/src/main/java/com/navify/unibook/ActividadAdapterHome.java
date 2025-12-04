@@ -44,18 +44,13 @@ public class ActividadAdapterHome extends ArrayAdapter<ActividadHome> {
                 if (actividadHome.getColorMateria() != null && !actividadHome.getColorMateria().isEmpty()) {
                     int color = Color.parseColor(actividadHome.getColorMateria());
                     lineaColor.setBackgroundColor(color);
-                    
-                    // CAMBIO: El texto NO se tiñe del color de la materia, para asegurar contraste.
-                    // El color de materia ya está en la línea indicadora.
-                    // txtMateria.setTextColor(color); // ELIMINADO
+
                 } else {
                     lineaColor.setBackgroundColor(Color.GRAY);
-                    // txtMateria.setTextColor(Color.GRAY); // ELIMINADO
                 }
 
             } catch (IllegalArgumentException e) {
                 lineaColor.setBackgroundColor(Color.GRAY);
-                // txtMateria.setTextColor(Color.GRAY); // ELIMINADO
             }
         }
 

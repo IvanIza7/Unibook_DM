@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment implements SensorEventListener {
     private ListView listMaterias;
     private ListView listActividades;
     // Eliminada la referencia a LottieAnimationView
-    private TextView txtUniBook; // Opcional si quieres manipularlo, si no, no es necesario referenciarlo.
+    private TextView txtUniBook;
     private DatabaseHelper db;
 
     // Variables para el sensor

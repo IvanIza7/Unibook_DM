@@ -30,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String ACTIVIDAD_FECHA_REGISTRO = "fecha_registro";
     public static final String ACTIVIDAD_PORCENTAJE = "porcentaje";
     public static final String ACTIVIDAD_FOTO_URI = "foto_uri";
-    public static final String ACTIVIDAD_FECHA_FIN = "fecha_fin"; // Formato "YYYY-MM-DD HH:MM"
+    public static final String ACTIVIDAD_FECHA_FIN = "fecha_fin";
     public static final String ACTIVIDAD_MATERIA_ID = "materia_id";
 
     public DatabaseHelper(Context context) {

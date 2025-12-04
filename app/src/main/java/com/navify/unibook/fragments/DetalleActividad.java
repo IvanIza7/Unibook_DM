@@ -65,7 +65,6 @@ public class DetalleActividad extends Fragment {
 
         db = new DatabaseHelper(getContext());
 
-        // 1. Vincular Vistas
         TextView txtMateria = view.findViewById(R.id.txtMateriaDetalle);
         TextView txtTitulo = view.findViewById(R.id.txtTituloDetalle);
         TextView txtFecha = view.findViewById(R.id.txtFechaDetalle);
@@ -93,30 +92,24 @@ public class DetalleActividad extends Fragment {
                 txtDescripcion.setText("Sin descripción.");
             }
 
-            // 3. Lógica de Colores (ESTILO "PILL" SÓLIDO CON ALTO CONTRASTE)
             try {
                 int colorMateria = Color.parseColor(actividadHome.getColorMateria());
 
-                // A) Fondo de la etiqueta: Color SÓLIDO de la materia
                 GradientDrawable background = (GradientDrawable) txtMateria.getBackground();
                 background.setColor(colorMateria);
 
-                // B) Texto: Calculamos si necesitamos Blanco o Negro para que se lea bien
-                // ColorUtils viene en androidx.core.graphics
                 if (ColorUtils.calculateLuminance(colorMateria) > 0.5) {
-                    txtMateria.setTextColor(Color.BLACK); // Si el fondo es claro (ej. Amarillo), texto negro
+                    txtMateria.setTextColor(Color.BLACK);
                 } else {
-                    txtMateria.setTextColor(Color.WHITE); // Si el fondo es oscuro (ej. Azul), texto blanco
+                    txtMateria.setTextColor(Color.WHITE);
                 }
 
-                // C) Barra de progreso: Se queda con el color de la materia
                 progressBar.setProgressTintList(android.content.res.ColorStateList.valueOf(colorMateria));
 
             } catch (Exception e) {
-                // Si falla, por defecto se ve gris/verde según tu XML
+
             }
 
-            // 5. CARGAR FOTO (Lógica Corregida)
             String rutaFoto = actividadHome.getFotoUri();
             File imgFile = null;
 
@@ -124,34 +117,26 @@ public class DetalleActividad extends Fragment {
                 imgFile = new File(rutaFoto);
             }
 
-            // VERIFICAMOS: ¿Hay archivo válido?
             if (imgFile != null && imgFile.exists() && imgFile.length() > 0) {
 
-                // --- CASO A: SÍ HAY FOTO ---
-                // 1. Limpiamos cualquier filtro de color
                 imgEvidencia.clearColorFilter();
-                // 2. Quitamos el relleno
+
                 imgEvidencia.setPadding(0, 0, 0, 0);
-                // 3. Ajustamos la escala
+
                 imgEvidencia.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-                // 4. Cargamos con Glide
                 Glide.with(this)
                         .load(imgFile)
                         .into(imgEvidencia);
 
             } else {
 
-                // --- CASO B: NO HAY FOTO (O archivo vacío) ---
-                // Restauramos el estilo de "Placeholder" (Icono verde)
                 imgEvidencia.setImageResource(android.R.drawable.ic_menu_gallery);
 
-                // Aplicamos el tinte verde programáticamente
                 imgEvidencia.setColorFilter(Color.parseColor("#A5D6A7"));
 
-                // Agregamos padding para que se vea como ícono pequeño
                 imgEvidencia.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                int paddingPixel = 200; // Un valor aproximado a 60-80dp
+                int paddingPixel = 200;
                 imgEvidencia.setPadding(paddingPixel, paddingPixel, paddingPixel, paddingPixel);
             }
         } else {
@@ -183,7 +168,7 @@ public class DetalleActividad extends Fragment {
     public void onResume() {
         super.onResume();
         if (getActivity() != null) {
-            View bottomNav = getActivity().findViewById(R.id.customBottomNav); // O customBottomNav
+            View bottomNav = getActivity().findViewById(R.id.customBottomNav);
             if (bottomNav != null) bottomNav.setVisibility(View.GONE);
         }
     }
@@ -192,7 +177,7 @@ public class DetalleActividad extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         if (getActivity() != null) {
-            View bottomNav = getActivity().findViewById(R.id.customBottomNav); // O customBottomNav);
+            View bottomNav = getActivity().findViewById(R.id.customBottomNav);
             if (bottomNav != null) bottomNav.setVisibility(View.VISIBLE);
         }
     }
@@ -203,7 +188,7 @@ public class DetalleActividad extends Fragment {
                 .setMessage("¿Estás seguro de que deseas eliminar esta actividad? No se podrá recuperar.")
                 .setPositiveButton("Eliminar", (dialog, which) -> {
                     // Llamamos a la BD para borrar
-                    db.eliminarActividad(actividadId); // Asegúrate de tener este método en DBHelper (te lo paso abajo)
+                    db.eliminarActividad(actividadId);
 
                     Toast.makeText(getContext(), "Actividad eliminada", Toast.LENGTH_SHORT).show();
 

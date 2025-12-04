@@ -57,7 +57,6 @@ public class PerfilFragment extends Fragment {
             if (AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_NO) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 guardarPreferenciaTema(AppCompatDelegate.MODE_NIGHT_NO);
-                // No necesitamos llamar actualizarEstadoChecks() aquí porque la activity se recreará
             }
         });
 
@@ -65,7 +64,6 @@ public class PerfilFragment extends Fragment {
             if (AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_YES) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 guardarPreferenciaTema(AppCompatDelegate.MODE_NIGHT_YES);
-                // No necesitamos llamar actualizarEstadoChecks() aquí porque la activity se recreará
             }
         });
 
@@ -121,7 +119,7 @@ public class PerfilFragment extends Fragment {
         }
 
         Toast.makeText(getContext(), R.string.datos_eliminados_exito, Toast.LENGTH_LONG).show();
-        cargarEstadisticas(); // Actualizar contadores a 0
+        cargarEstadisticas();
     }
 
     private void cargarEstadisticas() {

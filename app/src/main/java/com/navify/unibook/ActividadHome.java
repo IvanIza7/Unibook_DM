@@ -5,7 +5,6 @@ public class ActividadHome {
     private String titulo;
     private String fechaEntrega;
     private int porcentaje;
-    // Datos extra que vienen de la Materia (para pintar la lista)
     private String nombreMateria;
     private String colorMateria;
 

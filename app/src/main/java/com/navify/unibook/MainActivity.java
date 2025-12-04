@@ -28,9 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private LottieAnimationView lottieHome, lottieBook, lottieUser;
     private View indicatorHome, indicatorBook, indicatorUser;
 
-    // Colores del bottom navigation
-    private final int COLOR_NORMAL = Color.TRANSPARENT; // Ahora transparente
-    private final int COLOR_SELECTED = Color.TRANSPARENT; // Ahora transparente
+    private final int COLOR_NORMAL = Color.TRANSPARENT;
+    private final int COLOR_SELECTED = Color.TRANSPARENT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Método para cambiar tab activo
+    // Metodo para cambiar tab activo
     private void selectTab(FrameLayout selectedTab, LottieAnimationView lottie, View indicator) {
 
         // RESET: colores

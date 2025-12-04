@@ -24,13 +24,13 @@ public class AgregarMateria extends Fragment {
     private TextInputEditText etNombre, etProfesor;
     private ImageView previewIconImage;
     private TextView previewText;
-    private View cardPreviewContainer; // Referencia al contenedor
+    private View cardPreviewContainer;
     private ImageView btnBack;
 
-    // Variables de selección (Valores por defecto)
+    // Variables de selección
     private int selectedColorInt;
-    private String selectedColorHex = "#E9F5EA"; // Default green pastel light
-    private int selectedIconResId = R.drawable.ic_book; // Icono default
+    private String selectedColorHex = "#E9F5EA";
+    private int selectedIconResId = R.drawable.ic_book;
 
     private DatabaseHelper dbHelper;
 
@@ -50,27 +50,22 @@ public class AgregarMateria extends Fragment {
 
         dbHelper = new DatabaseHelper(getContext());
 
-        // Inicializar color default con recurso
         selectedColorInt = getResources().getColor(R.color.colorPastelGreen, null);
         selectedColorHex = String.format("#%06X", (0xFFFFFF & selectedColorInt));
 
-        // 1. VINCULACIÓN
         etNombre = view.findViewById(R.id.inputNombre);
         etProfesor = view.findViewById(R.id.inputProfesor);
         previewIconImage = view.findViewById(R.id.pvwIcon);
         previewText = view.findViewById(R.id.txtMateriaPrevia);
-        cardPreviewContainer = view.findViewById(R.id.cardPreview); // Bind del contenedor
+        cardPreviewContainer = view.findViewById(R.id.cardPreview);
         btnBack = view.findViewById(R.id.btnBack);
 
-        // 2. CONFIGURACIÓN INICIAL DE VISTA PREVIA
         actualizarVistaPrevia();
 
-        // 3. BOTÓN ATRÁS
         btnBack.setOnClickListener(v -> {
             if (getParentFragmentManager() != null) getParentFragmentManager().popBackStack();
         });
 
-        // 4. LISTENER DE TEXTO (NOMBRE)
         etNombre.addTextChangedListener(new android.text.TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -86,7 +81,6 @@ public class AgregarMateria extends Fragment {
             public void afterTextChanged(android.text.Editable s) {}
         });
 
-        // 5. LISTENERS DE COLORES
         setupColorClick(view.findViewById(R.id.color1));
         setupColorClick(view.findViewById(R.id.color2));
         setupColorClick(view.findViewById(R.id.color3));
@@ -95,27 +89,23 @@ public class AgregarMateria extends Fragment {
         setupColorClick(view.findViewById(R.id.color6));
         setupColorClick(view.findViewById(R.id.color7));
 
-        // 6. LISTENERS DE ÍCONOS
         setupIconClick(view.findViewById(R.id.iconOption1), R.drawable.ic_book);
         setupIconClick(view.findViewById(R.id.iconOption2), R.drawable.ic_calculator);
         setupIconClick(view.findViewById(R.id.iconOption3), R.drawable.ic_science);
         setupIconClick(view.findViewById(R.id.iconOption4), R.drawable.ic_code);
         setupIconClick(view.findViewById(R.id.iconOption5), R.drawable.ic_computer);
 
-        // 7. BOTÓN GUARDAR
         view.findViewById(R.id.btnGuardarMateria).setOnClickListener(v -> guardarMateria());
     }
-
-    // --- MÉTODOS AUXILIARES ---
 
     private void setupColorClick(View view) {
         if (view == null) return;
         view.setOnClickListener(v -> {
-            // Obtener el color real visualizado (respetando el tema actual)
+
             ColorStateList tintList = view.getBackgroundTintList();
             if (tintList != null) {
                 selectedColorInt = tintList.getDefaultColor();
-                // Guardamos el valor Hex del color actual para la BD
+
                 selectedColorHex = String.format("#%06X", (0xFFFFFF & selectedColorInt));
                 actualizarVistaPrevia();
             }
@@ -133,13 +123,11 @@ public class AgregarMateria extends Fragment {
     private void actualizarVistaPrevia() {
         previewIconImage.setImageResource(selectedIconResId);
         
-        // CAMBIO: Aplicar color al fondo de la tarjeta (contenedor), no al icono
+
         if (cardPreviewContainer != null && cardPreviewContainer.getBackground() != null) {
             cardPreviewContainer.getBackground().mutate().setTint(selectedColorInt);
         }
-        
-        // El icono ya tiene un fondo estático definido en XML (@color/colorBackground)
-        // Solo aseguramos el tinte del icono
+
         previewIconImage.setColorFilter(getResources().getColor(R.color.colorAccent, null));
     }
 
